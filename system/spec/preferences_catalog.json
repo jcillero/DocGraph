@@ -1,0 +1,662 @@
+{
+  "catalog_id": "preferences_catalog",
+  "schema_version": "2.0.0",
+  "updated_at": "2026-03-09T00:00:00Z",
+  "languages_allowed": [
+    "es",
+    "en"
+  ],
+  "merge_policy": {
+    "base_catalog_required": true,
+    "plugin_catalogs_allowed": true,
+    "plugin_catalog_paths": [
+      "system/plugins/*/preferences_catalog.json",
+      "user/plugins/*/preferences_catalog.json",
+      "dev/plugins/*/preferences_catalog.json"
+    ],
+    "conflict_resolution": "last_override_wins",
+    "unknown_fields_policy": "ignore"
+  },
+  "notes": {
+    "es": "Catálogo ULTRA de preferencias con soporte para grupos, orden, condiciones, dependencias y catálogos aportados por plugins. Solo se admiten español e inglés.",
+    "en": "ULTRA preferences catalog with support for groups, ordering, conditions, dependencies, and plugin-contributed catalogs. Only Spanish and English are supported."
+  },
+  "preferences": {
+    "credentials.storage_mode": {
+      "type": "enum",
+      "allowed": [
+        "file",
+        "env"
+      ],
+      "default": "file",
+      "description": "Credential source policy. Internal/runtime only.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "security",
+      "order": 1000,
+      "tags": [
+        "credentials",
+        "security",
+        "internal"
+      ]
+    },
+    "ui.language": {
+      "type": "enum",
+      "allowed": [
+        "es",
+        "en"
+      ],
+      "default": "es",
+      "description": "Primary interface language.",
+      "label": {
+        "es": "Idioma de la interfaz",
+        "en": "Interface language"
+      },
+      "help": {
+        "es": "Selecciona el idioma principal de la interfaz. Solo se permiten español e inglés.",
+        "en": "Select the main interface language. Only Spanish and English are allowed."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "ui",
+      "section": "interface",
+      "order": 10,
+      "tags": [
+        "ui",
+        "language",
+        "i18n"
+      ]
+    },
+    "ui.remember_layout": {
+      "type": "bool",
+      "default": true,
+      "description": "Persist and restore panel layout between sessions.",
+      "label": {
+        "es": "Recordar disposición de paneles",
+        "en": "Remember panel layout"
+      },
+      "help": {
+        "es": "Guarda y restaura la disposición de paneles entre sesiones.",
+        "en": "Save and restore the panel layout between sessions."
+      },
+      "exposed": true,
+      "ui_control": "checkbox",
+      "group": "ui",
+      "section": "interface",
+      "order": 20,
+      "tags": [
+        "ui",
+        "layout"
+      ]
+    },
+    "ui.theme": {
+      "type": "enum",
+      "allowed": [
+        "dark",
+        "light"
+      ],
+      "default": "dark",
+      "description": "Overall visual theme.",
+      "label": {
+        "es": "Tema visual de la aplicación",
+        "en": "Application visual theme"
+      },
+      "help": {
+        "es": "Selecciona el tema visual general de la aplicación.",
+        "en": "Select the application's overall visual theme."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "ui",
+      "section": "interface",
+      "order": 30,
+      "tags": [
+        "ui",
+        "theme"
+      ]
+    },
+    "llm.cloud_allowed": {
+      "type": "bool",
+      "default": false,
+      "description": "Allow cloud providers subject to network/privacy policy.",
+      "label": {
+        "es": "Permitir uso de proveedores cloud",
+        "en": "Allow cloud providers"
+      },
+      "help": {
+        "es": "Activa el uso de proveedores cloud según la política de red y privacidad.",
+        "en": "Enable cloud providers according to network and privacy policy."
+      },
+      "exposed": true,
+      "ui_control": "checkbox",
+      "group": "llm",
+      "section": "providers",
+      "order": 10,
+      "tags": [
+        "llm",
+        "policy",
+        "cloud"
+      ]
+    },
+    "llm.cloud_provider": {
+      "type": "enum",
+      "allowed": [
+        "openai",
+        "anthropic",
+        "gemini"
+      ],
+      "default": "openai",
+      "description": "Preferred provider when cloud mode is enabled.",
+      "label": {
+        "es": "Proveedor LLM en modo cloud",
+        "en": "Cloud LLM provider"
+      },
+      "help": {
+        "es": "Selecciona el proveedor a usar cuando el modo cloud esté habilitado.",
+        "en": "Select the provider to use when cloud mode is enabled."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "llm",
+      "section": "providers",
+      "order": 20,
+      "tags": [
+        "llm",
+        "cloud"
+      ],
+      "visible_if": {
+        "all": [
+          {
+            "key": "llm.cloud_allowed",
+            "equals": true
+          }
+        ]
+      },
+      "enabled_if": {
+        "all": [
+          {
+            "key": "llm.cloud_allowed",
+            "equals": true
+          }
+        ]
+      }
+    },
+    "llm.provider_mode": {
+      "type": "enum",
+      "allowed": [
+        "local",
+        "cloud",
+        "auto"
+      ],
+      "default": "local",
+      "description": "Preferred provider origin selection.",
+      "label": {
+        "es": "Modo de proveedor LLM",
+        "en": "LLM provider mode"
+      },
+      "help": {
+        "es": "Define si el proveedor preferido es local, cloud o automático.",
+        "en": "Defines whether the preferred provider is local, cloud, or automatic."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "llm",
+      "section": "providers",
+      "order": 30,
+      "tags": [
+        "llm",
+        "provider"
+      ]
+    },
+    "llm.mode": {
+      "type": "enum",
+      "allowed": [
+        "manual",
+        "auto"
+      ],
+      "default": "manual",
+      "description": "Interaction mode for LLM-assisted chat behavior.",
+      "label": {
+        "es": "Modo de interacción con el LLM",
+        "en": "LLM interaction mode"
+      },
+      "help": {
+        "es": "Define cómo se comporta el LLM durante el uso del chat.",
+        "en": "Defines how the LLM behaves during chat usage."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "llm",
+      "section": "behavior",
+      "order": 40,
+      "tags": [
+        "llm",
+        "chat"
+      ]
+    },
+    "llm.target_length": {
+      "type": "enum",
+      "allowed": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "default": "medium",
+      "description": "Preferred target response length.",
+      "label": {
+        "es": "Longitud objetivo de las respuestas",
+        "en": "Target response length"
+      },
+      "help": {
+        "es": "Ajusta la longitud preferida de las respuestas generadas.",
+        "en": "Adjusts the preferred length of generated responses."
+      },
+      "exposed": true,
+      "ui_control": "select",
+      "group": "llm",
+      "section": "behavior",
+      "order": 50,
+      "tags": [
+        "llm",
+        "generation"
+      ]
+    },
+    "llm.creativity": {
+      "type": "float",
+      "default": 0.7,
+      "range": [
+        0,
+        1
+      ],
+      "step": 0.05,
+      "description": "Creativity/temperature-like control for response variability.",
+      "label": {
+        "es": "Nivel de creatividad del modelo",
+        "en": "Model creativity level"
+      },
+      "help": {
+        "es": "Controla la variabilidad de las respuestas del modelo.",
+        "en": "Controls how variable the model responses are."
+      },
+      "exposed": true,
+      "ui_control": "slider",
+      "group": "llm",
+      "section": "behavior",
+      "order": 60,
+      "tags": [
+        "llm",
+        "generation"
+      ]
+    },
+    "llm.fallback_enabled": {
+      "type": "bool",
+      "default": true,
+      "description": "Allow controlled fallback between providers.",
+      "label": {
+        "es": "Permitir fallback controlado entre proveedores",
+        "en": "Allow controlled provider fallback"
+      },
+      "help": {
+        "es": "Permite cambiar de proveedor de forma controlada cuando sea necesario.",
+        "en": "Allows controlled provider switching when needed."
+      },
+      "exposed": true,
+      "ui_control": "checkbox",
+      "group": "llm",
+      "section": "resilience",
+      "order": 70,
+      "tags": [
+        "llm",
+        "fallback"
+      ]
+    },
+    "llm.fallback_order": {
+      "type": "list",
+      "default": [
+        "local",
+        "cloud"
+      ],
+      "description": "Fallback precedence order.",
+      "items": {
+        "type": "enum",
+        "allowed": [
+          "local",
+          "cloud"
+        ]
+      },
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "resilience",
+      "order": 1000,
+      "tags": [
+        "llm",
+        "advanced",
+        "fallback"
+      ],
+      "depends_on": [
+        "llm.fallback_enabled"
+      ]
+    },
+    "llm.provider_id": {
+      "type": "string",
+      "default": "local_default",
+      "description": "Declarative provider id resolved elsewhere in system config.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "providers",
+      "order": 1010,
+      "tags": [
+        "llm",
+        "advanced",
+        "internal"
+      ]
+    },
+    "runner.allow_cancel_default": {
+      "type": "bool",
+      "default": true,
+      "description": "Default cancellation policy for executions.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "runner",
+      "order": 1100,
+      "tags": [
+        "runner",
+        "policy"
+      ]
+    },
+    "runner.log_verbosity_default": {
+      "type": "enum",
+      "allowed": [
+        "minimal",
+        "normal",
+        "debug"
+      ],
+      "default": "normal",
+      "description": "Default run log verbosity.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "runner",
+      "order": 1110,
+      "tags": [
+        "runner",
+        "policy",
+        "logging"
+      ]
+    },
+    "runner.timeout_ms_default": {
+      "type": "int",
+      "default": 0,
+      "range": [
+        0,
+        600000
+      ],
+      "description": "Default execution timeout in milliseconds. 0 means no explicit timeout.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "runner",
+      "order": 1120,
+      "tags": [
+        "runner",
+        "policy",
+        "timeouts"
+      ]
+    },
+    "ui.accent": {
+      "type": "enum",
+      "allowed": [
+        "blue",
+        "green",
+        "orange",
+        "purple",
+        "red",
+        "gray"
+      ],
+      "default": "blue",
+      "description": "Accent color token.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1200,
+      "tags": [
+        "ui",
+        "advanced",
+        "theme"
+      ]
+    },
+    "ui.colors.bg": {
+      "type": "string",
+      "default": "#1E1E1E",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "description": "Background color override in hex.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1210,
+      "tags": [
+        "ui",
+        "advanced",
+        "colors"
+      ]
+    },
+    "ui.colors.border": {
+      "type": "string",
+      "default": "#3A3A3A",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "description": "Border/divider color override in hex.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1220,
+      "tags": [
+        "ui",
+        "advanced",
+        "colors"
+      ]
+    },
+    "ui.colors.fg": {
+      "type": "string",
+      "default": "#FFFFFF",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "description": "Foreground/text color override in hex.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1230,
+      "tags": [
+        "ui",
+        "advanced",
+        "colors"
+      ]
+    },
+    "ui.colors.muted": {
+      "type": "string",
+      "default": "#B0B0B0",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "description": "Muted/secondary text color override in hex.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1240,
+      "tags": [
+        "ui",
+        "advanced",
+        "colors"
+      ]
+    },
+    "ui.colors_enabled": {
+      "type": "bool",
+      "default": false,
+      "description": "Enable custom color overrides.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1250,
+      "tags": [
+        "ui",
+        "advanced",
+        "colors"
+      ]
+    },
+    "ui.contrast": {
+      "type": "enum",
+      "allowed": [
+        "normal",
+        "high"
+      ],
+      "default": "normal",
+      "description": "UI contrast level.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1260,
+      "tags": [
+        "ui",
+        "advanced",
+        "accessibility"
+      ]
+    },
+    "ui.density": {
+      "type": "enum",
+      "allowed": [
+        "compact",
+        "normal",
+        "comfortable"
+      ],
+      "default": "normal",
+      "description": "Global UI spacing density.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1270,
+      "tags": [
+        "ui",
+        "advanced",
+        "layout"
+      ]
+    },
+    "ui.font_base_size": {
+      "type": "int",
+      "default": 12,
+      "range": [
+        9,
+        22
+      ],
+      "description": "Base font size.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1280,
+      "tags": [
+        "ui",
+        "advanced",
+        "font"
+      ]
+    },
+    "ui.font_family": {
+      "type": "enum",
+      "allowed": [
+        "default",
+        "system",
+        "monospace"
+      ],
+      "default": "default",
+      "description": "Base font family.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1290,
+      "tags": [
+        "ui",
+        "advanced",
+        "font"
+      ]
+    },
+    "ui.font_scale": {
+      "type": "float",
+      "default": 1,
+      "range": [
+        0.8,
+        1.4
+      ],
+      "description": "Global font scale.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1300,
+      "tags": [
+        "ui",
+        "advanced",
+        "font"
+      ]
+    },
+    "ui.font_weight": {
+      "type": "enum",
+      "allowed": [
+        "normal",
+        "bold"
+      ],
+      "default": "normal",
+      "description": "Preferred font weight.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1310,
+      "tags": [
+        "ui",
+        "advanced",
+        "font"
+      ]
+    },
+    "ui.progress_display": {
+      "type": "enum",
+      "allowed": [
+        "bar",
+        "text"
+      ],
+      "default": "bar",
+      "description": "Preferred progress representation.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1320,
+      "tags": [
+        "ui",
+        "advanced",
+        "feedback"
+      ]
+    },
+    "ui.show_artifacts_list": {
+      "type": "bool",
+      "default": true,
+      "description": "Show emitted artifacts list/links in UI.",
+      "exposed": false,
+      "ui_control": "none",
+      "group": "advanced",
+      "section": "appearance",
+      "order": 1330,
+      "tags": [
+        "ui",
+        "advanced",
+        "artifacts"
+      ]
+    }
+  }
+}

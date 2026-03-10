@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-02-24T20:54:15",
+  "app_root": "D:\\MAQUETAS SOFTWARE\\APP_Tool_ICOFER\\App_Tool",
+  "max_depth": 10,
+  "include_system_tools": true,
+  "script_exts": [
+    ".py",
+    ".bat",
+    ".cmd",
+    ".ps1"
+  ],
+  "scripts": [
+    {
+      "path": "dev/scripts/reports/collect_app_bundle.py",
+      "size_bytes": 11656,
+      "sha256": "64a05f1642dcc5db71d17a05bdbd6d336e0dca5b69ea0175fd2f92a2cf9bbc2d"
+    },
+    {
+      "path": "dev/scripts/reports/generate_structure_report.py",
+      "size_bytes": 16555,
+      "sha256": "6d40b1365bdf4748a5eeda8f3ec8935cad7268dd2d940c28161b62aa382e9e51"
+    },
+    {
+      "path": "START_APP.bat",
+      "size_bytes": 309,
+      "sha256": "7080780ecc03e9bc1d7da5900a0441c0ffb8efa34a7d6fe935b32ddceed9a49b"
+    },
+    {
+      "path": "system/bin/entrypoints/app_cli.py",
+      "size_bytes": 9643,
+      "sha256": "ea0320656cab1bb333dab82bed00c15c0e9efa3203ad8e13b93e023d387c063a"
+    },
+    {
+      "path": "system/bin/tools/csv_to_report_pdf.py",
+      "size_bytes": 11490,
+      "sha256": "192bb798edda2bb95c4e8c7ec71c9e9d19aac7cf4c69920b66eb9bddf3f3f84f"
+    },
+    {
+      "path": "system/bin/tools/pdf_merge.py",
+      "size_bytes": 3588,
+      "sha256": "5ca5a008de021666bb8dd8e3e8452e0da860e74646909385bdf494acec57166f"
+    }
+  ]
+}

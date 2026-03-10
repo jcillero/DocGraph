@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+title: DocGraph
+type: software
+
+message: >
+  If you use DocGraph in research or academic work, please cite the
+  software using the metadata provided in this file.
+
+authors:
+  - family-names: Cillero-Ares
+    given-names: Jesus
+    name-particle: ""
+    affiliation: Independent researcher / PhD candidate
+    country: Spain
+
+version: 0.1.0
+date-released: 2026
+
+license: MIT
+
+repository-code: https://github.com/<your-repository>
+
+abstract: >
+  DocGraph is a portable and reproducible documentation platform designed
+  for structured document processing, deterministic tool execution,
+  and modular extensibility. The platform emphasizes portability,
+  traceability, and declarative runtime configuration in order to
+  support reliable document workflows and research software practices.
+
+keywords:
+  - reproducible software
+  - documentation tools
+  - portable platform
+  - document processing
+  - research software
+  - reproducibility
+  - traceability
+
+identifiers:
+  - type: doi
+    value: 10.52152/D11489
+    description: Related scientific publication
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Cillero-Ares
+      given-names: Jesus
+  title: DocGraph
+  version: 0.1.0
+  year: 2026
+  publisher: GitHub
+  repository-code: https://github.com/<your-repository>

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "docgraph_plugin_registry",
+  "updated_at": "1970-01-01T00:00:00Z",
+
+  "runtime_policy": {
+    "load_mode": "explicit",
+    "allow_disabled_plugins": true,
+    "validate_on_startup": true,
+    "ignore_missing_plugins": true
+  },
+
+  "paths": {
+    "plugins_root": "system/plugins"
+  },
+
+  "plugins": [
+
+    {
+      "plugin_id": "example_plugin",
+      "enabled": false,
+
+      "meta": {
+        "name": "Example Plugin",
+        "description": "Plugin de ejemplo para pruebas de arquitectura.",
+        "version": "0.1.0",
+        "author": "DocGraph",
+        "homepage": "",
+        "license": "MIT"
+      },
+
+      "compatibility": {
+        "app_min_version": "0.1.0",
+        "app_max_version": "*",
+        "python_min_version": "3.10"
+      },
+
+      "paths": {
+        "root": "system/plugins/example_plugin",
+        "manifest": "system/plugins/example_plugin/plugin_manifest.json"
+      },
+
+      "capabilities": {
+        "tools": true,
+        "dialogs": false,
+        "panels": false,
+        "menu_entries": false,
+        "background_tasks": false
+      },
+
+      "ui": {
+        "menu_entries": [],
+        "dialogs": [],
+        "panels": []
+      },
+
+      "tools": {
+        "registry": "system/plugins/example_plugin/tools_registry.json"
+      },
+
+      "dependencies": {
+        "python_packages": [],
+        "plugins": []
+      },
+
+      "lifecycle": {
+        "load_on_startup": false,
+        "auto_enable": false
+      }
+
+    }
+
+  ]
+}

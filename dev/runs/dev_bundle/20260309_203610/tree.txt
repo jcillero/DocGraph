@@ -1,0 +1,229 @@
+App_DocGraph/
+├── dev/
+│   ├── ai/
+│   │   └── inputs/
+│   │       └── AI_SYSTEM_REPORT_v1.md
+│   ├── config/
+│   │   ├── dev_plugins_registry.json
+│   │   └── dev_tools_registry.json
+│   ├── dev/
+│   │   └── ai/
+│   │       └── inputs/
+│   │           └── AI_SYSTEM_REPORT_v1.md
+│   ├── docs/
+│   │   └── archive/
+│   │       ├── Propuesta arbol UI mínimo Rev01.txt
+│   │       └── UI-ARCH-001_ui_dialogs_structure.md
+│   ├── plugins/
+│   │   └── PLUGIN_FORMAT_SPEC.md
+│   ├── scripts/
+│   │   ├── ai/
+│   │   │   └── generate_ai_system_report.py
+│   │   ├── diagnostics/
+│   │   │   └── validate_logs.py
+│   │   ├── reports/
+│   │   │   ├── collect_app_bundle.py
+│   │   │   └── generate_structure_report.py
+│   │   ├── ui/
+│   │   │   └── validate_ui_strings.py
+│   │   ├── utils/
+│   │   ├── build_icon_ico.py
+│   │   └── dev_tool_launcher.py
+│   ├── test/
+│   │   └── test_product_telemetry.py
+│   └── run_dev_tool.bat
+├── system/
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── credentials/
+│   │   │   │   └── credentials_manager.py
+│   │   │   ├── logging/
+│   │   │   │   ├── logging_runtime.py
+│   │   │   │   └── run_context.py
+│   │   │   ├── plugins/
+│   │   │   ├── preferences/
+│   │   │   │   ├── preferences_controller.py
+│   │   │   │   └── preferences_manager.py
+│   │   │   ├── runner/
+│   │   │   ├── runtime/
+│   │   │   │   ├── app_context.py
+│   │   │   │   ├── paths.py
+│   │   │   │   └── tool_runtime.py
+│   │   │   └── workspace/
+│   │   ├── plugins/
+│   │   │   ├── __init__.py
+│   │   │   ├── plugin_loader.py
+│   │   │   └── plugin_registry.py
+│   │   └── ui/
+│   │       ├── app/
+│   │       │   ├── __init__.py
+│   │       │   └── main_window.py
+│   │       ├── controllers/
+│   │       ├── dialogs/
+│   │       │   ├── base/
+│   │       │   │   ├── dialog_base.py
+│   │       │   │   ├── form_dialog_base.py
+│   │       │   │   ├── tabbed_dialog_base.py
+│   │       │   │   └── wizard_dialog_base.py
+│   │       │   ├── credentials/
+│   │       │   ├── preferences/
+│   │       │   │   ├── tabs/
+│   │       │   │   │   └── tab_from_catalog.py
+│   │       │   │   ├── preferences_dialog.py
+│   │       │   │   └── prefs_field_classifier.py
+│   │       │   └── dialog_registry.py
+│   │       ├── fields/
+│   │       │   ├── __init__.py
+│   │       │   ├── base_field.py
+│   │       │   ├── checkbox_field.py
+│   │       │   ├── entry_field.py
+│   │       │   ├── field_factory.py
+│   │       │   ├── field_registry.py
+│   │       │   ├── field_utils.py
+│   │       │   ├── select_field.py
+│   │       │   └── slider_field.py
+│   │       ├── forms/
+│   │       │   └── form_builder.py
+│   │       ├── i18n/
+│   │       │   ├── __init__.py
+│   │       │   └── ui_strings_resolver.py
+│   │       ├── menu/
+│   │       │   └── menu_builder.py
+│   │       ├── panels/
+│   │       │   ├── __init__.py
+│   │       │   ├── panel_biblioteca.py
+│   │       │   ├── panel_chat.py
+│   │       │   ├── panel_informes.py
+│   │       │   ├── panel_inicio.py
+│   │       │   └── panel_registro.py
+│   │       ├── theme/
+│   │       │   └── __init__.py
+│   │       ├── views/
+│   │       ├── widgets/
+│   │       │   ├── __init__.py
+│   │       │   └── scrollable_frame.py
+│   │       ├── __init__.py
+│   │       ├── UI-FORM-BUILDER-SPEC.md
+│   │       └── UI_DECLARATIVE_FORM_SPEC.md
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── logos/
+│   │   │   │   ├── ficheros_antiguos/
+│   │   │   │   │   ├── docgraph_icon_active.png
+│   │   │   │   │   ├── imagen_128v.png
+│   │   │   │   │   ├── imagen_16v.png
+│   │   │   │   │   ├── imagen_256v.png
+│   │   │   │   │   ├── imagen_32v.png
+│   │   │   │   │   └── imagen_64v.png
+│   │   │   │   ├── docgraph_icon_active.ico
+│   │   │   │   └── docgraph_icon_active_1024.png
+│   │   │   ├── reports/
+│   │   │   │   ├── escudo_arfer.png
+│   │   │   │   ├── escudo_armada.png
+│   │   │   │   └── escudo_jicofer.png
+│   │   │   └── ui/
+│   │   │       ├── backgrounds/
+│   │   │       └── icons/
+│   │   └── templates/
+│   ├── bin/
+│   │   ├── entrypoints/
+│   │   │   ├── app_cli.py
+│   │   │   ├── app_ui.py
+│   │   │   └── registry_validate.py
+│   │   ├── runtimes/ [no-walk]
+│   │   └── tools/
+│   │       ├── _lib/
+│   │       │   ├── __init__.py
+│   │       │   └── tool_common.py
+│   │       ├── product/
+│   │       │   ├── tool_csv_to_report_pdf.py
+│   │       │   ├── tool_pdf_merge.py
+│   │       │   └── tool_telemetry_product_audit.py
+│   │       └── runtime/
+│   │           ├── tool_get_credentials.py
+│   │           ├── tool_get_preferences.py
+│   │           ├── tool_healthcheck_runtime.py
+│   │           ├── tool_reset_credentials.py
+│   │           ├── tool_reset_preferences.py
+│   │           ├── tool_run_stats.py
+│   │           ├── tool_set_credentials.py
+│   │           ├── tool_set_preferences.py
+│   │           ├── tool_ui_credentials_dialog.py
+│   │           ├── tool_ui_preferences_dialog.py
+│   │           └── tool_validate_preferences.py
+│   ├── bootstrap/
+│   ├── config/
+│   │   ├── i18n/
+│   │   ├── logging/
+│   │   │   ├── logging_event_types_v1.json
+│   │   │   └── work_units_catalog_v1.json
+│   │   ├── plugin_format/
+│   │   │   └── PLUGIN_FORMAT_SPEC.md.txt
+│   │   ├── entrypoints.json
+│   │   ├── plugin_registry.json
+│   │   ├── runtime_bootstrap.json
+│   │   └── runtime_registry.json
+│   ├── governance/
+│   │   ├── DEV_RUNBOOK_Rev03.txt
+│   │   ├── GOVERNANCE_INDEX.json
+│   │   ├── INVARIANTS_GUIDE.md
+│   │   ├── OPERATIONAL_DEFINITION_Rev08.txt
+│   │   ├── PLATFORM_ROADMAP_Rev03.txt
+│   │   ├── UI_DESIGN_USER_GUIDE.md
+│   │   └── UI_LAYOUT_Rev06.md
+│   ├── plugins/
+│   │   └── plugin_designer_core/
+│   ├── snippets/
+│   │   ├── configs/
+│   │   ├── prompts/
+│   │   └── templates/
+│   ├── spec/
+│   │   ├── docs/
+│   │   │   ├── GUI_FRAMEWORK_INTEGRATION_GUIDE.md
+│   │   │   └── WORKSPACE_STRUCTURE_EXPLAINED.md
+│   │   ├── logging/
+│   │   │   └── logging_spec_v1.md
+│   │   ├── telemetry/
+│   │   │   ├── product_report_schema.json
+│   │   │   └── product_telemetry_spec.json
+│   │   ├── ui/
+│   │   │   ├── dialogs/
+│   │   │   ├── dialogs_registry_v1.json
+│   │   │   ├── ui_catalog.json
+│   │   │   ├── ui_strings.json
+│   │   │   ├── ui_strings_contract.json
+│   │   │   ├── ui_theme.json
+│   │   │   └── ui_theme_contract.json
+│   │   ├── CONTRATO_UI_CORE.json
+│   │   ├── DATA_MODEL_MIN.json
+│   │   ├── plugin_manifest_schema.json
+│   │   ├── preferences_catalog.json
+│   │   └── runtime_registry_contract.json
+│   └── tools/
+│       └── telemetry/
+│           ├── product_reporter.py
+│           ├── product_telemetry.py
+│           └── product_telemetry_wiring.py
+├── user/
+│   ├── data/
+│   ├── input/
+│   │   ├── Capítulo 4_ Ecosistema técnico del MDPS.pdf
+│   │   ├── cobroDocumentoPago.pdf
+│   │   └── RE-PD-OBS-GESTION DE OBSOLESCENCIAS_R06.5 simple.csv
+│   ├── plugins/
+│   │   └── personal_snippets/
+│   ├── projects/
+│   └── registry/
+│       ├── documents/
+│       ├── credentials.json
+│       └── preferences.json
+├── .gitignore
+├── BASELINE_PLATFORM.md
+├── CHANGELOG.md
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── START_APP.bat
+├── START_APP_UI.bat
+└── USER_MANUAL.md

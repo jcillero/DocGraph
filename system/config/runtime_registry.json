@@ -1,0 +1,329 @@
+{
+    "schema_version": "1.0.0",
+    "registry_id": "runtime_registry",
+    "updated_at": "2026-03-07",
+    "notes": "Rutas relativas a la raíz de la aplicación portable. No hardcode en scripts; todo se resuelve aquí.\n\n[2026-03-04] Reorganización tools: system/bin/tools/{runtime,product,_lib}; entradas actualizadas.\n\n[2026-03-04] Añadido script_relpath (igual a entry) para compatibilidad con auditor (registry↔FS).",
+    "app_meta": {
+        "name": "DocGraph",
+        "display_name": "DocGraph",
+        "version": "1.0.0",
+        "description": "Base portable para herramientas documentales y generación de informes.",
+        "vendor": "DocGraph Project"
+    },
+    "assets": {
+        "report_logos": {
+            "escudo_arfer": "system/assets/images/reports/escudo_arfer.png",
+            "escudo_armada": "system/assets/images/reports/escudo_armada.png",
+            "escudo_jicofer": "system/assets/images/reports/escudo_jicofer.png"
+        },
+        "default_report_logo": "system/assets/images/reports/escudo_jicofer.png",
+        "app_identity": {
+            "display_name": "DocGraph",
+            "window_icon_ico": "system/assets/images/logos/docgraph_icon_active.ico",
+            "icon_master_png": "system/assets/images/logos/docgraph_icon_active_1024.png",
+            "icon_variants": {
+                "v1_geometric_png": "system/assets/images/logos/docgraph_icon_v1_geometric.png",
+                "v2_modern_png": "system/assets/images/logos/docgraph_icon_v2_modern.png",
+                "v3_institutional_png": "system/assets/images/logos/docgraph_icon_v3_institutional.png"
+            }
+        }
+    },
+	"runtimes": {
+	  "python": {
+		"type": "python_portable",
+		"label": "Python (portable)",
+		"version_hint": "3.12",
+		"console_executable": "system/bin/runtimes/python/current/python/python.exe",
+		"env": {
+		  "PYTHONPATH": ".",
+		  "PYTHONPYCACHEPREFIX": "user/runs/pycache",
+		  "PYTHONUTF8": "1",
+		  "PYTHONIOENCODING": "utf-8"
+		}
+	  }
+	},
+    "tools": {
+        "tool_get_credentials": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_get_credentials.py",
+            "script_relpath": "system/bin/tools/runtime/tool_get_credentials.py",
+            "description": "Obtiene credenciales desde el registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_set_credentials": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_set_credentials.py",
+            "script_relpath": "system/bin/tools/runtime/tool_set_credentials.py",
+            "description": "Guarda/actualiza credenciales en el registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_reset_credentials": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_reset_credentials.py",
+            "script_relpath": "system/bin/tools/runtime/tool_reset_credentials.py",
+            "description": "Resetea credenciales del registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_get_preferences": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_get_preferences.py",
+            "script_relpath": "system/bin/tools/runtime/tool_get_preferences.py",
+            "description": "Obtiene preferencias desde el registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_set_preferences": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_set_preferences.py",
+            "script_relpath": "system/bin/tools/runtime/tool_set_preferences.py",
+            "description": "Guarda/actualiza preferencias en el registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_reset_preferences": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_reset_preferences.py",
+            "script_relpath": "system/bin/tools/runtime/tool_reset_preferences.py",
+            "description": "Resetea preferencias del registro de usuario.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_validate_preferences": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_validate_preferences.py",
+            "script_relpath": "system/bin/tools/runtime/tool_validate_preferences.py",
+            "description": "Valida el fichero de preferencias del usuario contra el contrato.",
+            "presets": [
+                {
+                    "label": "Ejecutar",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_ui_credentials_dialog": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_ui_credentials_dialog.py",
+            "script_relpath": "system/bin/tools/runtime/tool_ui_credentials_dialog.py",
+            "description": "Dialog UI para editar credenciales (wiring UI).",
+            "presets": [
+                {
+                    "label": "Abrir dialog",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "tool_ui_preferences_dialog": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_ui_preferences_dialog.py",
+            "script_relpath": "system/bin/tools/runtime/tool_ui_preferences_dialog.py",
+            "description": "Dialog UI para editar preferencias (wiring UI).",
+            "presets": [
+                {
+                    "label": "Abrir dialog",
+                    "args": [
+                    ]
+                }
+            ]
+        },
+        "dev_build_icon_ico": {
+            "type": "python_script",
+            "category": "dev",
+            "runtime_ref": "python",
+            "entry": "dev/scripts/build_icon_ico.py",
+            "description": "Genera un archivo .ico multi-resolución a partir de un PNG maestro indicado por args/preset.",
+            "presets": [
+                {
+                    "label": "Generar docgraph_icon_active.ico",
+                    "args": [
+                        "--input",
+                        "system/assets/images/logos/docgraph_icon_active_1024.png",
+                        "--output",
+                        "system/assets/images/logos/docgraph_icon_active.ico"
+                    ]
+                }
+            ],
+            "script_relpath": "dev/scripts/build_icon_ico.py"
+        },
+        "tool_telemetry_product_audit": {
+            "type": "python_script",
+            "category": "product",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/product/tool_telemetry_product_audit.py",
+            "description": "Audita el producto (outputs/registry/runs) y genera report.json + latest.",
+            "presets": [
+                {
+                    "label": "Ejecutar (default)",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "system/bin/tools/product/tool_telemetry_product_audit.py"
+        },
+        "tool_run_stats": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_run_stats.py",
+            "description": "Calcula estadísticas básicas a partir de user/runs/**/run_metadata.json.",
+            "presets": [
+                {
+                    "label": "Ejecutar (default)",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "system/bin/tools/runtime/tool_run_stats.py"
+        },
+        "tool_healthcheck_runtime": {
+            "type": "python_script",
+            "category": "runtime",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/runtime/tool_healthcheck_runtime.py",
+            "description": "Verificación del runtime portable configurado.",
+            "presets": [
+                {
+                    "label": "Check runtime",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "system/bin/tools/runtime/tool_healthcheck_runtime.py"
+        },
+        "dev_generate_ai_system_report": {
+            "type": "python_script",
+            "category": "dev",
+            "runtime_ref": "python",
+            "entry": "dev/scripts/ai/generate_ai_system_report.py",
+            "description": "Genera reporte AI_SYSTEM_REPORT_v1 desde la fuente (análisis estructural completo).",
+            "presets": [
+                {
+                    "label": "Ejecutar (default)",
+                    "args": [
+                        "--app_root",
+                        "."
+                    ]
+                }
+            ],
+            "script_relpath": "dev/scripts/ai/generate_ai_system_report.py"
+        },
+        "dev_collect_app_bundle": {
+            "type": "python_script",
+            "category": "dev",
+            "runtime_ref": "python",
+            "entry": "dev/scripts/reports/collect_app_bundle.py",
+            "description": "Genera bundle de análisis: tree + contenido de scripts + manifest.",
+            "presets": [
+                {
+                    "label": "Ejecutar (default)",
+                    "args": [
+                    ]
+                },
+                {
+                    "label": "Incluir system/bin/tools",
+                    "args": [
+                        "--include-system-tools"
+                    ]
+                }
+            ],
+            "script_relpath": "dev/scripts/reports/collect_app_bundle.py"
+        },
+        "dev_generate_structure_report": {
+            "type": "python_script",
+            "category": "dev",
+            "runtime_ref": "python",
+            "entry": "dev/scripts/reports/generate_structure_report.py",
+            "description": "Reporte estructural del árbol; no profundiza en binarios; extrae docstring inicial.",
+            "presets": [
+                {
+                    "label": "Ejecutar (default)",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "dev/scripts/reports/generate_structure_report.py"
+        },
+        "tool_pdf_merge": {
+            "type": "python_script",
+            "category": "product",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/product/tool_pdf_merge.py",
+            "description": "Unión de PDFs con reorden interactivo por consola.",
+            "presets": [
+                {
+                    "label": "Ejecutar (interactivo)",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "system/bin/tools/product/tool_pdf_merge.py"
+        },
+        "tool_csv_to_report_pdf": {
+            "type": "python_script",
+            "category": "product",
+            "runtime_ref": "python",
+            "entry": "system/bin/tools/product/tool_csv_to_report_pdf.py",
+            "description": "Lee CSV y genera PDF institucional con portada y página por registro.",
+            "presets": [
+                {
+                    "label": "Ejecutar (selector interactivo)",
+                    "args": [
+                    ]
+                }
+            ],
+            "script_relpath": "system/bin/tools/product/tool_csv_to_report_pdf.py"
+        }
+    }
+}

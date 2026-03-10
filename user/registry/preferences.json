@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-03-09T20:08:13Z",
+  "values": {
+    "llm": {
+      "cloud_allowed": false,
+      "cloud_provider": "openai",
+      "creativity": 0.0,
+      "fallback_enabled": true,
+      "mode": "manual",
+      "provider_mode": "local",
+      "target_length": "medium"
+    },
+    "ui": {
+      "language": "es",
+      "remember_layout": true,
+      "theme": "dark"
+    }
+  }
+}

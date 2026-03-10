@@ -1,0 +1,81 @@
+{
+  "schema_version": "logging.event_types.v1",
+
+  "levels": [
+    "DEBUG",
+    "INFO",
+    "WARNING",
+    "ERROR",
+    "CRITICAL"
+  ],
+
+  "stages": [
+    "run",
+    "ingest",
+    "validation",
+    "process",
+    "ocr",
+    "clean",
+    "embed",
+    "vector_search",
+    "kg",
+    "causal",
+    "math",
+    "export",
+    "workflow",
+    "ui"
+  ],
+
+  "event_types": [
+    "run_start",
+    "run_end",
+
+    "stage_start",
+    "stage_end",
+
+    "input_detected",
+    "input_skipped_duplicate",
+
+    "validation_pass",
+    "validation_fail",
+
+    "artifact_written",
+    "artifact_skipped",
+    "artifact_removed",
+
+    "metric",
+
+    "external_tool_call",
+    "external_tool_completed",
+
+    "workflow_started",
+    "workflow_step_completed",
+    "workflow_abandoned",
+
+    "assist_suggestion_shown",
+    "assist_suggestion_accepted",
+    "assist_suggestion_dismissed",
+
+    "ui_tab_selected",
+
+    "warning_raised",
+    "exception_raised"
+  ],
+
+  "rules": {
+    "stage_end_requires_work_units": true,
+    "run_end_requires_work_units": true,
+    "event_types_extensible": true,
+    "stages_extensible": true,
+    "levels_not_extensible": true
+  },
+
+  "constraints": {
+    "warning_event_type": "warning_raised",
+    "exception_event_type": "exception_raised",
+    "metric_requires_data_keys": [
+      "metric_name",
+      "metric_value"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-02-25T20:43:16",
+  "app_root": "D:\\MAQUETAS SOFTWARE\\APP_Tool_ICOFER\\App_Tool",
+  "max_depth": 10,
+  "include_system_tools": true,
+  "script_exts": [
+    ".py",
+    ".bat",
+    ".cmd",
+    ".ps1"
+  ],
+  "cleanup": {
+    "system_pycaches_cleaned": true,
+    "pycache_dirs_removed": 7,
+    "pyc_files_removed": 52
+  },
+  "scripts": [
+    {
+      "path": "dev/scripts/reports/collect_app_bundle.py",
+      "size_bytes": 14596,
+      "sha256": "a83d340d9bbc4d3c6fc01452b20efa43c0444321292d171a86ac62e77aec008b"
+    },
+    {
+      "path": "dev/scripts/reports/generate_structure_report.py",
+      "size_bytes": 12045,
+      "sha256": "1f56889e9269521caa477381aa67b09a2a16009fe8721b2dc4efd70344dd5f7d"
+    },
+    {
+      "path": "START_APP.bat",
+      "size_bytes": 655,
+      "sha256": "ee2595eb1dba42efe70225c3fa9ae6b3a06b2701e9364694fe5aa00f1c637700"
+    },
+    {
+      "path": "system/bin/entrypoints/app_cli.py",
+      "size_bytes": 11131,
+      "sha256": "7bfdc9eac3ba37d9f667a2a663373366b49a0acf22e1f45fbb2c8ea3bf590987"
+    },
+    {
+      "path": "system/bin/entrypoints/registry_validate.py",
+      "size_bytes": 3798,
+      "sha256": "9d3a7138960562afee83945ce79d9d396f5d20d5bdc2429913b218d8071e8127"
+    },
+    {
+      "path": "system/bin/tools/csv_to_report_pdf.py",
+      "size_bytes": 11490,
+      "sha256": "192bb798edda2bb95c4e8c7ec71c9e9d19aac7cf4c69920b66eb9bddf3f3f84f"
+    },
+    {
+      "path": "system/bin/tools/pdf_merge.py",
+      "size_bytes": 3588,
+      "sha256": "5ca5a008de021666bb8dd8e3e8452e0da860e74646909385bdf494acec57166f"
+    },
+    {
+      "path": "system/bin/tools/tool_healthcheck_runtime.py",
+      "size_bytes": 10139,
+      "sha256": "9d043ce8b7df27c0d1c71530be9e9811314ea75b03546fa4ec88965f9e24bc5e"
+    }
+  ]
+}

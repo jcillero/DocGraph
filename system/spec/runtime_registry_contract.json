@@ -1,0 +1,13 @@
+{
+  "schema_name": "runtime_registry_contract",
+  "schema_version": "1.0.0",
+  "required_top_level": ["app_meta", "runtimes", "tools"],
+  "app_meta_required": ["name", "vendor", "version"],
+  "runtime_required": ["console_executable"],
+  "tool_required": ["entry", "runtime_ref", "category"],
+  "notes": [
+    "console_executable y entry deben ser rutas relativas POSIX (con /).",
+    "Los runtime_ref usados por tools deben existir en runtimes.",
+    "Prohibido apuntar a current/Scripts/python.exe (venv). Debe ser current/python/python.exe."
+  ]
+}

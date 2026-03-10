@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph/plugin_manifest_schema",
+  "title": "DocGraph Plugin Manifest Schema",
+  "description": "Validation schema for DocGraph plugin manifests used in system, user and dev plugin layers.",
+  "type": "object",
+
+  "additionalProperties": false,
+
+  "required": [
+    "plugin_id",
+    "name",
+    "version",
+    "description",
+    "plugin_type",
+    "entrypoints"
+  ],
+
+  "properties": {
+
+    "plugin_id": {
+      "type": "string",
+      "description": "Unique plugin identifier used by the registry.",
+      "minLength": 3,
+      "maxLength": 100,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable plugin name.",
+      "minLength": 1,
+      "maxLength": 200
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Plugin semantic version (major.minor.patch).",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Short plugin description.",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+
+    "plugin_type": {
+      "type": "string",
+      "description": "Plugin scope layer.",
+      "enum": [
+        "system",
+        "user",
+        "dev"
+      ]
+    },
+
+    "platform_compatibility": {
+      "type": "string",
+      "description": "Optional platform compatibility rule.",
+      "minLength": 1,
+      "maxLength": 100
+    },
+
+    "enabled": {
+      "type": "boolean",
+      "description": "Optional activation flag.",
+      "default": true
+    },
+
+    "entrypoints": {
+      "type": "array",
+      "description": "Executable entrypoints exposed by the plugin.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entrypoint"
+      }
+    },
+
+    "outputs": {
+      "type": "array",
+      "description": "Declared output locations produced by the plugin.",
+      "items": {
+        "$ref": "#/$defs/relativePath"
+      },
+      "uniqueItems": true
+    },
+
+    "requires": {
+      "type": "array",
+      "description": "Optional plugin or capability dependencies.",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "uniqueItems": true
+    },
+
+    "tags": {
+      "type": "array",
+      "description": "Optional classification tags.",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50,
+        "pattern": "^[A-Za-z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+
+    "author": {
+      "type": "string",
+      "description": "Optional plugin author.",
+      "minLength": 1,
+      "maxLength": 200
+    },
+
+    "homepage": {
+      "type": "string",
+      "description": "Optional plugin documentation or homepage.",
+      "format": "uri"
+    }
+  },
+
+  "$defs": {
+
+    "entrypoint": {
+      "type": "object",
+      "description": "Executable entrypoint exposed by a plugin.",
+      "additionalProperties": false,
+
+      "required": [
+        "type",
+        "module",
+        "entry_function"
+      ],
+
+      "properties": {
+
+        "type": {
+          "type": "string",
+          "description": "Entrypoint execution type.",
+          "enum": [
+            "tool",
+            "service",
+            "command"
+          ]
+        },
+
+        "module": {
+          "type": "string",
+          "description": "Python module path relative to plugin root.",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+        },
+
+        "entry_function": {
+          "type": "string",
+          "description": "Callable function name.",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+
+        "description": {
+          "type": "string",
+          "description": "Optional entrypoint description.",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      }
+    },
+
+    "relativePath": {
+      "type": "string",
+      "description": "Portable relative path. Absolute paths and directory traversal are forbidden.",
+      "minLength": 1,
+      "maxLength": 300,
+
+      "allOf": [
+        {
+          "pattern": "^(?![A-Za-z]:)(?!/)(?!\\\\)[A-Za-z0-9_./-]+$"
+        },
+        {
+          "not": {
+            "pattern": "\\.\\."
+          }
+        }
+      ]
+    }
+
+  }
+}

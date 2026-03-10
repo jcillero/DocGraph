@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "document": {
+    "id": "CONTRATO_UI_CORE",
+    "status": "stable",
+    "authority": "system/spec",
+    "aligned_with": [
+      "DEFINICIÓN OPERATIVA Rev06",
+      "UI_LAYOUT Rev04",
+      "DATA_MODEL_MIN"
+    ],
+    "description": "Contrato mínimo de comunicación UI ↔ Runner (Core) para ejecutar tools, actualizar estado, registrar runs y publicar resultados sin lógica de dominio en UI."
+  },
+
+  "principles": [
+    "UI no ejecuta lógica de negocio.",
+    "UI no escribe artefactos finales.",
+    "Toda acción ejecutable se materializa como run trazable.",
+    "Toda tool debe estar declarada en runtime_registry.",
+    "Toda salida final va a user/output/ y toda trazabilidad a user/runs/."
+  ],
+
+  "directory_contract": {
+    "runs_dir": "user/runs/",
+    "output_dir": "user/output/",
+    "invariants": [
+      "Runner es el único que escribe en runs_dir y output_dir.",
+      "UI solo lee estas rutas (si se habilita lectura)."
+    ]
+  },
+
+  "state_model": {
+    "states": [
+      "IDLE",
+      "TOOL_RUNNING",
+      "LLM_RUNNING",
+      "ERROR",
+      "CANCELLED"
+    ],
+    "allowed_transitions": [
+      { "from": "IDLE", "to": "TOOL_RUNNING" },
+      { "from": "IDLE", "to": "LLM_RUNNING" },
+
+      { "from": "TOOL_RUNNING", "to": "IDLE" },
+      { "from": "TOOL_RUNNING", "to": "ERROR" },
+      { "from": "TOOL_RUNNING", "to": "CANCELLED" },
+
+      { "from": "LLM_RUNNING", "to": "IDLE" },
+      { "from": "LLM_RUNNING", "to": "ERROR" },
+      { "from": "LLM_RUNNING", "to": "CANCELLED" },
+
+      { "from": "ERROR", "to": "IDLE" },
+      { "from": "CANCELLED", "to": "IDLE" }
+    ],
+    "notes": [
+      "UI solo refleja estado; el Runner es autoridad del estado.",
+      "ERROR y CANCELLED vuelven a IDLE tras notificación al usuario."
+    ]
+  },
+
+  "identifiers": {
+    "id_type": "uuid4",
+    "correlation_id": "string (uuid4) — correlaciona request ↔ eventos ↔ resultado",
+    "run_id": "string (uuid4) — id persistente del run",
+    "context_id": "object — (area_id, project_id, chat_id) cuando aplique"
+  },
+
+  "run_request": {
+    "name": "RunRequest",
+    "description": "Solicitud de ejecución enviada por la UI al Runner.",
+    "fields": {
+      "schema_version": "string (must be 1.0.0)",
+      "request_id": "string (uuid4)",
+      "created_at": "datetime (ISO-8601)",
+      "context_id": "object (optional)",
+      "action": {
+        "type": "string (tool_run | llm_chat)",
+        "tool_id": "string (required if type=tool_run)",
+        "preset_id": "string (optional)",
+        "args": "object (optional, JSON-serializable)",
+        "input_refs": "array (optional) — referencias a documentos/artefactos por id o ruta relativa permitida",
+        "ui_hints": "object (optional) — hints visuales, no afectan lógica"
+      },
+      "policy": {
+        "mode": "string (dev | release)",
+        "allow_cancel": "boolean",
+        "timeout_ms": "integer (optional)",
+        "log_verbosity": "string (minimal | normal | debug)"
+      }
+    },
+    "validation_rules": [
+      "Si action.type=tool_run ⇒ tool_id debe existir en runtime_registry.",
+      "UI no puede enviar rutas absolutas en input_refs.",
+      "args debe ser JSON-serializable."
+    ]
+  },
+
+  "event_stream": {
+    "name": "RunnerEvent",
+    "description": "Eventos emitidos por el Runner para actualizar UI/log.",
+    "fields": {
+      "schema_version": "string (must be 1.0.0)",
+      "event_id": "string (uuid4)",
+      "emitted_at": "datetime (ISO-8601)",
+      "correlation_id": "string (uuid4)",
+      "run_id": "string (uuid4, optional until created)",
+      "event_type": "string",
+      "level": "string (info | warn | error)",
+      "message": "string",
+      "payload": "object (optional, JSON-serializable)"
+    },
+    "event_types": [
+      "STATE_CHANGED",
+      "RUN_CREATED",
+      "LOG_LINE",
+      "PROGRESS",
+      "ARTIFACT_EMITTED",
+      "RUN_FINISHED",
+      "RUN_FAILED",
+      "RUN_CANCELLED"
+    ],
+    "ui_rules": [
+      "La UI muestra STATE_CHANGED en el indicador de estado (log inferior).",
+      "La UI añade LOG_LINE al panel de log inferior.",
+      "La UI puede mostrar PROGRESS como barra o texto.",
+      "La UI muestra ARTIFACT_EMITTED como enlace/entrada (si decide listar artefactos)."
+    ]
+  },
+
+  "run_result": {
+    "name": "RunResult",
+    "description": "Resultado final devuelto por el Runner al completar una ejecución.",
+    "fields": {
+      "schema_version": "string (must be 1.0.0)",
+      "correlation_id": "string (uuid4)",
+      "run_id": "string (uuid4)",
+      "status": "string (ok | warn | fail | cancelled)",
+      "started_at": "datetime (ISO-8601)",
+      "finished_at": "datetime (ISO-8601)",
+      "duration_ms": "integer",
+      "tool_id": "string (optional)",
+      "preset_id": "string (optional)",
+      "artifacts": [
+        {
+          "artifact_type": "string (pdf | json | md | txt | other)",
+          "relative_path": "string (relative to user/output/)",
+          "label": "string (optional)"
+        }
+      ],
+      "run_ref": {
+        "run_dir": "string (relative to user/runs/)",
+        "log_path": "string (optional, relative to run_dir)",
+        "report_path": "string (optional, relative to run_dir)"
+      },
+      "error": {
+        "error_type": "string (optional)",
+        "error_message": "string (optional)"
+      }
+    },
+    "invariants": [
+      "Si status=ok|warn ⇒ artifacts puede estar vacío, pero run_ref debe existir.",
+      "Si status=fail ⇒ error.error_message debe existir.",
+      "relative_path nunca es absoluta."
+    ]
+  },
+
+  "cancellation": {
+    "supported": true,
+    "rules": [
+      "UI solo puede cancelar si policy.allow_cancel=true.",
+      "Cancel request incluye correlation_id y run_id (si ya existe).",
+      "Runner emite RUN_CANCELLED y STATE_CHANGED→CANCELLED, luego vuelve a IDLE."
+    ],
+    "cancel_request": {
+      "name": "CancelRequest",
+      "fields": {
+        "schema_version": "string (must be 1.0.0)",
+        "request_id": "string (uuid4)",
+        "created_at": "datetime (ISO-8601)",
+        "correlation_id": "string (uuid4)",
+        "run_id": "string (uuid4, optional)"
+      }
+    }
+  },
+
+  "ui_minimum_behaviour": [
+    "UI genera RunRequest y espera RunnerEvent/RunResult.",
+    "UI no ejecuta tools directamente; siempre pasa por Runner.",
+    "UI no escribe en user/runs ni user/output.",
+    "UI refleja estados: IDLE/RUNNING/ERROR/CANCELLED en el log inferior."
+  ]
+}

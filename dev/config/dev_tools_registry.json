@@ -1,0 +1,63 @@
+{
+  "registry_name": "dev_tools_registry",
+  "version": "1.0.0",
+  "dev_tools": [
+    {
+      "tool_id": "generate_ai_system_report",
+      "name": "AI System Report",
+      "category": "analysis",
+      "enabled": true,
+      "script_relpath": "ai/generate_ai_system_report.py",
+      "launch": {
+        "mode": "direct",
+        "show_in_dev_launcher": true
+      }
+    },
+    {
+      "tool_id": "collect_app_bundle",
+      "name": "Collect App Bundle",
+      "category": "reports",
+      "enabled": true,
+      "script_relpath": "reports/collect_app_bundle.py",
+      "launch": {
+        "mode": "direct",
+        "show_in_dev_launcher": true
+      }
+    },
+    {
+      "tool_id": "generate_structure_report",
+      "name": "Generate Structure Report",
+      "category": "reports",
+      "enabled": true,
+      "script_relpath": "reports/generate_structure_report.py",
+      "launch": {
+        "mode": "direct",
+        "show_in_dev_launcher": true
+      }
+    },
+    {
+      "tool_id": "validate_logs",
+      "name": "Validate Logs",
+      "category": "diagnostics",
+      "enabled": true,
+      "script_relpath": "diagnostics/validate_logs.py",
+      "launch": {
+        "mode": "wrapper",
+        "show_in_dev_launcher": true,
+        "wrapper_bat": "dev/tools/run_validate_logs.bat"
+      }
+    },
+    {
+      "tool_id": "validate_ui_strings",
+      "name": "Validate UI Strings",
+      "category": "ui",
+      "enabled": true,
+      "script_relpath": "ui/validate_ui_strings.py",
+      "launch": {
+        "mode": "wrapper",
+        "show_in_dev_launcher": true,
+        "wrapper_bat": "dev/tools/run_validate_ui_strings.bat"
+      }
+    }
+  ]
+}

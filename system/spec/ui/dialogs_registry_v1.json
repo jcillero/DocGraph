@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "dialogs_registry_v1",
+  "description": "Declarative registry for UI dialogs available in the application",
+
+  "dialogs": {
+    "preferences": {
+      "label": "Preferencias",
+      "module": "app.ui.dialogs.preferences.preferences_dialog",
+      "class": "PreferencesDialog",
+      "modal": true,
+      "default_size": [800, 600],
+      "resizable": true,
+      "requires_context": false,
+      "icon": "settings",
+      "category": "settings"
+    },
+
+    "credentials": {
+      "label": "Credenciales",
+      "module": "app.ui.dialogs.credentials.credentials_dialog",
+      "class": "CredentialsDialog",
+      "modal": true,
+      "default_size": [700, 500],
+      "resizable": true,
+      "requires_context": false,
+      "icon": "key",
+      "category": "settings"
+    },
+
+    "about": {
+      "label": "Acerca de",
+      "module": "app.ui.dialogs.about.about_dialog",
+      "class": "AboutDialog",
+      "modal": true,
+      "default_size": [500, 400],
+      "resizable": false,
+      "requires_context": false,
+      "icon": "info",
+      "category": "info"
+    },
+
+    "help": {
+      "label": "Ayuda",
+      "module": "app.ui.dialogs.help.help_dialog",
+      "class": "HelpDialog",
+      "modal": true,
+      "default_size": [900, 600],
+      "resizable": true,
+      "requires_context": false,
+      "icon": "help",
+      "category": "info"
+    },
+
+    "confirm": {
+      "label": "Confirmación",
+      "module": "app.ui.dialogs.confirm.confirm_dialog",
+      "class": "ConfirmDialog",
+      "modal": true,
+      "default_size": [400, 200],
+      "resizable": false,
+      "requires_context": true,
+      "icon": "warning",
+      "category": "utility"
+    }
+  }
+}

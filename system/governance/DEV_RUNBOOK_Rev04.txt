@@ -1,0 +1,472 @@
+# DEV RUNBOOK — DocGraph Portable
+
+Version: **Rev04**
+Status: Stable
+Scope: Technical operation and development workflow
+Normative authority: **Operational Definition Rev09**
+
+---
+
+# 0) GUIDING PRINCIPLE
+
+DocGraph is a **portable platform governed by configuration**.
+
+Key principles:
+
+* Declarative before imperative
+* No hardcoded values (paths, runtimes, entry points)
+* UI and CLI contain no domain logic
+* `system/` is immutable at runtime
+* `user/` contains data and artifacts
+
+Configuration governs behavior.
+Code executes the declared configuration.
+
+The system is **workflow-centric**: projects are governed by declarative workflows composed of reusable processes.
+
+---
+
+# 1) CONTRACTUAL STRUCTURE
+
+```
+system/
+  config/
+    runtime_registry.json
+    entrypoints.json
+    plugin_registry.json
+
+  process_catalog/
+    registry/
+    definitions/
+
+  bin/
+    entrypoints/
+      app_cli.py
+      app_ui.py
+    tools/
+      <tool_id>.py
+
+  plugins/
+      <plugin_id>/
+
+  spec/
+      DATA_MODEL_MIN
+      UI_CORE_CONTRACT
+
+
+user/
+  input/
+  output/        → final artifacts
+  runs/          → technical traceability
+  projects/
+  registry/
+  data/
+```
+
+Golden rule:
+
+Technical traceability → `user/runs/`
+Final artifacts → `user/output/`
+
+Never use:
+
+```
+user/outputs/
+absolute hardcoded paths
+```
+
+---
+
+# 2) OFFICIAL ENTRYPOINTS
+
+Entrypoints are controlled by:
+
+```
+system/config/entrypoints.json
+```
+
+Valid execution modes:
+
+```
+ui
+shell
+run <tool_id>
+```
+
+Startup examples:
+
+```
+.\START_APP.bat ui
+.\START_APP.bat shell
+.\START_APP.bat run <tool_id> --preset <preset_id>
+```
+
+Scripts must **never be executed directly** outside the entrypoint contract.
+
+Entrypoints perform only:
+
+* argument parsing
+* routing
+* runtime initialization
+
+They must never contain domain logic.
+
+---
+
+# 3) REGISTERED TOOLS (RUNTIME REGISTRY)
+
+Every executable tool must:
+
+1. Exist in
+
+```
+system/bin/tools/
+```
+
+2. Contain a mandatory `SCRIPT_META` block including:
+
+* tool_id
+* version
+* description
+* inputs
+* outputs
+* invariants (if applicable)
+
+3. Be declared in:
+
+```
+system/config/runtime_registry.json
+```
+
+Registry entries must include:
+
+* label
+* category
+* runtime_ref
+* entry
+* presets (if applicable)
+
+A tool not declared in the registry **does not exist in the runtime system**.
+
+---
+
+# 4) PROCESS CATALOG
+
+Reusable operational processes are defined in the **process catalog**.
+
+Location:
+
+```
+system/process_catalog/
+```
+
+Structure:
+
+```
+process_catalog
+ ├ registry/
+ └ definitions/
+```
+
+Process types represent reusable workflow operations.
+
+Examples:
+
+```
+load_sources
+semantic_search
+generate_draft
+validate_coherence
+export_output
+```
+
+Projects instantiate these process types within workflows.
+
+Composite processes may reference **subworkflows**.
+
+---
+
+# 5) PROJECT MODEL
+
+Projects represent the **primary operational unit** of the platform.
+
+Location:
+
+```
+user/projects/
+```
+
+Conceptual structure:
+
+```
+Project
+ ├ Workflow
+ ├ Notebooks
+ ├ Sources
+ ├ Prompts
+ ├ Data
+ ├ Artifacts
+ ├ Outputs
+ └ Runs
+```
+
+Projects must remain **self-contained and portable**.
+
+---
+
+# 6) WORKFLOW EXECUTION
+
+Each project contains a **workflow definition** describing its operational process.
+
+Workflow structure:
+
+```
+Workflow
+ ├ Processes
+ └ Precedence relations
+```
+
+Constraints:
+
+* precedence relations must form a Directed Acyclic Graph
+* processes must reference a valid process type
+* workflows must generate run records
+
+Workflow execution produces artifacts and outputs stored under:
+
+```
+user/runs/
+user/output/
+```
+
+---
+
+# 7) CONTROLLED DEVELOPMENT FLOW
+
+Mandatory sequence when modifying the system:
+
+1. Modify script or configuration
+2. Run smoke tests
+3. Run structural audit
+4. Only if everything passes → freeze version
+5. Optionally generate portable bundle
+
+Never freeze a version when the audit reports **FAIL**.
+
+---
+
+# 8) MINIMAL SMOKE TEST (≈60 seconds)
+
+### SMOKE-001 — Runtime healthcheck
+
+```
+.\START_APP.bat run tool_healthcheck_runtime
+```
+
+Expected result:
+
+```
+status=OK
+```
+
+Verify creation of:
+
+```
+user/runs/healthcheck/<timestamp>/
+```
+
+---
+
+### SMOKE-002 — Functional tool
+
+Execute a stable tool.
+
+Verify:
+
+```
+user/runs/<tool_id>/<timestamp>/
+```
+
+Artifacts:
+
+```
+user/output/<tool_id>/<timestamp>/
+```
+
+---
+
+### SMOKE-003 — UI
+
+```
+.\START_APP.bat ui
+```
+
+The UI must launch without errors.
+
+---
+
+# 9) AUDIT (FLOW-004)
+
+The structural audit verifies:
+
+* invariants
+* absence of hardcoded paths
+* registry ↔ filesystem consistency
+* mandatory SCRIPT_META presence
+* duplicate executables
+* correct runs/output conventions
+* process catalog integrity
+
+Audit output:
+
+```
+user/runs/audit/<timestamp>/
+```
+
+Rules:
+
+FAIL → version freeze blocked
+WARN → must be justified in commit
+
+---
+
+# 10) VERSION FREEZE
+
+A version is considered frozen when:
+
+✓ Audit contains no FAIL
+✓ No duplicate executables
+✓ entrypoints consistent
+✓ runtime registry coherent
+✓ tools operational
+✓ smoke tests completed
+
+Freeze actions:
+
+* update `app_meta.version`
+* update `updated_at`
+* store audit report snapshot
+* create clean commit
+
+Freezing represents a **reproducible system state**.
+
+---
+
+# 11) PORTABLE BUNDLE
+
+A portable bundle must include:
+
+✓ `system/`
+✓ minimal `user/` structure
+
+Excluded:
+
+```
+dev/
+```
+
+After bundling run:
+
+```
+SMOKE-001
+SMOKE-003
+```
+
+---
+
+# 12) INCIDENT REPORTING
+
+All incident reports must include:
+
+* tool_id
+* run_id or exact `user/runs/` directory
+* full console output
+* related JSON file (if applicable)
+
+Report format:
+
+```
+What I did
+What I expected
+What occurred
+run_id
+evidence
+```
+
+Reports without evidence cannot be debugged.
+
+---
+
+# 13) ANTI-DRIFT RULES
+
+The following practices are forbidden:
+
+* placing domain logic inside `app_cli.py`
+* placing domain logic inside `app_ui.py`
+* creating alternative output directories
+* introducing global system dependencies
+* executing tools outside the registry
+* duplicating scripts between `dev/` and `system/`
+
+---
+
+# 14) PLUGIN DEVELOPMENT
+
+Extensions must be implemented through plugins located in:
+
+```
+system/plugins/
+```
+
+Each plugin must include:
+
+```
+plugin_manifest.json
+tools/
+documentation/
+```
+
+Plugin tools must still be registered in the runtime registry.
+
+Plugins must not modify core system invariants.
+
+---
+
+# 15) DATA LAYER
+
+DocGraph supports multiple data backends.
+
+Typical technologies:
+
+```
+SQLite
+Oxigraph
+Analytical tools (DoWhy)
+```
+
+Persistence layers must remain separated from analytical tools.
+
+---
+
+# 16) CURRENT MATURITY STATUS
+
+DocGraph currently provides:
+
+✓ formal runtime registry
+✓ declarative entrypoints
+✓ portable project model
+✓ workflow-based architecture
+✓ process catalog
+✓ integrated structural audit
+✓ operational runtime healthcheck
+
+Next structural layer:
+
+```
+system/spec/DATA_MODEL_MIN
+system/spec/UI_CORE_CONTRACT
+```
+
+These specifications define the internal system architecture.
+
+---
