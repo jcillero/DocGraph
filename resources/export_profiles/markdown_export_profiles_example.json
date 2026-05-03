@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "profile_set_id": "markdown_clean_export_profiles_v1",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "profiles": [
+    {
+      "profile_id": "markdown_to_latex_clean_v1",
+      "profile_ref": "markdown_to_latex_clean_v1.json",
+      "target_format": "latex"
+    },
+    {
+      "profile_id": "markdown_to_pdf_clean_v1",
+      "profile_ref": "markdown_to_pdf_clean_v1.json",
+      "target_format": "pdf"
+    },
+    {
+      "profile_id": "markdown_to_docx_clean_v1",
+      "profile_ref": "markdown_to_docx_clean_v1.json",
+      "target_format": "docx"
+    }
+  ],
+  "forbidden": [
+    "execute_export",
+    "run_external_tools",
+    "use_ui_state_as_export_source",
+    "hardcode_binary_paths"
+  ]
+}

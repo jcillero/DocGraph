@@ -1,0 +1,58 @@
+﻿RDF Projection Boundary Audit Report
+
+timestamp: 2026-05-01 00:57:52
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: ADVISORY
+
+Limitations:
+- textual scan only
+- false positives expected
+- RDF remains future projection only
+- Oxigraph/SPARQL remain inactive
+- human review required
+
+Scanned paths:
+- docs/specs/rdf_projection_policy.md
+- docs/specs/semantic_quad_model.md
+- docs/specs/semantic_quad_lifecycle.md
+- docs/specs/artifact_graph.md
+- docs/specs/storage_policy.md
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+scanned_file_count: 7
+
+Category summaries:
+- [A] RDF authority drift :: FAIL=4 WARN=0 INFO=0
+- [B] RDF runtime drift :: FAIL=2 WARN=0 INFO=0
+- [C] Lifecycle filtering drift :: FAIL=0 WARN=0 INFO=0
+
+Possible findings:
+
+[A] RDF authority drift
+------------------------
+- FAIL :: docs/specs/rdf_projection_policy.md:25 :: RDF may be treated as authority.
+  snippet: ## RDF is projection, not authority
+- FAIL :: docs/specs/rdf_projection_policy.md:175 :: RDF may be treated as authority.
+  snippet: Future graph analysis may consume projected RDF only as a derived input surface. RDF still remains projection, not authority.
+- FAIL :: docs/specs/rdf_projection_policy.md:179 :: RDF may be treated as authority.
+  snippet: - `INV-RDF-001`: RDF is projection, not authority.
+- FAIL :: GOVERNANCE.md:320 :: RDF may be treated as authority.
+  snippet: - `INV-RDF-001`: RDF is projection, not authority
+
+[B] RDF runtime drift
+----------------------
+- FAIL :: docs/specs/storage_policy.md:85 :: SPARQL may be enabled.
+  snippet: - RDF, Oxigraph, and SPARQL are not enabled here
+- FAIL :: docs/specs/storage_policy.md:85 :: Oxigraph may be enabled as active runtime.
+  snippet: - RDF, Oxigraph, and SPARQL are not enabled here
+
+[C] Lifecycle filtering drift
+------------------------------
+No suspicious matches detected.
+
+Final summary:
+fail_count: 6
+warn_count: 0
+info_count: 0
+advisory_only: true
+exit_code_policy: non-zero only on script failure

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/usage_ref.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "UsageRef",
+  "description": "Declarative logical usage reference. Usage refs declare usage, not duplication, project exposure, execution permission, or storage authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "usage_ref",
+    "object_ref",
+    "usage_kind",
+    "owner_ref",
+    "declared_at"
+  ],
+  "properties": {
+    "usage_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "usage_kind": {
+      "type": "string",
+      "enum": [
+        "project",
+        "document",
+        "chat",
+        "knowledge",
+        "tool_output",
+        "artifact",
+        "semantic"
+      ]
+    },
+    "owner_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Required traceability owner reference."
+    },
+    "declared_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

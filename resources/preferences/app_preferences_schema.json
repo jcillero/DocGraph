@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "type": "object",
+  "required": [
+    "version",
+    "show_onboarding_modal"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "show_onboarding_modal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}

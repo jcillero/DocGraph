@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "prompt_id": "extract_concepts_v1",
+  "title": "Extract concepts from a text chunk",
+  "intent": "semantic_extraction",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "prompt_template": {
+    "type": "structured",
+    "template": ""
+  },
+  "input_contract": {
+    "type": "text_chunk",
+    "required_fields": [
+      "document_id",
+      "chunk_id",
+      "text",
+      "source_hash"
+    ]
+  },
+  "output_contract": {
+    "type": "concept_list",
+    "required_fields": [
+      "concepts"
+    ]
+  },
+  "constraints": {
+    "structured_output": true,
+    "free_text_allowed": false,
+    "requires_human_review": true
+  },
+  "forbidden": [
+    "execute_llm",
+    "call_tools",
+    "mutate_documents",
+    "write_files",
+    "create_embeddings",
+    "create_graph"
+  ]
+}

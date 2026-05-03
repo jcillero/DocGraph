@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "glossary_id": "gui_objects_v1",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "objects": [
+    {
+      "id": "document_tree",
+      "canonical_name": "Document Tree",
+      "category": "navigation",
+      "purpose_i18n": "gui-object-document-tree-purpose",
+      "not_i18n": "gui-object-document-tree-not",
+      "allowed_i18n": "gui-object-document-tree-allowed",
+      "state": "active"
+    },
+    {
+      "id": "clip_panel",
+      "canonical_name": "Clip Panel",
+      "category": "intake",
+      "purpose_i18n": "gui-object-clip-panel-purpose",
+      "not_i18n": "gui-object-clip-panel-not",
+      "allowed_i18n": "gui-object-clip-panel-allowed",
+      "state": "active"
+    },
+    {
+      "id": "workspace_tabs",
+      "canonical_name": "Workspace Tabs",
+      "category": "workspace",
+      "purpose_i18n": "gui-object-workspace-tabs-purpose",
+      "not_i18n": "gui-object-workspace-tabs-not",
+      "allowed_i18n": "gui-object-workspace-tabs-allowed",
+      "state": "active"
+    },
+    {
+      "id": "readonly_viewer",
+      "canonical_name": "Readonly Viewer",
+      "category": "viewer",
+      "purpose_i18n": "gui-object-readonly-viewer-purpose",
+      "not_i18n": "gui-object-readonly-viewer-not",
+      "allowed_i18n": "gui-object-readonly-viewer-allowed",
+      "required_label": "READONLY",
+      "state": "active"
+    },
+    {
+      "id": "chat_panel",
+      "canonical_name": "Chat Panel",
+      "category": "coordination",
+      "purpose_i18n": "gui-object-chat-panel-purpose",
+      "not_i18n": "gui-object-chat-panel-not",
+      "allowed_i18n": "gui-object-chat-panel-allowed",
+      "state": "active"
+    },
+    {
+      "id": "tools_panel",
+      "canonical_name": "Tools Panel",
+      "category": "tools",
+      "purpose_i18n": "gui-object-tools-panel-purpose",
+      "not_i18n": "gui-object-tools-panel-not",
+      "allowed_i18n": "gui-object-tools-panel-allowed",
+      "subtypes": [
+        {
+          "id": "operational_tools",
+          "canonical_name": "Operational Tools",
+          "purpose_i18n": "gui-object-operational-tools-purpose"
+        },
+        {
+          "id": "llm_tools",
+          "canonical_name": "LLM Tools",
+          "purpose_i18n": "gui-object-llm-tools-purpose"
+        }
+      ],
+      "state": "active"
+    },
+    {
+      "id": "knowledge_panel",
+      "canonical_name": "Knowledge Panel",
+      "category": "knowledge",
+      "purpose_i18n": "gui-object-knowledge-panel-purpose",
+      "not_i18n": "gui-object-knowledge-panel-not",
+      "allowed_i18n": "gui-object-knowledge-panel-allowed",
+      "state": "active"
+    },
+    {
+      "id": "pipeline_view",
+      "canonical_name": "Pipeline View",
+      "category": "f9_5_mock",
+      "purpose_i18n": "gui-object-pipeline-view-purpose",
+      "not_i18n": "gui-object-pipeline-view-not",
+      "allowed_i18n": "gui-object-pipeline-view-allowed",
+      "visible_flow": [
+        "Document",
+        "Chunk",
+        "PromptSpec",
+        "SemanticSpec",
+        "Proposal",
+        "Trace"
+      ],
+      "state": "readonly_mock"
+    },
+    {
+      "id": "ontology_proposal_view",
+      "canonical_name": "Ontology Proposal View",
+      "category": "f9_5_mock",
+      "purpose_i18n": "gui-object-ontology-proposal-view-purpose",
+      "not_i18n": "gui-object-ontology-proposal-view-not",
+      "allowed_i18n": "gui-object-ontology-proposal-view-allowed",
+      "proposal_state": "proposal_not_fact",
+      "state": "readonly_mock"
+    },
+    {
+      "id": "lume_help",
+      "canonical_name": "Lume Help",
+      "category": "help",
+      "purpose_i18n": "gui-object-lume-help-purpose",
+      "not_i18n": "gui-object-lume-help-not",
+      "allowed_i18n": "gui-object-lume-help-allowed",
+      "state": "active"
+    }
+  ],
+  "lume_rules": [
+    "RULE-LUME-GUI-001",
+    "RULE-LUME-GUI-002",
+    "RULE-LUME-GUI-003",
+    "RULE-LUME-GUI-004",
+    "RULE-LUME-GUI-005",
+    "RULE-LUME-GUI-006",
+    "RULE-LUME-GUI-007",
+    "RULE-LUME-GUI-008"
+  ],
+  "forbidden": [
+    "execute_llm",
+    "call_tools",
+    "mutate_documents",
+    "create_actions",
+    "persist_help_history",
+    "hardcode_visible_slint_text"
+  ]
+}

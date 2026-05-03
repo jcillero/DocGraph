@@ -1,0 +1,8 @@
+[package]
+name = "app_services"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+workspace_core = { path = "../workspace_core" }
+project_runtime = { path = "../project_runtime" }

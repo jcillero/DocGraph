@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/quad_instance.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "QuadInstance",
+  "description": "Declarative quad-instance contract only. Generation metadata is trace, not authority, and evidence references governed sources rather than duplicated raw text.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quad_instance_id",
+    "quad_id",
+    "source_kind",
+    "source_ref",
+    "evidence",
+    "generation",
+    "lifecycle_state"
+  ],
+  "properties": {
+    "quad_instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "quad_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": [
+        "file",
+        "chat",
+        "artifact",
+        "tool_output",
+        "metadata"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prompt_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trace_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "lifecycle_state": {
+      "$ref": "quad_lifecycle.schema.json#/$defs/lifecycleState"
+    }
+  },
+  "$defs": {
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "file_ref": {
+          "$ref": "file_ref.schema.json#/$defs/fileRefValue"
+        },
+        "object_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "chunk_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "chunk_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "start",
+            "end"
+          ],
+          "properties": {
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "metadata_snapshot_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tool_run_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trace_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "profile_optional": true,
+  "requires_consent": true,
+  "hidden_profiling_allowed": false,
+  "user_rights": [
+    "view",
+    "modify",
+    "delete"
+  ],
+  "empty_profile_behavior": {
+    "lume_may_ask": true,
+    "tone": "supportive_pedagogical",
+    "must_explain_storage": true
+  },
+  "forbidden": [
+    "store_without_consent",
+    "infer_sensitive_attributes",
+    "hide_profile_storage",
+    "make_profile_required_for_core_use"
+  ]
+}

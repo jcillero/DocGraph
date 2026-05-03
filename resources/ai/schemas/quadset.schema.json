@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/quadset.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "QuadSet",
+  "description": "Declarative contextual grouping contract only. Quadsets are contextual, not authoritative, and may represent a future semantic_quadset StoredObject kind.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quadset_id",
+    "source_kind",
+    "source_ref",
+    "generation_context",
+    "quad_instances"
+  ],
+  "properties": {
+    "quadset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_kind": {
+      "type": "string",
+      "enum": [
+        "file",
+        "chat",
+        "artifact",
+        "tool_output",
+        "metadata"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generation_context": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "quad_instances": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

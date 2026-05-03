@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "SemanticDerivationSpec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "semantic_spec_id",
+    "status",
+    "execution_enabled",
+    "source_layer",
+    "source_kind",
+    "granularity",
+    "prompt_ref",
+    "expected_output",
+    "human_review"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "semantic_spec_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "declared_only"
+    },
+    "execution_enabled": {
+      "const": false
+    },
+    "source_layer": {
+      "const": "document_text_runtime"
+    },
+    "source_kind": {
+      "const": "document_text_chunks"
+    },
+    "granularity": {
+      "type": "object",
+      "required": [
+        "unit",
+        "independent"
+      ],
+      "properties": {
+        "unit": {
+          "enum": [
+            "per_chunk",
+            "batch"
+          ]
+        },
+        "independent": {
+          "type": "boolean"
+        }
+      }
+    },
+    "prompt_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_output": {
+      "type": "object",
+      "required": [
+        "type"
+      ]
+    },
+    "human_review": {
+      "type": "object",
+      "required": [
+        "required",
+        "allowed_states"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "allowed_states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1404 @@
+﻿{
+    "audit":  "audit_f10_llm_execution_guard_codex",
+    "generated_at":  "2026-04-27 21:51:46",
+    "workspace_root":  "C:\\MAQUETAS SOFTWARE\\codex_sandbox_app_docgraph_B\\rust_portable_app",
+    "status":  "REVIEW",
+    "summary":  {
+                    "files_checked":  241,
+                    "read_errors":  0,
+                    "total":  171,
+                    "real_execution_surface":  8,
+                    "declarative_capability":  23,
+                    "guarded_declaration":  131,
+                    "review_required":  9
+                },
+    "codex_rules":  [
+                        "Do not modify DECLARATIVE_CAPABILITY entries.",
+                        "Do not modify GUARDED_DECLARATION entries.",
+                        "Do not modify REAL_EXECUTION_SURFACE entries without explicit human approval.",
+                        "For REVIEW_REQUIRED entries, classify first; propose minimal documentation wording fixes only when the entry is not a generated report, forbidden action id, or controlled validator check.",
+                        "Do not touch project_runtime.",
+                        "Do not touch UI logic.",
+                        "Do not rename forbidden action ids or declarative capability ids.",
+                        "Do not delete catalog entries only because they mention LLM, embeddings, Oxigraph, SPARQL, or semantic store."
+                    ],
+    "codex_actions":  {
+                          "REAL_EXECUTION_SURFACE":  "never_modify_without_human_approval",
+                          "DECLARATIVE_CAPABILITY":  "ignore",
+                          "GUARDED_DECLARATION":  "ignore",
+                          "REVIEW_REQUIRED":  "analyze_and_propose_minimal_fix"
+                      },
+    "findings":  [
+                     {
+                         "file":  "ARCHITECTURE.md",
+                         "line":  86,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- real semantic proposal approval, RDF persistence, Oxigraph store, SPARQL, or embeddings"
+                     },
+                     {
+                         "file":  "ARCHITECTURE.md",
+                         "line":  86,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- real semantic proposal approval, RDF persistence, Oxigraph store, SPARQL, or embeddings"
+                     },
+                     {
+                         "file":  "ARCHITECTURE.md",
+                         "line":  106,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "F9.5 may declare AI governance specs, semantic proposal schemas, and a readonly/mock Pipeline / Ontology View. This view is presentation only: it does not call LLMs, create embeddings, persist RDF, run SPARQL, activate Oxigraph, approve proposals, or mutate documents."
+                     },
+                     {
+                         "file":  "ARCHITECTURE.md",
+                         "line":  106,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "F9.5 may declare AI governance specs, semantic proposal schemas, and a readonly/mock Pipeline / Ontology View. This view is presentation only: it does not call LLMs, create embeddings, persist RDF, run SPARQL, activate Oxigraph, approve proposals, or mutate documents."
+                     },
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  120,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no RDF, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  120,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no RDF, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  170,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- embeddings, graph storage, and retrieval layers over derived text"
+                     },
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  172,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- RDF persistence, Oxigraph runtime, N-Quads output, or SPARQL execution"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  92,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- F9.5 AI governance declarations, semantic proposal schema, and readonly/mock Pipeline / Ontology View without LLM execution, embeddings, RDF persistence, Oxigraph, or semantic store"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  92,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- F9.5 AI governance declarations, semantic proposal schema, and readonly/mock Pipeline / Ontology View without LLM execution, embeddings, RDF persistence, Oxigraph, or semantic store"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  98,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern F9.5 semantic proposals. They do not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, semantic store, or document mutation."
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  98,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern F9.5 semantic proposals. They do not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, semantic store, or document mutation."
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  105,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` remain false in F9.5"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  105,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` remain false in F9.5"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  114,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: RDF/Oxigraph preparation must not introduce Oxigraph dependency, store, SPARQL, embeddings, or LLM execution"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  114,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: RDF/Oxigraph preparation must not introduce Oxigraph dependency, store, SPARQL, embeddings, or LLM execution"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  118,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern the DocGraph project folder contract. They do not implement runtime behavior, tool execution, graph runtime, RDF, Oxigraph, SPARQL, embeddings, or semantic store behavior."
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  118,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern the DocGraph project folder contract. They do not implement runtime behavior, tool execution, graph runtime, RDF, Oxigraph, SPARQL, embeddings, or semantic store behavior."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  104,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- semantic proposal approval, RDF persistence, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  104,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- semantic proposal approval, RDF persistence, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  165,
+                         "pattern":  "embeddings",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- semantic runtime, embeddings, RDF persistence, SPARQL, or Oxigraph execution"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  165,
+                         "pattern":  "oxigraph",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- semantic runtime, embeddings, RDF persistence, SPARQL, or Oxigraph execution"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  265,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- F9.5 AI governance declarations, semantic proposal schema, and readonly/mock Pipeline / Ontology View without LLM execution, embeddings, RDF persistence, Oxigraph, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  265,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- F9.5 AI governance declarations, semantic proposal schema, and readonly/mock Pipeline / Ontology View without LLM execution, embeddings, RDF persistence, Oxigraph, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  271,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern F9.5 semantic proposals. They do not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, semantic store, or document mutation."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  271,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern F9.5 semantic proposals. They do not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, semantic store, or document mutation."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  278,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` remain false in F9.5"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  278,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` remain false in F9.5"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  287,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: RDF/Oxigraph preparation must not introduce Oxigraph dependency, store, SPARQL, embeddings, or LLM execution"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  287,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: RDF/Oxigraph preparation must not introduce Oxigraph dependency, store, SPARQL, embeddings, or LLM execution"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  291,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern the DocGraph project folder contract. They do not implement runtime behavior, tool execution, graph runtime, RDF, Oxigraph, SPARQL, embeddings, or semantic store behavior."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  291,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "The following invariants govern the DocGraph project folder contract. They do not implement runtime behavior, tool execution, graph runtime, RDF, Oxigraph, SPARQL, embeddings, or semantic store behavior."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  489,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- real semantic proposal approval, RDF persistence, Oxigraph store, SPARQL, or embeddings"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  489,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- real semantic proposal approval, RDF persistence, Oxigraph store, SPARQL, or embeddings"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  509,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "F9.5 may declare AI governance specs, semantic proposal schemas, and a readonly/mock Pipeline / Ontology View. This view is presentation only: it does not call LLMs, create embeddings, persist RDF, run SPARQL, activate Oxigraph, approve proposals, or mutate documents."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  509,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "F9.5 may declare AI governance specs, semantic proposal schemas, and a readonly/mock Pipeline / Ontology View. This view is presentation only: it does not call LLMs, create embeddings, persist RDF, run SPARQL, activate Oxigraph, approve proposals, or mutate documents."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  648,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no RDF, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  648,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no RDF, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  698,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- embeddings, graph storage, and retrieval layers over derived text"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  700,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- RDF persistence, Oxigraph runtime, N-Quads output, or SPARQL execution"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  778,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph/RDF preparation remains disabled: no Oxigraph dependency, embeddings, semantic store, or N-Quads output is created"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  778,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph/RDF preparation remains disabled: no Oxigraph dependency, embeddings, semantic store, or N-Quads output is created"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1564,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no embeddings"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1566,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no Oxigraph dependency"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1584,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- future RDF/Oxigraph disabled flags"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1589,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "## Future Oxigraph/RDF"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1591,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "Oxigraph is a future store candidate only."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1595,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `oxigraph_enabled = false`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1597,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `semantic_store_enabled = false`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1631,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`graph/` explains relationships. It does not govern, execute, approve, infer, persist RDF, run SPARQL, activate Oxigraph, create embeddings, or replace `project_runtime`."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1631,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`graph/` explains relationships. It does not govern, execute, approve, infer, persist RDF, run SPARQL, activate Oxigraph, create embeddings, or replace `project_runtime`."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1713,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, N-Quads output, or semantic store is introduced."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1713,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, N-Quads output, or semantic store is introduced."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3206,
+                         "pattern":  "embeddings",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- embeddings"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3454,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no real provider invocation yet"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3954,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, or semantic store is introduced by this layout."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3954,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, or semantic store is introduced by this layout."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4089,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "PROPOSAL / F9.5 declarative governance. This document does not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, tools, document mutation, or runtime approval."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4089,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "PROPOSAL / F9.5 declarative governance. This document does not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, tools, document mutation, or runtime approval."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4142,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "Graph hints do not create RDF, persist triples, or activate Oxigraph."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4146,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `oxigraph_enabled = false`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4148,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `semantic_store_enabled = false`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4163,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-005`: future export does not imply persistence. `FutureGraphRef`, `graph_hint`, or N-Quads do not create RDF or activate Oxigraph."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4164,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: Oxigraph is future, not current runtime. In F9.5 `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` are false."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4164,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: Oxigraph is future, not current runtime. In F9.5 `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` are false."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4173,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: prepare RDF/Oxigraph without premature implementation: no Oxigraph dependency, store, SPARQL, embeddings, or LLM."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4173,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: prepare RDF/Oxigraph without premature implementation: no Oxigraph dependency, store, SPARQL, embeddings, or LLM."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4224,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no provider invocation"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4254,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph disabled"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4269,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- introduce Oxigraph now"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4885,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no direct provider invocation"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4913,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- future RDF/Oxigraph disabled flags"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4916,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "It must not infer semantics, approve proposals, call LLMs, create embeddings, persist RDF, run SPARQL, execute tools, mutate documents, or reinterpret project manifests."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  5088,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`pipeline_ontology` is readonly/mock in F9.5. It represents AI governance declarations and semantic proposals, but it does not approve proposals, infer facts, execute LLMs, create embeddings, persist RDF, or activate Oxigraph."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  5088,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`pipeline_ontology` is readonly/mock in F9.5. It represents AI governance declarations and semantic proposals, but it does not approve proposals, infer facts, execute LLMs, create embeddings, persist RDF, or activate Oxigraph."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  5098,
+                         "pattern":  "oxigraph",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- semantic approval or RDF/Oxigraph execution"
+                     },
+                     {
+                         "file":  "README.md",
+                         "line":  93,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- semantic proposal approval, RDF persistence, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "README.md",
+                         "line":  93,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- semantic proposal approval, RDF persistence, Oxigraph, SPARQL, embeddings, or semantic store"
+                     },
+                     {
+                         "file":  "README.md",
+                         "line":  154,
+                         "pattern":  "embeddings",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- semantic runtime, embeddings, RDF persistence, SPARQL, or Oxigraph execution"
+                     },
+                     {
+                         "file":  "README.md",
+                         "line":  154,
+                         "pattern":  "oxigraph",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- semantic runtime, embeddings, RDF persistence, SPARQL, or Oxigraph execution"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  61,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph/RDF preparation remains disabled: no Oxigraph dependency, embeddings, semantic store, or N-Quads output is created"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  61,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph/RDF preparation remains disabled: no Oxigraph dependency, embeddings, semantic store, or N-Quads output is created"
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  202,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "pub fn invoke_openai_cloud_minimal("
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  206,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "invoke_openai_cloud_minimal_with_transport("
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  213,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "fn invoke_openai_cloud_minimal_with_transport("
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  396,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "invoke_openai_cloud_minimal_with_transport, CloudHttpTransport, CloudInvokeRequest,"
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  428,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "invoke_openai_cloud_minimal_with_transport(\u0026provider_config, \u0026request, \u0026transport)"
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  452,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "let error = invoke_openai_cloud_minimal_with_transport("
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  479,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "invoke_openai_cloud_minimal_with_transport(\u0026provider_config, \u0026request, \u0026transport)"
+                     },
+                     {
+                         "file":  "crates/llm_cloud/src/lib.rs",
+                         "line":  511,
+                         "pattern":  "invoke_openai",
+                         "classification":  "REAL_EXECUTION_SURFACE",
+                         "action":  "review_only",
+                         "snippet":  "invoke_openai_cloud_minimal_with_transport(\u0026provider_config, \u0026request, \u0026transport)"
+                     },
+                     {
+                         "file":  "crates/ui_core/src/lib.rs",
+                         "line":  575,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "pub oxigraph_enabled: bool,"
+                     },
+                     {
+                         "file":  "crates/ui_core/src/lib.rs",
+                         "line":  577,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "pub semantic_store_enabled: bool,"
+                     },
+                     {
+                         "file":  "crates/ui_core/src/lib.rs",
+                         "line":  632,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "future_store: \"Oxigraph\".to_owned(),"
+                     },
+                     {
+                         "file":  "crates/ui_core/src/lib.rs",
+                         "line":  633,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "oxigraph_enabled: false,"
+                     },
+                     {
+                         "file":  "crates/ui_core/src/lib.rs",
+                         "line":  635,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "semantic_store_enabled: false,"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2326,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "\"\\n[Human Review]\\nstate={}\\nallowed_states={}\\n\\n[Future RDF/Oxigraph]\\nfuture_format={}\\nstore={}\\noxigraph_enabled={}\\nrdf_export_enabled={}\\nsemantic_store_enabled={}\\n\\n[Trace / Governance]\\ntrace_id={}\\npolicy={}\\nllm_mode={}\\nexecuted={}\\nmutation={}\","
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2326,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "\"\\n[Human Review]\\nstate={}\\nallowed_states={}\\n\\n[Future RDF/Oxigraph]\\nfuture_format={}\\nstore={}\\noxigraph_enabled={}\\nrdf_export_enabled={}\\nsemantic_store_enabled={}\\n\\n[Trace / Governance]\\ntrace_id={}\\npolicy={}\\nllm_mode={}\\nexecuted={}\\nmutation={}\","
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2331,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "state.oxigraph_enabled,"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2333,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "state.semantic_store_enabled,"
+                     },
+                     {
+                         "file":  "crates/verify_progress/src/lib.rs",
+                         "line":  620,
+                         "pattern":  "invoke_llm",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "contains_all_string_array(value, \"forbidden\", \u0026[\"duplicate_project_pipeline\", \"invoke_llm\", \"persist_semantic_graph\"]),"
+                     },
+                     {
+                         "file":  "crates/verify_progress/src/lib.rs",
+                         "line":  623,
+                         "pattern":  "invoke_llm",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "\"forbidden must contain duplicate_project_pipeline, invoke_llm, persist_semantic_graph\","
+                     },
+                     {
+                         "file":  "crates/verify_progress/src/lib.rs",
+                         "line":  704,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "self.require(nested_bool(value, \u0026[\"properties\", \"future_graph\", \"properties\", \"oxigraph_enabled\", \"const\"]) == Some(false), \"SEMANTIC_PROPOSAL_OXIGRAPH\", path, \"future_graph.oxigraph_enabled must be const false\");"
+                     },
+                     {
+                         "file":  "crates/verify_progress/src/lib.rs",
+                         "line":  706,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "self.require(nested_bool(value, \u0026[\"properties\", \"future_graph\", \"properties\", \"semantic_store_enabled\", \"const\"]) == Some(false), \"SEMANTIC_PROPOSAL_STORE\", path, \"future_graph.semantic_store_enabled must be const false\");"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  128,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - Oxigraph/RDF/N-Quads: future preparation disabled; no RDF persisted, no SPARQL, no embeddings"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  128,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - Oxigraph/RDF/N-Quads: future preparation disabled; no RDF persisted, no SPARQL, no embeddings"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  221,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - Oxigraph/RDF/N-Quads preparation disabled; no semantic store, SPARQL, embeddings, or RDF persistence"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  221,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - Oxigraph/RDF/N-Quads preparation disabled; no semantic store, SPARQL, embeddings, or RDF persistence"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  261,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - Oxigraph/RDF preparation being mistaken for an enabled store or export path"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  288,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - no LLM execution, autonomous tools, embeddings, RDF persistence, SPARQL, or document mutation"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  394,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - embeddings"
+                     },
+                     {
+                         "file":  "dev/scripts/generate_status_snapshot.bat",
+                         "line":  395,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "echo - RDF persistence, N-Quads output, SPARQL, or Oxigraph runtime"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_f9_declarations.ps1",
+                         "line":  182,
+                         "pattern":  "call_llm",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "foreach ($key in @(\"execute_tools\", \"mutate_filesystem\", \"trigger_workflows\", \"call_llm_providers\")) {"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_f9_declarations.ps1",
+                         "line":  323,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "if ($storage.database.oxigraph -ne \"future_optional\") { Add-ValidationError \"resources/storage/storage_policy.json\" \"oxigraph must not be active\" }"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  41,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no embeddings"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  43,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no Oxigraph dependency"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  61,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- future RDF/Oxigraph disabled flags"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  66,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "## Future Oxigraph/RDF"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  68,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "Oxigraph is a future store candidate only."
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  72,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `oxigraph_enabled = false`"
+                     },
+                     {
+                         "file":  "docs/specs/ai_governance_f9_5.md",
+                         "line":  74,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `semantic_store_enabled = false`"
+                     },
+                     {
+                         "file":  "docs/specs/artifact_graph.md",
+                         "line":  11,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`graph/` explains relationships. It does not govern, execute, approve, infer, persist RDF, run SPARQL, activate Oxigraph, create embeddings, or replace `project_runtime`."
+                     },
+                     {
+                         "file":  "docs/specs/artifact_graph.md",
+                         "line":  11,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "`graph/` explains relationships. It does not govern, execute, approve, infer, persist RDF, run SPARQL, activate Oxigraph, create embeddings, or replace `project_runtime`."
+                     },
+                     {
+                         "file":  "docs/specs/artifact_graph.md",
+                         "line":  93,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, N-Quads output, or semantic store is introduced."
+                     },
+                     {
+                         "file":  "docs/specs/artifact_graph.md",
+                         "line":  93,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, N-Quads output, or semantic store is introduced."
+                     },
+                     {
+                         "file":  "docs/specs/document_text_runtime.md",
+                         "line":  50,
+                         "pattern":  "embeddings",
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "snippet":  "- embeddings"
+                     },
+                     {
+                         "file":  "docs/specs/llm_core.md",
+                         "line":  51,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no real provider invocation yet"
+                     },
+                     {
+                         "file":  "docs/specs/project_folder_layout.md",
+                         "line":  138,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, or semantic store is introduced by this layout."
+                     },
+                     {
+                         "file":  "docs/specs/project_folder_layout.md",
+                         "line":  138,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- No RDF, Oxigraph, SPARQL, embeddings, or semantic store is introduced by this layout."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  51,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "It does not imply embeddings, RDF, Oxigraph, or real LLM execution."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  51,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "It does not imply embeddings, RDF, Oxigraph, or real LLM execution."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  5,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "PROPOSAL / F9.5 declarative governance. This document does not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, tools, document mutation, or runtime approval."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  5,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "PROPOSAL / F9.5 declarative governance. This document does not implement LLM execution, embeddings, RDF persistence, Oxigraph, SPARQL, tools, document mutation, or runtime approval."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  58,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "Graph hints do not create RDF, persist triples, or activate Oxigraph."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  62,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `oxigraph_enabled = false`"
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  64,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `semantic_store_enabled = false`"
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  79,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-005`: future export does not imply persistence. `FutureGraphRef`, `graph_hint`, or N-Quads do not create RDF or activate Oxigraph."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  80,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: Oxigraph is future, not current runtime. In F9.5 `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` are false."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  80,
+                         "pattern":  "semantic_store",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-006`: Oxigraph is future, not current runtime. In F9.5 `oxigraph_enabled`, `rdf_export_enabled`, and `semantic_store_enabled` are false."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  89,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: prepare RDF/Oxigraph without premature implementation: no Oxigraph dependency, store, SPARQL, embeddings, or LLM."
+                     },
+                     {
+                         "file":  "docs/specs/semantic_proposal_layer.md",
+                         "line":  89,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- `INV-SEM-015`: prepare RDF/Oxigraph without premature implementation: no Oxigraph dependency, store, SPARQL, embeddings, or LLM."
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  274,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llms\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  502,
+                         "pattern":  "invoke_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"invoke_llm\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  562,
+                         "pattern":  "embeddings",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"create_embeddings\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  564,
+                         "pattern":  "run_sparql",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"run_sparql\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  661,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\""
+                     },
+                     {
+                         "file":  "docs/specs/SPECS_INDEX.md",
+                         "line":  36,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "| `chat_input.md` | Governs keyboard-first multiline chat input, long-text behavior, and optional dictation capture state. | `chat_document_flows.md`, `ui_core.md` | Command execution, target resolution, STT integration, provider invocation | `PROPOSAL / F9-ready declarative governance` |"
+                     },
+                     {
+                         "file":  "docs/specs/spec_runtime.md",
+                         "line":  38,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no provider invocation"
+                     },
+                     {
+                         "file":  "docs/specs/storage_policy.md",
+                         "line":  18,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- Oxigraph disabled"
+                     },
+                     {
+                         "file":  "docs/specs/storage_policy.md",
+                         "line":  39,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- introduce Oxigraph now"
+                     },
+                     {
+                         "file":  "docs/specs/ui_core.md",
+                         "line":  42,
+                         "pattern":  "provider invocation",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- no direct provider invocation"
+                     },
+                     {
+                         "file":  "docs/specs/ui_core.md",
+                         "line":  87,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "- future RDF/Oxigraph disabled flags"
+                     },
+                     {
+                         "file":  "docs/specs/ui_core.md",
+                         "line":  90,
+                         "pattern":  "embeddings",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "It must not infer semantics, approve proposals, call LLMs, create embeddings, persist RDF, run SPARQL, execute tools, mutate documents, or reinterpret project manifests."
+                     },
+                     {
+                         "file":  "resources/ai/prompt_specs/extract_concepts_v1.json",
+                         "line":  38,
+                         "pattern":  "embeddings",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"create_embeddings\","
+                     },
+                     {
+                         "file":  "resources/ai/schemas/semantic_proposal.schema.json",
+                         "line":  96,
+                         "pattern":  "oxigraph",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"oxigraph_enabled\","
+                     },
+                     {
+                         "file":  "resources/ai/schemas/semantic_proposal.schema.json",
+                         "line":  98,
+                         "pattern":  "semantic_store",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"semantic_store_enabled\","
+                     },
+                     {
+                         "file":  "resources/ai/schemas/semantic_proposal.schema.json",
+                         "line":  106,
+                         "pattern":  "oxigraph",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"const\": \"Oxigraph\""
+                     },
+                     {
+                         "file":  "resources/ai/schemas/semantic_proposal.schema.json",
+                         "line":  108,
+                         "pattern":  "oxigraph",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"oxigraph_enabled\": {"
+                     },
+                     {
+                         "file":  "resources/ai/schemas/semantic_proposal.schema.json",
+                         "line":  114,
+                         "pattern":  "semantic_store",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"semantic_store_enabled\": {"
+                     },
+                     {
+                         "file":  "resources/ai/semantic_specs/concept_extraction_v1.json",
+                         "line":  35,
+                         "pattern":  "embeddings",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"create_embeddings\","
+                     },
+                     {
+                         "file":  "resources/ai/semantic_specs/concept_extraction_v1.json",
+                         "line":  36,
+                         "pattern":  "invoke_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"invoke_llm\""
+                     },
+                     {
+                         "file":  "resources/document_templates/basic_markdown_report_template.json",
+                         "line":  122,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/document_templates/templates_catalog.json",
+                         "line":  44,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/help/lume_help.json",
+                         "line":  38,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/lume/lume_response_policy.json",
+                         "line":  29,
+                         "pattern":  "invoke_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"invoke_llm_runtime\","
+                     },
+                     {
+                         "file":  "resources/lume/lume_response_policy.json",
+                         "line":  34,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm_providers\","
+                     },
+                     {
+                         "file":  "resources/lume/lume_response_policy.json",
+                         "line":  41,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm_providers\": false"
+                     },
+                     {
+                         "file":  "resources/reference_styles/corporate/company_letter_refs_example.json",
+                         "line":  36,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/reference_styles/standard/apa_7_example.json",
+                         "line":  27,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/reference_styles/standard/ieee_example.json",
+                         "line":  26,
+                         "pattern":  "call_llm",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"call_llm\","
+                     },
+                     {
+                         "file":  "resources/storage/storage_policy.json",
+                         "line":  9,
+                         "pattern":  "oxigraph",
+                         "classification":  "DECLARATIVE_CAPABILITY",
+                         "action":  "ignore",
+                         "snippet":  "\"oxigraph\": \"future_optional\""
+                     },
+                     {
+                         "file":  "user/storage/README.md",
+                         "line":  7,
+                         "pattern":  "oxigraph",
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "snippet":  "SQLite and Oxigraph are not active in the current F9-ready governance state."
+                     }
+                 ],
+    "read_errors":  [
+
+                    ]
+}

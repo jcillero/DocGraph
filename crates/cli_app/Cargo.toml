@@ -1,0 +1,10 @@
+[package]
+name = "cli_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+app_services = { path = "../app_services" }
+core_domain = { path = "../core_domain" }
+tool_runtime = { path = "../tool_runtime" }
+workspace_core = { path = "../workspace_core" }

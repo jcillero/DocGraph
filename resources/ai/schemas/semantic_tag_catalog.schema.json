@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/semantic_tag_catalog.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "Semantic Tag Catalog",
+  "description": "Declarative governed catalog for semantic classification tags. Schema validity does not imply runtime activation, approval, project exposure, or execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalog_id",
+    "authority",
+    "keyword_policy",
+    "families",
+    "tags"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "const": "declared_only"
+    },
+    "execution_enabled": {
+      "const": false
+    },
+    "catalog_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "const": "governed_catalog"
+    },
+    "keyword_policy": {
+      "type": "string",
+      "enum": [
+        "controlled",
+        "semi_controlled"
+      ]
+    },
+    "families": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/tagFamily"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tagEntry"
+      }
+    }
+  },
+  "$defs": {
+    "tagId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "tagFamily": {
+      "type": "string",
+      "enum": [
+        "keyword",
+        "system_tag",
+        "usage_tag"
+      ]
+    },
+    "tagLifecycle": {
+      "type": "string",
+      "enum": [
+        "PROPOSED",
+        "UNDER_REVIEW",
+        "ACTIVE",
+        "DEPRECATED",
+        "REMOVED",
+        "REJECTED"
+      ]
+    },
+    "allowedObjectKind": {
+      "type": "string",
+      "enum": [
+        "source_file",
+        "document",
+        "chat_session",
+        "chat_attachment",
+        "artifact",
+        "tool_output",
+        "dataset",
+        "code",
+        "media",
+        "semantic_quadset",
+        "chat",
+        "bibliographic_entry"
+      ]
+    },
+    "quadMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate",
+        "object"
+      ],
+      "properties": {
+        "predicate": {
+          "type": "string",
+          "minLength": 1
+        },
+        "object": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tagEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag_id",
+        "tag_family",
+        "label",
+        "description",
+        "status",
+        "introduced_in",
+        "allowed_for",
+        "aliases",
+        "replaces",
+        "replaced_by",
+        "quad_mapping"
+      ],
+      "properties": {
+        "tag_id": {
+          "$ref": "#/$defs/tagId"
+        },
+        "tag_family": {
+          "$ref": "#/$defs/tagFamily"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/tagLifecycle"
+        },
+        "introduced_in": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_for": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allowedObjectKind"
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tagId"
+          }
+        },
+        "replaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tagId"
+          }
+        },
+        "replaced_by": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/tagId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "quad_mapping": {
+          "$ref": "#/$defs/quadMapping"
+        }
+      }
+    }
+  }
+}

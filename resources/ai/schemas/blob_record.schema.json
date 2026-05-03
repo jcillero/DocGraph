@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/blob_record.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "BlobRecord",
+  "description": "Declarative physical blob metadata only. This schema does not define usage ownership, project exposure, or runtime authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "file_ref",
+    "hash_algorithm",
+    "byte_size",
+    "media_type",
+    "original_name_optional",
+    "created_at",
+    "integrity"
+  ],
+  "properties": {
+    "file_ref": {
+      "$ref": "file_ref.schema.json#/$defs/fileRefValue"
+    },
+    "hash_algorithm": {
+      "type": "string",
+      "enum": [
+        "sha256"
+      ],
+      "description": "Physical blob hash algorithm."
+    },
+    "byte_size": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Blob size in bytes."
+    },
+    "media_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Declared media type for the blob."
+    },
+    "original_name_optional": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional original intake name. It is descriptive only and not a portable authority field."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Declarative blob-record creation timestamp."
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "unverified",
+            "unknown"
+          ]
+        },
+        "checked_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "description": "Declarative integrity metadata only."
+    }
+  }
+}

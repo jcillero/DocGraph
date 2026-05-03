@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "DataSensitivityPolicy",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "policy_id",
+    "status",
+    "execution_enabled",
+    "default_level",
+    "levels",
+    "rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "declared_only"
+    },
+    "execution_enabled": {
+      "const": false
+    },
+    "default_level": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "public",
+          "internal",
+          "confidential",
+          "restricted"
+        ]
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "level",
+          "llm_allowed",
+          "allowed_modes",
+          "requires_anonymization",
+          "requires_human_review"
+        ]
+      }
+    }
+  }
+}

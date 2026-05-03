@@ -1,0 +1,30 @@
+[workspace]
+members = [
+    "crates/action_core",
+    "crates/core_domain",
+    "crates/workspace_core",
+    "crates/io_runtime",
+    "crates/spec_runtime",
+    "crates/project_runtime",
+    "crates/document_text_runtime",
+    "crates/llm_core",
+    "crates/llm_local",
+    "crates/llm_cloud",
+    "crates/tool_runtime",
+    "crates/ui_core",
+    "crates/ui_i18n",
+    "crates/ui_theme",
+    "crates/ui_slint",
+    "crates/app_services",
+    "crates/cli_app",
+    "crates/verify_progress",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+license = "Proprietary"
+
+[workspace.dependencies]
+slint = { version = "1.8", default-features = true, features = ["std"] }

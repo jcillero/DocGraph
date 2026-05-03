@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/semantic_quad.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "SemanticQuad",
+  "description": "Declarative semantic identity contract only. Schema validity does not imply approval, execution, RDF projection, or graph authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quad_id",
+    "subject",
+    "predicate",
+    "object",
+    "graph"
+  ],
+  "properties": {
+    "quad_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "graph": {
+      "type": "string",
+      "enum": [
+        "domain_knowledge",
+        "document_governance",
+        "ai_governance",
+        "system_governance"
+      ]
+    }
+  }
+}

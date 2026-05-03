@@ -1,0 +1,10 @@
+[colors]
+surface.background = "#111827"
+surface.panel = "#1f2937"
+text.primary = "#f9fafb"
+text.secondary = "#cbd5e1"
+border.default = "#374151"
+status.success = "#22c55e"
+status.warning = "#f59e0b"
+status.error = "#ef4444"
+accent.primary = "#14b8a6"

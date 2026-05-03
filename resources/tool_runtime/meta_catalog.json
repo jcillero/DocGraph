@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "project",
+      "label": "Project",
+      "tools": [
+        { "id": "manifest", "label": "Manifest" },
+        { "id": "surface", "label": "Surface" }
+      ],
+      "recipes": [
+        { "id": "project_summary", "label": "Project Summary" }
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "tools": [
+        { "id": "catalog", "label": "Catalog" }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "label": "Knowledge",
+      "tools": [
+        { "id": "search", "label": "Search" }
+      ]
+    }
+  ]
+}

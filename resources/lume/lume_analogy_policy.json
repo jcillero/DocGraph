@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "allowed": true,
+  "purpose": "Clarify concepts only when an analogy reduces confusion.",
+  "max_sentences": 1,
+  "allowed_styles": [
+    "engineering",
+    "architecture",
+    "navigation",
+    "systems"
+  ],
+  "rules": [
+    "analogies_must_be_short",
+    "analogies_must_be_at_most_one_sentence",
+    "analogies_must_not_replace_technical_truth",
+    "analogies_must_not_introduce_emotional_anthropomorphism",
+    "analogies_must_be_avoided_when_user_is_frustrated_unless_they_directly_reduce_confusion"
+  ],
+  "forbidden": [
+    "mascot_identity",
+    "claims_of_sentience",
+    "hidden_personality_profile_inference",
+    "sarcasm",
+    "infantilization",
+    "emotionalization"
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "catalog_id": "operational_document_tools",
+  "tools": [
+    {
+      "id": "document_profile",
+      "tool_id": "document_profile",
+      "display_name_i18n": "tool.document_profile.display_name",
+      "short_description_i18n": "tool.document_profile.short_description",
+      "long_description_i18n": "tool.document_profile.long_description",
+      "tool_kind": "operational",
+      "surface": "operational",
+      "origin": "internal",
+      "category": "document_analysis",
+      "catalog_ref": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+      "status": "declared_only",
+      "requires_confirmation": true,
+      "enabled": true,
+      "execution_enabled": false,
+      "requires_owner_ref": false,
+      "risk_level": "read_only",
+      "allowed_contexts": [
+        "tools_panel_manual",
+        "document_holder_owned_tool_output",
+        "knowledge_derivation"
+      ],
+      "forbidden_contexts": [
+        "llm_direct_execution",
+        "autonomous_tool_execution",
+        "external_dependency_execution",
+        "source_document_mutation",
+        "derived_document_mutation"
+      ],
+      "input_schema": {
+        "arguments": [
+          {
+            "name": "document_ref",
+            "type": "file_ref",
+            "required": true,
+            "source_policy": "governed_reference",
+            "description_i18n": "tools.document_profile.input.document_ref"
+          }
+        ]
+      },
+      "output_schema": {
+        "outputs": [
+          {
+            "name": "profile_result",
+            "type": "json",
+            "required": true,
+            "persistence": "not_persisted",
+            "description_i18n": "tools.document_profile.output.profile_result"
+          }
+        ]
+      },
+      "persistence_policy": {
+        "mode": "not_persisted",
+        "persisted_outputs": false,
+        "tool_run_manifest_required": false,
+        "project_root_outputs_allowed": false
+      },
+      "owner_policy": {
+        "requires_owner_ref": false,
+        "allowed_owners": [
+          "chat",
+          "DocumentHolder",
+          "knowledge"
+        ],
+        "owner_ref_context_only": true
+      },
+      "trace_requirements": [
+        "tool_id",
+        "tool_kind",
+        "catalog_ref",
+        "input_refs",
+        "status",
+        "timestamps",
+        "errors",
+        "warnings"
+      ],
+      "visible_text": {
+        "input_labels_i18n": {
+          "document_ref": "tool.document_profile.input.document_ref"
+        },
+        "output_labels_i18n": {
+          "profile_result": "tool.document_profile.output.profile_result"
+        },
+        "success_message_i18n": "tool.document_profile.success",
+        "error_message_i18n": "tool.document_profile.error"
+      },
+      "execution_implemented": false
+    },
+    {
+      "id": "merge_pdfs",
+      "tool_id": "merge_pdfs",
+      "display_name_i18n": "tools.merge_pdfs.display_name",
+      "short_description_i18n": "tools.merge_pdfs.short_description",
+      "description_i18n": "tools.merge_pdfs.long_description",
+      "long_description_i18n": "tools.merge_pdfs.long_description",
+      "tool_kind": "operational",
+      "surface": "operational",
+      "origin": "internal",
+      "category": "document_processing",
+      "catalog_ref": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+      "status": "declared_only",
+      "enabled": true,
+      "execution_enabled": false,
+      "execution_implemented": false,
+      "requires_confirmation": true,
+      "requires_owner_ref": true,
+      "risk_level": "medium",
+      "allowed_contexts": [
+        "chat",
+        "DocumentHolder"
+      ],
+      "forbidden_contexts": [
+        "project_root_outputs",
+        "llm_direct_execution"
+      ],
+      "input_schema": {
+        "arguments": [
+          {
+            "name": "pdf_files",
+            "type": "file_ref_list",
+            "required": true,
+            "multiplicity": "many",
+            "ordered": true,
+            "min_items": 2,
+            "allowed_extensions": [
+              ".pdf"
+            ],
+            "source_policy": "governed_reference_or_explicit_user_selection",
+            "validation_rules": [
+              "must_be_pdf",
+              "min_items_2"
+            ],
+            "description_i18n": "tools.merge_pdfs.input.pdf_files"
+          },
+          {
+            "name": "output_filename",
+            "type": "text",
+            "required": false,
+            "default": "merged.pdf",
+            "validation_rules": [
+              "relative_filename_only",
+              "pdf_extension"
+            ],
+            "description_i18n": "tools.merge_pdfs.input.output_filename"
+          }
+        ]
+      },
+      "output_schema": {
+        "outputs": [
+          {
+            "name": "merged_pdf",
+            "type": "file",
+            "required": true,
+            "persistence": "persisted",
+            "target_policy": "owner_scoped",
+            "allowed_extensions": [
+              ".pdf"
+            ],
+            "description_i18n": "tools.merge_pdfs.output.merged_pdf"
+          }
+        ]
+      },
+      "persistence_policy": {
+        "persistence": "persisted",
+        "requires_owner_ref": true,
+        "forbid_project_root_outputs": true,
+        "requires_tool_run_manifest": true
+      },
+      "owner_policy": {
+        "owner_ref_required": true,
+        "allowed_owner_kinds": [
+          "chat",
+          "DocumentHolder"
+        ]
+      },
+      "trace_requirements": [
+        "tool_id",
+        "tool_kind",
+        "run_id",
+        "owner_ref",
+        "inputs",
+        "configuration",
+        "outputs",
+        "status",
+        "created_at",
+        "trace",
+        "errors",
+        "warnings"
+      ],
+      "visible_text": {
+        "input_labels_i18n": {
+          "pdf_files": "tools.merge_pdfs.input.pdf_files",
+          "output_filename": "tools.merge_pdfs.input.output_filename"
+        },
+        "output_labels_i18n": {
+          "merged_pdf": "tools.merge_pdfs.output.merged_pdf"
+        },
+        "confirmation_message_i18n": "tools.merge_pdfs.confirmation",
+        "success_message_i18n": "tools.merge_pdfs.success",
+        "error_message_i18n": "tools.merge_pdfs.error"
+      },
+      "forbidden": [
+        "execute_in_f9",
+        "llm_direct_execution",
+        "project_root_outputs",
+        "missing_owner_ref",
+        "graph_update_by_scanning",
+        "mutate_source_or_derived"
+      ]
+    }
+  ]
+}

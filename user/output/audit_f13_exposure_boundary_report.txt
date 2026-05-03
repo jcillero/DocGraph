@@ -1,0 +1,50 @@
+# F13 Exposure Boundary Audit
+
+root=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+report=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\user\output\audit_f13_exposure_boundary_report.txt
+
+## PASS
+- ui_slint must not call import_project_document as production intake/exposure path
+- document tree must not treat list_project_documents or filesystem scanning as exposure authority
+- ui_slint must not call derive_document_text as import/exposure shortcut
+- ui_slint must not write project_manifest.json in production code
+- io_runtime must not write project_manifest.json outside a future explicit exposure gate
+- app_services must not write project_manifest.json or shadow exposure logic
+- registry.json writes must not be introduced on active exposure/import paths
+- graph writes must not be introduced by exposure/import paths
+- tool_runtime must not orchestrate file intake or project exposure
+- app_services must not shadow exposure logic
+
+## FAIL
+
+## WARN
+- ui_slint still references register_chat_resource
+- io_runtime still contains legacy helpers that require migration behind F12/F13
+
+## Findings
+[WARN] ui_slint still references register_chat_resource
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\ui_slint\src\lib.rs:1736:resources.push(register_chat_resource(chat_root, source_file)?);
+note=Allowed only as chat-local staging. This must not become intake or project exposure authority.
+
+[WARN] io_runtime still contains legacy helpers that require migration behind F12/F13
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:556:pub fn import_project_document(
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:513:pub fn list_project_documents(
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:398:pub fn register_chat_resource(
+note=Legacy helpers may remain temporarily, but they must not retain production authority once F13 runtime work begins.
+
+
+## Scanned Files
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\ui_slint\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\app_services\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\tool_runtime\src\*.rs
+
+## Interpretation Notes
+- This audit scans production Rust code only and ignores lines after the first `#[cfg(test)]` marker in each file.
+- Docs and specs are not scanned for violations, so prohibitive wording there does not create false positives.
+- `register_chat_resource` is warning-only here because F13.1 still allows chat-local staging when it does not create project exposure authority.
+- Any FAIL indicates an active code-path or production helper usage that conflicts with F13.1 STOP conditions before F13 runtime.
+
+status=PASS
+failures=0
+warnings=2

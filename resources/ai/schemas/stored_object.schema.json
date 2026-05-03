@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/stored_object.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "StoredObject",
+  "description": "Declarative logical StoredObject contract. StoredObject is logical, not physical, and does not imply project exposure or runtime authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "object_ref",
+    "object_kind",
+    "content_ref",
+    "metadata",
+    "lifecycle_state",
+    "derivation_capabilities",
+    "quad_flags"
+  ],
+  "properties": {
+    "object_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable logical identifier for the stored object."
+    },
+    "object_kind": {
+      "type": "string",
+      "enum": [
+        "source_file",
+        "document",
+        "chat_session",
+        "chat_attachment",
+        "artifact",
+        "tool_output",
+        "dataset",
+        "code",
+        "media",
+        "semantic_quadset"
+      ],
+      "description": "Usage classification only. It does not define storage location."
+    },
+    "content_ref": {
+      "description": "Content-addressed blob reference when physical content exists. May be null for logical-only objects.",
+      "oneOf": [
+        {
+          "$ref": "file_ref.schema.json#/$defs/fileRefValue"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic",
+        "technical",
+        "operational"
+      ],
+      "properties": {
+        "semantic": {
+          "type": "object",
+          "description": "Future quad-eligible metadata. May be empty. This schema does not generate semantic quads or activate semantic runtime.",
+          "additionalProperties": true,
+          "properties": {
+            "keywords": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+              },
+              "description": "Keyword tag_ids. Keyword governance is semi-controlled unless the tag catalog states otherwise."
+            },
+            "system_tags": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+              },
+              "description": "Controlled system tag_ids. Free-form system tags are forbidden by policy."
+            },
+            "usage_tags": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+              },
+              "description": "Controlled usage tag_ids. Free-form usage tags are forbidden by policy."
+            }
+          }
+        },
+        "technical": {
+          "type": "object",
+          "description": "Technical metadata only. It is not quad-generating knowledge."
+        },
+        "operational": {
+          "type": "object",
+          "description": "Operational metadata only. It is not knowledge and does not grant authority."
+        }
+      }
+    },
+    "lifecycle_state": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "INGESTED",
+        "ACTIVE",
+        "ARCHIVED",
+        "DEPRECATED",
+        "DELETED"
+      ]
+    },
+    "derivation_capabilities": {
+      "type": "object",
+      "description": "Declarative derivation capability hints. This schema does not open derivation runtime.",
+      "additionalProperties": true
+    },
+    "quad_flags": {
+      "type": "object",
+      "description": "Future semantic-preparation flags only. This schema does not enable semantic runtime.",
+      "additionalProperties": true
+    }
+  }
+}

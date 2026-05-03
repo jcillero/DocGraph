@@ -1,0 +1,1837 @@
+﻿{
+    "audit":  "audit_f9_artifact_lineage_codex",
+    "generated_at":  "2026-04-27 21:58:38",
+    "workspace_root":  "C:\\MAQUETAS SOFTWARE\\codex_sandbox_app_docgraph_B\\rust_portable_app",
+    "status":  "REVIEW",
+    "summary":  {
+                    "files_checked":  242,
+                    "read_errors":  0,
+                    "total":  179,
+                    "real_violation":  3,
+                    "review_required":  5,
+                    "guarded_declaration":  80,
+                    "guarded_derived_context":  4,
+                    "artifact_editable_allowed":  7,
+                    "declarative_context":  22,
+                    "test_or_error_message":  58
+                },
+    "codex_rules":  [
+                        "Do not modify GUARDED_DECLARATION entries.",
+                        "Do not modify GUARDED_DERIVED_CONTEXT entries.",
+                        "Do not modify ARTIFACT_EDITABLE_ALLOWED entries.",
+                        "Do not modify DECLARATIVE_CONTEXT entries.",
+                        "Do not modify TEST_OR_ERROR_MESSAGE entries.",
+                        "For REAL_VIOLATION entries, propose minimal wording fixes only.",
+                        "For REVIEW_REQUIRED entries, classify first; do not edit until classification is clear.",
+                        "SOURCE must remain readonly.",
+                        "DERIVED must remain readonly and regenerable.",
+                        "ARTIFACT may be editable only through governed patch or accepted mutation flow.",
+                        "document.md is allowed to be editable only when treated as ARTIFACT, not SOURCE.",
+                        "Do not touch project_runtime.",
+                        "Do not touch UI logic."
+                    ],
+    "codex_actions":  {
+                          "REAL_VIOLATION":  "propose_minimal_documentation_fix",
+                          "REVIEW_REQUIRED":  "analyze_before_edit",
+                          "GUARDED_DECLARATION":  "ignore",
+                          "GUARDED_DERIVED_CONTEXT":  "ignore",
+                          "ARTIFACT_EDITABLE_ALLOWED":  "ignore",
+                          "DECLARATIVE_CONTEXT":  "ignore",
+                          "TEST_OR_ERROR_MESSAGE":  "ignore"
+                      },
+    "findings":  [
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  106,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- no write-back to external source folders"
+                     },
+                     {
+                         "file":  "FUNCTIONAL_SCOPE.md",
+                         "line":  166,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- direct mutation of artifacts from chat or LLM output"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  135,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-ID-001`: artifact IDs MUST be stable across moves and renames and MUST NOT depend on filesystem path"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  158,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-001`: the user-selected source folder MUST be treated as readonly unless a future explicit export or write-back phase is opened"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  159,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-002`: folder organization mutations MUST operate only on the sandbox working copy, never on the original selected source folder"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  162,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-005`: any future write-back from sandbox to source folder MUST require explicit user confirmation and trace"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  229,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-TEMPLATE-003`: Markdown is the authoritative editable source"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  249,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-REF-003`: original active-project documents may be referenced as internal sources, evidence, or appendices without mutation"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  292,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-DOC-EDIT-001`: only `ARTIFACT` documents may be modified through governed patches"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  293,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-EDIT-002`: `SOURCE` and `DERIVED` documents are readonly"
+                     },
+                     {
+                         "file":  "GOVERNANCE.md",
+                         "line":  300,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-EDIT-009`: `SOURCE` and `DERIVED` documents may provide context but must not be mutated"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  308,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-ID-001`: artifact IDs MUST be stable across moves and renames and MUST NOT depend on filesystem path"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  318,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-TEMPLATE-003`: Markdown is the authoritative editable source"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  338,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-REF-003`: original active-project documents may be referenced as internal sources, evidence, or appendices without mutation"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  381,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-DOC-EDIT-001`: only `ARTIFACT` documents may be modified through governed patches"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  382,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-EDIT-002`: `SOURCE` and `DERIVED` documents are readonly"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  389,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-EDIT-009`: `SOURCE` and `DERIVED` documents may provide context but must not be mutated"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  694,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- direct mutation of artifacts from chat or LLM output"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  786,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `DocumentHolder` owns document production state; `document.md` is its only editable textual source"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  789,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- artifact IDs must remain stable across moves and renames and must not depend on filesystem path"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  809,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT` documents may be edited only through governed patch acceptance"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  811,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- chat may reference edit requests, selections, and proposals, but it must not store source blobs or act as a document store"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1186,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT`: confirm before mutation"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1188,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "`SOURCE` and `DERIVED` may provide context but must not become mutation targets."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1192,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `mutate_source_document`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1193,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `mutate_derived_document`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1807,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "Future editing requests may enter chat as structured payloads derived from viewer selection or an inspector context."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1809,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "The payload must reference the target context rather than store a source blob. The LLM may propose a patch, but the system validates it and applies it only after user acceptance."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  1870,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "8. The created package contains `document.md` as the authoritative editable source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2022,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT`: user or LLM-assisted work product; mutable only through governed patch acceptance."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2024,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "`SOURCE` and `DERIVED` may be used as context, but they are not mutation targets."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2120,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "`DocumentHolder` is the document production unit inside a DocGraph project. It owns the editable Markdown source, governed manifests, template state, references, assets, lifecycle state, owner-scoped tool outputs, and regenerable exports."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2153,
+                         "classification":  "REAL_VIOLATION",
+                         "action":  "propose_minimal_fix",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md`: authoritative editable Markdown source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2171,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-DOC-HOLDER-002`: `document.md` is the only editable textual source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2223,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "A future `document_patch_runtime` may validate, preview, and apply accepted patches to `ARTIFACT` documents."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2231,
+                         "classification":  "GUARDED_DERIVED_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE` or `DERIVED` documents"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2478,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-REF-003`: original active-project documents may be referenced as internal sources, evidence, or appendices without mutation."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2528,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "`document.md` is the authoritative editable source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2676,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-TEMPLATE-003`: Markdown is the authoritative editable source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2732,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `resources/`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  2764,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "The popup must not write files, validate as authority, create resources, clone resources, delete resources, or approve actions."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3010,
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- rename template resources"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3015,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- mutate `document.md`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3105,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md` remains the authoritative editable source"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3245,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT` mutation"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3749,
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- save artifacts"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3924,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md` is the editable document source."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  3946,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-ID-001`: artifact IDs MUST be stable across moves and renames and MUST NOT depend on filesystem path."
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4788,
+                         "classification":  "GUARDED_DERIVED_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE` or `DERIVED`"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4974,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `ActiveContextState`: current tab-derived context for document, figure, table, equation, or patch preview work"
+                     },
+                     {
+                         "file":  "MASTER_GOVERNANCE_AND_SPECS_REPORT.md",
+                         "line":  4975,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `ReferencedPatchRequestState`: structured user request derived from a referenced selection or active inspector context"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  69,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `DocumentHolder` owns document production state; `document.md` is its only editable textual source"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  72,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- artifact IDs must remain stable across moves and renames and must not depend on filesystem path"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  124,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT` documents may be edited only through governed patch acceptance"
+                     },
+                     {
+                         "file":  "WORKSPACE_RULES.md",
+                         "line":  126,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- chat may reference edit requests, selections, and proposals, but it must not store source blobs or act as a document store"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  14,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "ModifyArtifact,"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  18,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "ArtifactMutation,"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  238,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "ActionClass::ModifyArtifact =\u003e target.kind == TargetKind::Artifact,"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  242,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "| ActionClass::ArtifactMutation"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  435,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fn modify_artifact_allows_artifact() {"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  436,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "let request = request_for(ActionClass::ModifyArtifact, TargetKind::Artifact);"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  442,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fn modify_artifact_rejects_source_document() {"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  443,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "let request = request_for(ActionClass::ModifyArtifact, TargetKind::SourceDocument);"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  452,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fn modify_artifact_rejects_derived_document() {"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  453,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "let request = request_for(ActionClass::ModifyArtifact, TargetKind::DerivedDocument);"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  462,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fn modify_artifact_rejects_external_runtime() {"
+                     },
+                     {
+                         "file":  "crates/action_core/src/lib.rs",
+                         "line":  463,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "let request = request_for(ActionClass::ModifyArtifact, TargetKind::ExternalRuntime);"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  149,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "DerivedWriteFailed { path: PathBuf, message: String },"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  157,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Self::EmptySourceFilename =\u003e f.write_str(\"source_filename must not be empty\"),"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  159,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source_filename must be a plain file name: {value}\")"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  171,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source file does not exist: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  174,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source path is not a file: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  177,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"failed to read source \u0027{}\u0027: {message}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  193,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Self::DerivedWriteFailed { path, message } =\u003e {"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  196,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"failed to write derived file \u0027{}\u0027: {message}\","
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  702,
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(path, contents).map_err(|error| DocumentTextDerivationError::DerivedWriteFailed {"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  759,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_path, original_contents).expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  799,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(document_root.join(\"image.png\"), [0_u8, 1, 2, 3]).expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  826,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(document_root.join(\"broken.pdf\"), \"not a pdf\").expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/document_text_runtime/src/lib.rs",
+                         "line":  852,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write_minimal_docx(\u0026source_path, \u0026[\"Alpha section\", \"Beta section\"]);"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  275,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source_file_path must be absolute: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  278,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source_file_path does not exist: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  281,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source_file_path must be a file: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  284,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"source file has no filename: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  293,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Self::ResourceDirectoryCreateFailed { path, message } =\u003e write!("
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  300,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write!(f, \"resource directory already exists: {}\", path.display())"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1079,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_file, \"# Brief\").expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1110,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(knowledge_unit.join(\"alpha.md\"), \"# Alpha\").expect(\"write knowledge source\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1111,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(text_dir.join(\"extracted.txt\"), \"derived\").expect(\"write derived text\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1112,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(semantics_dir.join(\"graph.json\"), \"{}\").expect(\"write derived semantics\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1113,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(resources_dir.join(\"beta.txt\"), \"beta\").expect(\"write resource source\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1143,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(resources_dir.join(\"beta.txt\"), \"beta\").expect(\"write resource source\");"
+                     },
+                     {
+                         "file":  "crates/io_runtime/src/lib.rs",
+                         "line":  1163,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_file, \"# uploaded\").expect(\"write source file\");"
+                     },
+                     {
+                         "file":  "crates/project_runtime/src/lib.rs",
+                         "line":  185,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "f.write_str(\"project manifest source must use the manifest document category\")"
+                     },
+                     {
+                         "file":  "crates/spec_runtime/src/lib.rs",
+                         "line":  39,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "f.write_str(\"inherited source must not be empty when provided\")"
+                     },
+                     {
+                         "file":  "crates/spec_runtime/src/lib.rs",
+                         "line":  42,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "f.write_str(\"provenance declared path must match the document source path\")"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2973,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write_project_resource_doc(project_root.as_path());"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  2997,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "let resource_path = write_project_resource_doc(project_root.as_path());"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3028,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write_project_resource_doc(project_root.as_path());"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3064,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "write_project_resource_doc(project_root.as_path());"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3142,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_file, \"# Incoming\\nprofile\").expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3173,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_file, \"# Knowledge\").expect(\"write source\");"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3205,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_a, \"# A\").expect(\"write a\");"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3206,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_b, \"# B\").expect(\"write b\");"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3566,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fn write_project_resource_doc(project_dir: \u0026std::path::Path) -\u003e PathBuf {"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3570,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_path, \"# Brief\\nworkspace source\").expect(\"write brief\");"
+                     },
+                     {
+                         "file":  "crates/ui_slint/src/lib.rs",
+                         "line":  3586,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "fs::write(\u0026source_file, format!(\"# Context {}\\nchat\", index + 1))"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  76,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\u0027editable artifact\u0027,"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  241,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "$classification = \u0027ARTIFACT_EDITABLE_ALLOWED\u0027"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  248,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "elseif (($mentionsSource -or $mentionsDerived) -and $mentionsMutation -and -not $hasReadonlyGuard) {"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  274,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "artifact_editable_allowed = ($results | Where-Object { $_.classification -eq \u0027ARTIFACT_EDITABLE_ALLOWED\u0027 }).Count"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  292,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\u0027Do not modify GUARDED_DERIVED_CONTEXT entries.\u0027,"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  293,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\u0027Do not modify ARTIFACT_EDITABLE_ALLOWED entries.\u0027,"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  300,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\u0027ARTIFACT may be editable only through governed patch or accepted mutation flow.\u0027,"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  301,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\u0027document.md is allowed to be editable only when treated as ARTIFACT, not SOURCE.\u0027,"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  310,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "ARTIFACT_EDITABLE_ALLOWED = \u0027ignore\u0027"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  325,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "Write-Host \u0027=== F9 ARTIFACT LINEAGE CODEX AUDIT ===\u0027"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  332,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Write-Host (\u0027guarded_derived_context=\u0027 + $summary.guarded_derived_context)"
+                     },
+                     {
+                         "file":  "dev/scripts/audits/audit_f9_artifact_lineage.bat",
+                         "line":  333,
+                         "classification":  "TEST_OR_ERROR_MESSAGE",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Write-Host (\u0027artifact_editable_allowed=\u0027 + $summary.artifact_editable_allowed)"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_f9_declarations.ps1",
+                         "line":  341,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "if ($actionPolicy.document_rules.ARTIFACT -ne \"confirm_before_mutation\") { Add-ValidationError \"resources/policy/action_policy.json\" \"ARTIFACT must require confirmation before mutation\" }"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_f9_declarations.ps1",
+                         "line":  342,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "foreach ($blocked in @(\"mutate_source_document\", \"mutate_derived_document\", \"llm_direct_filesystem_write\", \"execute_unregistered_tool\")) {"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_f9_declarations.ps1",
+                         "line":  352,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "foreach ($reason in @(\"risk_escalation\", \"artifact_mutation\", \"external_execution\", \"ambiguous_target\", \"irreversible_action\")) {"
+                     },
+                     {
+                         "file":  "dev/scripts/tools/validate_ai_specs/README.md",
+                         "line":  7,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "It only reads JSON resources, checks structural governance rules, and writes a regenerable report to `user/output/validate_ai_specs_report.json`."
+                     },
+                     {
+                         "file":  "docs/specs/action_policy.md",
+                         "line":  43,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT`: confirm before mutation"
+                     },
+                     {
+                         "file":  "docs/specs/action_policy.md",
+                         "line":  45,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "`SOURCE` and `DERIVED` may provide context but must not become mutation targets."
+                     },
+                     {
+                         "file":  "docs/specs/action_policy.md",
+                         "line":  49,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `mutate_source_document`"
+                     },
+                     {
+                         "file":  "docs/specs/action_policy.md",
+                         "line":  50,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `mutate_derived_document`"
+                     },
+                     {
+                         "file":  "docs/specs/chat_document_flows.md",
+                         "line":  85,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "Future editing requests may enter chat as structured payloads derived from viewer selection or an inspector context."
+                     },
+                     {
+                         "file":  "docs/specs/chat_document_flows.md",
+                         "line":  87,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "The payload must reference the target context rather than store a source blob. The LLM may propose a patch, but the system validates it and applies it only after user acceptance."
+                     },
+                     {
+                         "file":  "docs/specs/diff_view.md",
+                         "line":  136,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DIFF-005`: diff rendering MUST NOT mutate source or proposal state"
+                     },
+                     {
+                         "file":  "docs/specs/document_creation_flow.md",
+                         "line":  20,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "8. The created package contains `document.md` as the authoritative editable source."
+                     },
+                     {
+                         "file":  "docs/specs/document_governed_editing.md",
+                         "line":  13,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT`: user or LLM-assisted work product; mutable only through governed patch acceptance."
+                     },
+                     {
+                         "file":  "docs/specs/document_governed_editing.md",
+                         "line":  15,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "`SOURCE` and `DERIVED` may be used as context, but they are not mutation targets."
+                     },
+                     {
+                         "file":  "docs/specs/document_package.md",
+                         "line":  11,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "`DocumentHolder` is the document production unit inside a DocGraph project. It owns the editable Markdown source, governed manifests, template state, references, assets, lifecycle state, owner-scoped tool outputs, and regenerable exports."
+                     },
+                     {
+                         "file":  "docs/specs/document_package.md",
+                         "line":  44,
+                         "classification":  "REAL_VIOLATION",
+                         "action":  "propose_minimal_fix",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md`: authoritative editable Markdown source."
+                     },
+                     {
+                         "file":  "docs/specs/document_package.md",
+                         "line":  62,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-DOC-HOLDER-002`: `document.md` is the only editable textual source."
+                     },
+                     {
+                         "file":  "docs/specs/document_patch_runtime.md",
+                         "line":  11,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "A future `document_patch_runtime` may validate, preview, and apply accepted patches to `ARTIFACT` documents."
+                     },
+                     {
+                         "file":  "docs/specs/document_patch_runtime.md",
+                         "line":  21,
+                         "classification":  "GUARDED_DERIVED_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE` or `DERIVED` documents"
+                     },
+                     {
+                         "file":  "docs/specs/document_references.md",
+                         "line":  161,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-REF-003`: original active-project documents may be referenced as internal sources, evidence, or appendices without mutation."
+                     },
+                     {
+                         "file":  "docs/specs/document_templates.md",
+                         "line":  26,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "`document.md` is the authoritative editable source."
+                     },
+                     {
+                         "file":  "docs/specs/document_templates.md",
+                         "line":  174,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-DOC-TEMPLATE-003`: Markdown is the authoritative editable source."
+                     },
+                     {
+                         "file":  "docs/specs/document_template_designer_tool.md",
+                         "line":  35,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `resources/`"
+                     },
+                     {
+                         "file":  "docs/specs/document_template_designer_tool.md",
+                         "line":  67,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "The popup must not write files, validate as authority, create resources, clone resources, delete resources, or approve actions."
+                     },
+                     {
+                         "file":  "docs/specs/document_template_ui_contract.md",
+                         "line":  83,
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- rename template resources"
+                     },
+                     {
+                         "file":  "docs/specs/document_template_ui_contract.md",
+                         "line":  88,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- mutate `document.md`"
+                     },
+                     {
+                         "file":  "docs/specs/document_template_validation.md",
+                         "line":  57,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md` remains the authoritative editable source"
+                     },
+                     {
+                         "file":  "docs/specs/document_tree.md",
+                         "line":  150,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE`"
+                     },
+                     {
+                         "file":  "docs/specs/document_tree.md",
+                         "line":  151,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `DERIVED`"
+                     },
+                     {
+                         "file":  "docs/specs/document_viewer.md",
+                         "line":  66,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE`"
+                     },
+                     {
+                         "file":  "docs/specs/document_viewer.md",
+                         "line":  67,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `DERIVED`"
+                     },
+                     {
+                         "file":  "docs/specs/flow_control_policy.md",
+                         "line":  31,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `ARTIFACT` mutation"
+                     },
+                     {
+                         "file":  "docs/specs/lume_onboarding_modal.md",
+                         "line":  56,
+                         "classification":  "REVIEW_REQUIRED",
+                         "action":  "review",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- save artifacts"
+                     },
+                     {
+                         "file":  "docs/specs/patch_preview.md",
+                         "line":  51,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "`Document source + PatchPreviewOverlay = viewer rendering`"
+                     },
+                     {
+                         "file":  "docs/specs/project_folder_layout.md",
+                         "line":  102,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `document.md` is the editable document source."
+                     },
+                     {
+                         "file":  "docs/specs/project_folder_layout.md",
+                         "line":  130,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "- `INV-ID-001`: artifact IDs MUST be stable across moves and renames and MUST NOT depend on filesystem path."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  97,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "8. any write-back to source requires separate future action, explicit confirmation, and trace"
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  135,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-001`: the user-selected source folder MUST be treated as readonly unless a future explicit export or write-back phase is opened."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  136,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-002`: folder organization mutations MUST operate only on the sandbox working copy, never on the original selected source folder."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  139,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `INV-FOLDER-SANDBOX-005`: any future write-back from sandbox to source folder MUST require explicit user confirmation and trace."
+                     },
+                     {
+                         "file":  "docs/specs/project_profiles.md",
+                         "line":  151,
+                         "classification":  "REAL_VIOLATION",
+                         "action":  "propose_minimal_fix",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate source folder"
+                     },
+                     {
+                         "file":  "docs/specs/sandbox_viewer.md",
+                         "line":  78,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "- write to the original source"
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  699,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\"role\": \"Documents future governed editing model for ARTIFACT documents without implementing runtime or UI behavior.\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  720,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_source_documents\","
+                     },
+                     {
+                         "file":  "docs/specs/specs_index.json",
+                         "line":  721,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_derived_documents\","
+                     },
+                     {
+                         "file":  "docs/specs/tool_implementation_governance.md",
+                         "line":  261,
+                         "classification":  "GUARDED_DERIVED_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- mutate `SOURCE` or `DERIVED`"
+                     },
+                     {
+                         "file":  "docs/specs/tool_implementation_governance.md",
+                         "line":  271,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "Folder organization tools must treat the original source folder as readonly and mutate only the sandbox working copy."
+                     },
+                     {
+                         "file":  "docs/specs/ui_core.md",
+                         "line":  173,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `ActiveContextState`: current tab-derived context for document, figure, table, equation, or patch preview work"
+                     },
+                     {
+                         "file":  "docs/specs/ui_core.md",
+                         "line":  174,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  true,
+                         "mentions_artifact":  false,
+                         "snippet":  "- `ReferencedPatchRequestState`: structured user request derived from a referenced selection or active inspector context"
+                     },
+                     {
+                         "file":  "resources/ai/semantic_specs/concept_extraction_v1.json",
+                         "line":  32,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_source_documents\","
+                     },
+                     {
+                         "file":  "resources/ai/semantic_specs/concept_extraction_v1.json",
+                         "line":  33,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_derived_documents\","
+                     },
+                     {
+                         "file":  "resources/document_templates/document_package_example.json",
+                         "line":  24,
+                         "classification":  "GUARDED_DECLARATION",
+                         "action":  "ignore",
+                         "mentions_source":  true,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\"document.md is the authoritative editable source\","
+                     },
+                     {
+                         "file":  "resources/policy/action_policy.json",
+                         "line":  20,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"artifact_mutation\","
+                     },
+                     {
+                         "file":  "resources/policy/action_policy.json",
+                         "line":  31,
+                         "classification":  "ARTIFACT_EDITABLE_ALLOWED",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  true,
+                         "snippet":  "\"ARTIFACT\": \"confirm_before_mutation\""
+                     },
+                     {
+                         "file":  "resources/policy/action_policy.json",
+                         "line":  34,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_source_document\","
+                     },
+                     {
+                         "file":  "resources/policy/action_policy.json",
+                         "line":  35,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_derived_document\","
+                     },
+                     {
+                         "file":  "resources/policy/flow_control_policy.json",
+                         "line":  10,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"artifact_mutation\","
+                     },
+                     {
+                         "file":  "resources/tools/internal/operational/tools_operational_document_catalog.json",
+                         "line":  31,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"source_document_mutation\","
+                     },
+                     {
+                         "file":  "resources/tools/internal/operational/tools_operational_document_catalog.json",
+                         "line":  32,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"derived_document_mutation\""
+                     },
+                     {
+                         "file":  "resources/tools/internal/operational/tools_operational_document_catalog.json",
+                         "line":  212,
+                         "classification":  "DECLARATIVE_CONTEXT",
+                         "action":  "ignore",
+                         "mentions_source":  false,
+                         "mentions_derived":  false,
+                         "mentions_artifact":  false,
+                         "snippet":  "\"mutate_source_or_derived\""
+                     }
+                 ],
+    "read_errors":  [
+
+                    ]
+}

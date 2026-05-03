@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "log_format": "jsonl",
+  "required_for_mutable_actions": true,
+  "future_log_name": "sandbox_actions.jsonl",
+  "must_record": [
+    "timestamp",
+    "action_id",
+    "dry_run",
+    "target_paths",
+    "result"
+  ],
+  "llm_direct_execution_allowed": false
+}

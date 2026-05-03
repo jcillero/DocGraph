@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "default_mode": "local",
+  "allowed_modes": [
+    "local",
+    "cloud",
+    "auto"
+  ],
+  "resolution_precedence": [
+    "explicit_args",
+    "user_preferences",
+    "system_config",
+    "defaults"
+  ],
+  "real_execution_enabled": false
+}

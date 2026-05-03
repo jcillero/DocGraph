@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/quad_lifecycle.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "QuadLifecycle",
+  "description": "Declarative lifecycle-value contract only. This schema defines allowed values and does not implement transitions, approval, or runtime behavior.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "lifecycle_state"
+  ],
+  "properties": {
+    "lifecycle_state": {
+      "$ref": "#/$defs/lifecycleState"
+    }
+  },
+  "$defs": {
+    "lifecycleState": {
+      "type": "string",
+      "enum": [
+        "PROPOSED",
+        "UNDER_REVIEW",
+        "APPROVED",
+        "REJECTED",
+        "STALE",
+        "SUPERSEDED",
+        "ORPHANED"
+      ]
+    }
+  }
+}

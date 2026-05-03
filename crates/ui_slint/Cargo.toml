@@ -1,0 +1,18 @@
+[package]
+name = "ui_slint"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clipboard-win = "5.4.1"
+slint = { workspace = true }
+ui_core = { path = "../ui_core" }
+ui_i18n = { path = "../ui_i18n" }
+ui_theme = { path = "../ui_theme" }
+app_services = { path = "../app_services" }
+document_text_runtime = { path = "../document_text_runtime" }
+io_runtime = { path = "../io_runtime" }
+project_runtime = { path = "../project_runtime" }
+spec_runtime = { path = "../spec_runtime" }
+tool_runtime = { path = "../tool_runtime" }
+workspace_core = { path = "../workspace_core" }

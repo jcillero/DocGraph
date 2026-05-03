@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "actions": [
+    {
+      "id": "read_tree",
+      "enabled": true,
+      "mutable": false
+    },
+    {
+      "id": "dry_run_plan",
+      "enabled": true,
+      "mutable": false
+    },
+    {
+      "id": "rename_files",
+      "enabled": false,
+      "mutable": true
+    },
+    {
+      "id": "move_files",
+      "enabled": false,
+      "mutable": true
+    },
+    {
+      "id": "create_folders",
+      "enabled": false,
+      "mutable": true
+    },
+    {
+      "id": "delete_files",
+      "enabled": false,
+      "mutable": true
+    },
+    {
+      "id": "generate_sandbox_index",
+      "enabled": false,
+      "mutable": true
+    }
+  ]
+}

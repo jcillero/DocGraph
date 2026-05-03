@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "modal_id": "lume_onboarding_help",
+  "ephemeral_chat": true,
+  "persist_chat_history": false,
+  "allow_file_outputs": false,
+  "allow_tool_execution": false,
+  "allow_llm_execution": false,
+  "belongs_to_workspace_tabs": false,
+  "creates_project": false,
+  "stores_artifacts": false,
+  "interacts_with_project_runtime": false,
+  "primary_action_count": 1,
+  "skippable": true,
+  "contextual_help_only": true,
+  "show_on_startup_preference_key": "show_onboarding_modal",
+  "manual_open_surface": "help_menu",
+  "intro_video": {
+    "enabled": true,
+    "source": null,
+    "source_kind": "unset"
+  },
+  "initial_message_key": "lume.onboarding.greeting",
+  "input_placeholder_key": "lume.onboarding.input_placeholder",
+  "checkbox_label_key": "lume.onboarding.do_not_show_again"
+}

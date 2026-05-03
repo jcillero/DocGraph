@@ -1,0 +1,10 @@
+﻿{
+    "status":  "OK",
+    "json_checked_count":  30,
+    "missing_required_count":  0,
+    "invalid_json_count":  0,
+    "f9_rule_error_count":  0,
+    "errors":  [
+
+               ]
+}

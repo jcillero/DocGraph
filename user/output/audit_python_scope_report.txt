@@ -1,0 +1,147 @@
+﻿Python Scope Audit Report
+
+generated_at: 2026-05-02 19:17:12
+workspace_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+
+Policy:
+- PASS: no failing Python runtime/implementation leaks detected.
+- WARN: Python appears in docs/specs/reports and should remain doctrinal or historical only.
+- FAIL: Python appears in active runtime/tool/code/script areas, or with dangerous runtime semantics.
+
+Warnings:
+
+- architecture/ARCHITECTURE.md:5 [python_root_doc_missing_clear_doctrinal_context] zone=allowed_doctrinal_root
+  Its architecture inherits the system model of the active Python application and ports it into explicit crate boundaries and controlled phases.
+- docs/specs/project_runtime.md:5 [python_in_spec_or_doc_review_context] zone=warn_doc_or_spec
+  Provide the Rust successor layer for project-scoped runtime behavior, inheriting the live Python project model.
+- docs/specs/specs_index.json:226 [python_in_spec_or_doc_review_context] zone=warn_doc_or_spec
+  "role": "Defines Python as doctrinal reference and Rust as active implementation target.",
+- docs/specs/specs_index.json:370 [python_in_spec_or_doc_review_context] zone=warn_doc_or_spec
+  "role": "Maps inherited Python governance principles to Rust sandbox adaptations.",
+- docs/specs/specs_index.json:396 [python_in_spec_or_doc_review_context] zone=warn_doc_or_spec
+  "role": "Maps Python source knowledge to Rust target files and transfer type.",
+- docs/specs/specs_index.json:421 [python_in_spec_or_doc_review_context] zone=warn_doc_or_spec
+  "role": "Maps Python responsibilities to Rust target crates by responsibility, not superficial folder copying.",
+- governance/FUNCTIONAL_SCOPE.md:853 [python_root_doc_missing_clear_doctrinal_context] zone=allowed_doctrinal_root
+  - full product-runtime parity with the Python application
+- governance/I18N_POLICY.md:3 [python_root_doc_missing_clear_doctrinal_context] zone=allowed_doctrinal_root
+  This sandbox inherits the Python rule that user-visible UI text must be externalized and governed outside views.
+- governance/LLM_RUNTIME_POLICY.md:3 [python_root_doc_missing_clear_doctrinal_context] zone=allowed_doctrinal_root
+  This sandbox inherits the live Python LLM doctrine.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:18 [python_in_report_review_context] zone=warn_doc_or_report
+  It is a multi-crate workspace that advances the Rust implementation in controlled phases while the existing Python application remains the historical doctrinal and behavioral migration reference.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:20 [python_in_report_review_context] zone=warn_doc_or_report
+  Python is not part of the active Rust runtime and is not required to run the sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:169 [python_in_report_review_context] zone=warn_doc_or_report
+  - preserve inherited doctrine from the Python system
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1047 [python_in_report_review_context] zone=warn_doc_or_report
+  - full product-runtime parity with the Python application
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1057 [python_in_report_review_context] zone=warn_doc_or_report
+  It inherits doctrine from the historical Python platform while making Rust the active operational and engineering center of gravity for the living sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1061 [python_in_report_review_context] zone=warn_doc_or_report
+  The Rust sandbox does not supersede the live Python knowledge base.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1069 [python_in_report_review_context] zone=warn_doc_or_report
+  5. stable Python behavior when aligned with the above
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1083 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python remains an inherited doctrinal and migration reference
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1088 [python_in_report_review_context] zone=warn_doc_or_report
+  Normative Python boundary:
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1090 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python is doctrinal reference only
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1091 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python must not be invoked, embedded, required, or treated as runtime authority in the active Rust sandbox
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:1093 [python_in_report_review_context] zone=warn_doc_or_report
+  - any future dependency on Python would require an explicit governed phase and contract
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2399 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the Python rule that user-visible UI text must be externalized and governed outside views.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2478 [python_in_report_review_context] zone=warn_doc_or_report
+  This file records how live Python governance is transferred into the Rust sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2480 [python_in_report_review_context] zone=warn_doc_or_report
+  If a requested Python source name is not physically present in this sandbox, the transfer is anchored to the active local equivalent and marked accordingly.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2482 [python_in_report_review_context] zone=warn_doc_or_report
+  | Principle | Python Source | Rust Adaptation | Status |
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2511 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the live Python LLM doctrine.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2557 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the active Python UI doctrine that presentation is not the source of truth.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2825 [python_in_report_review_context] zone=warn_doc_or_report
+  It is a multi-crate workspace that advances the Rust implementation in controlled phases while the existing Python application remains the historical doctrinal and behavioral migration reference.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2827 [python_in_report_review_context] zone=warn_doc_or_report
+  Python is not part of the active Rust runtime and is not required to run the sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:2976 [python_in_report_review_context] zone=warn_doc_or_report
+  - preserve inherited doctrine from the Python system
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3854 [python_in_report_review_context] zone=warn_doc_or_report
+  - full product-runtime parity with the Python application
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3864 [python_in_report_review_context] zone=warn_doc_or_report
+  It inherits doctrine from the historical Python platform while making Rust the active operational and engineering center of gravity for the living sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3868 [python_in_report_review_context] zone=warn_doc_or_report
+  The Rust sandbox does not supersede the live Python knowledge base.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3876 [python_in_report_review_context] zone=warn_doc_or_report
+  5. stable Python behavior when aligned with the above
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3890 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python remains an inherited doctrinal and migration reference
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3895 [python_in_report_review_context] zone=warn_doc_or_report
+  Normative Python boundary:
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3897 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python is doctrinal reference only
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3898 [python_in_report_review_context] zone=warn_doc_or_report
+  - Python must not be invoked, embedded, required, or treated as runtime authority in the active Rust sandbox
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:3900 [python_in_report_review_context] zone=warn_doc_or_report
+  - any future dependency on Python would require an explicit governed phase and contract
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5206 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the Python rule that user-visible UI text must be externalized and governed outside views.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5285 [python_in_report_review_context] zone=warn_doc_or_report
+  This file records how live Python governance is transferred into the Rust sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5287 [python_in_report_review_context] zone=warn_doc_or_report
+  If a requested Python source name is not physically present in this sandbox, the transfer is anchored to the active local equivalent and marked accordingly.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5289 [python_in_report_review_context] zone=warn_doc_or_report
+  | Principle | Python Source | Rust Adaptation | Status |
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5318 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the live Python LLM doctrine.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5364 [python_in_report_review_context] zone=warn_doc_or_report
+  This sandbox inherits the active Python UI doctrine that presentation is not the source of truth.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5639 [python_in_report_review_context] zone=warn_doc_or_report
+  Its architecture inherits the system model of the active Python application and ports it into explicit crate boundaries and controlled phases.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5793 [python_in_report_review_context] zone=warn_doc_or_report
+  This map records where Python knowledge has been transferred inside the Rust sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5795 [python_in_report_review_context] zone=warn_doc_or_report
+  It records knowledge transfer from Python as historical and doctrinal source material only.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5796 [python_in_report_review_context] zone=warn_doc_or_report
+  It does not declare a runtime dependency on Python and does not require Python to operate the Rust sandbox.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5798 [python_in_report_review_context] zone=warn_doc_or_report
+  When a requested Python source name is not physically present in this sandbox, the active local equivalent is used and the transfer type reflects that adaptation.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5800 [python_in_report_review_context] zone=warn_doc_or_report
+  | Python Source Document | Category | Knowledge Transferred | Rust Target File | Transfer Type |
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5833 [python_in_report_review_context] zone=warn_doc_or_report
+  The Python application remains the historical doctrinal and behavioral migration reference.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5837 [python_in_report_review_context] zone=warn_doc_or_report
+  Python is not the current execution path for this Rust sandbox and is not required to operate it.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5839 [python_in_report_review_context] zone=warn_doc_or_report
+  ## Reference areas in Python
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5857 [python_in_report_review_context] zone=warn_doc_or_report
+  ## What still remains primarily in Python
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5867 [python_in_report_review_context] zone=warn_doc_or_report
+  Rust does not replace Python by imitation of incidental details.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5869 [python_in_report_review_context] zone=warn_doc_or_report
+  It replaces Python by progressively absorbing governed responsibilities into explicit Rust contracts, crates, and validated phases.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5891 [python_in_report_review_context] zone=warn_doc_or_report
+  It does not justify superficial folder copying from Python into Rust.
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5893 [python_in_report_review_context] zone=warn_doc_or_report
+  | Python responsibility | Live Python source cues | Rust target | Transfer note |
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:5896 [python_in_report_review_context] zone=warn_doc_or_report
+  | generic filesystem, text, and data utilities | `GUIA - UTILITIES`, `utils_catalog_oficial.json`, `system/utils/data`, `system/utils/text`, `system/utils/fs` | `io_runtime` and `workspace_core` | adapt utility discipline, not Python helper names |
+- governance/reports/MASTER_GOVERNANCE_AND_SPECS_REPORT.md:19372 [python_in_report_review_context] zone=warn_doc_or_report
+  Provide the Rust successor layer for project-scoped runtime behavior, inheriting the live Python project model.
+- governance/UI_SLINT_POLICY.md:3 [python_root_doc_missing_clear_doctrinal_context] zone=allowed_doctrinal_root
+  This sandbox inherits the active Python UI doctrine that presentation is not the source of truth.
+
+Findings:
+
+- SECURITY_MODEL.md:174 [dangerous_python_runtime_context] zone=unknown
+  * Python runtime exclusion
+
+files_scanned=321
+python_mentions=119
+warnings_count=62
+findings_count=1
+status=FAIL

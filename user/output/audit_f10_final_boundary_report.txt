@@ -1,0 +1,427 @@
+﻿F10 Final Boundary Audit Report
+
+timestamp: 2026-05-01 00:14:12
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+audit_status: ADVISORY
+
+Limitations:
+- textual scan only
+- false positives expected
+- false negatives possible
+- human review required
+- must not be used as Codex patch input
+
+Scanned paths:
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+- WORKSPACE_RULES.md
+- docs/specs/*.md
+- crates/**/*.rs
+scanned_file_count: 100
+
+Category summaries:
+- [A] Execution drift :: FAIL=0 WARN=75 INFO=0
+- [B] LLM authority drift :: FAIL=1 WARN=0 INFO=0
+- [C] UI authority drift :: FAIL=0 WARN=0 INFO=0
+- [D] Provider drift :: FAIL=0 WARN=0 INFO=0
+- [E] ActionResolution bypass :: FAIL=3 WARN=0 INFO=0
+- [F] Secret and context exposure :: FAIL=39 WARN=6 INFO=58
+- [G] Catalog exposure :: FAIL=1 WARN=0 INFO=0
+
+Suspicious matches by category:
+
+[A] Execution drift
+--------------------
+- WARN :: crates/cli_app/src/main.rs:94 :: Dispatch wording detected.
+  snippet: .dispatch(&resolved_entry)
+- WARN :: crates/tool_runtime/src/lib.rs:292 :: Runner wording detected.
+  snippet: /// Minimal execution outcome for the first runner boundary.
+- WARN :: crates/tool_runtime/src/lib.rs:298 :: Runner wording detected.
+  snippet: /// Minimal typed result returned by the first runner boundary.
+- WARN :: crates/tool_runtime/src/lib.rs:308 :: Runner wording detected.
+  snippet: /// Build a typed runner result from a resolved declarative entry.
+- WARN :: crates/tool_runtime/src/lib.rs:323 :: Runner wording detected.
+  snippet: /// Return the catalog identifier accepted by the runner.
+- WARN :: crates/tool_runtime/src/lib.rs:328 :: Runner wording detected.
+  snippet: /// Return the entry identifier accepted by the runner.
+- WARN :: crates/tool_runtime/src/lib.rs:338 :: Runner wording detected.
+  snippet: /// Return the explicit runner outcome.
+- WARN :: crates/tool_runtime/src/lib.rs:344 :: Runner wording detected.
+  snippet: /// Minimal runner boundary over an already resolved declarative entry.
+- WARN :: crates/tool_runtime/src/lib.rs:349 :: Runner wording detected.
+  snippet: /// Build a zero-configuration runner for the first execution boundary.
+- WARN :: crates/tool_runtime/src/lib.rs:354 :: Runner wording detected.
+  snippet: /// Accept a resolved catalog entry and return a typed runner result.
+- WARN :: crates/tool_runtime/src/lib.rs:357 :: Dispatch wording detected.
+  snippet: /// the declarative resolution and performs minimal typed dispatch.
+- WARN :: crates/tool_runtime/src/lib.rs:358 :: Dispatch wording detected.
+  snippet: pub fn dispatch(
+- WARN :: crates/tool_runtime/src/lib.rs:2683 :: Runner wording detected.
+  snippet: let runner = ToolRuntimeRunner::new();
+- WARN :: crates/tool_runtime/src/lib.rs:2694 :: Dispatch wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2694 :: Runner wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2704 :: Runner wording detected.
+  snippet: let runner = ToolRuntimeRunner::new();
+- WARN :: crates/tool_runtime/src/lib.rs:2715 :: Runner wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2715 :: Dispatch wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2725 :: Runner wording detected.
+  snippet: let runner = ToolRuntimeRunner::new();
+- WARN :: crates/tool_runtime/src/lib.rs:2736 :: Dispatch wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2736 :: Runner wording detected.
+  snippet: let result = runner.dispatch(&resolved).expect("runner result");
+- WARN :: crates/tool_runtime/src/lib.rs:2751 :: Runner wording detected.
+  snippet: let runner = ToolRuntimeRunner::new();
+- WARN :: crates/tool_runtime/src/lib.rs:2762 :: Runner wording detected.
+  snippet: let error = runner
+- WARN :: crates/tool_runtime/src/lib.rs:2763 :: Dispatch wording detected.
+  snippet: .dispatch(&resolved)
+- WARN :: crates/ui_slint/src/lib.rs:2803 :: Run-tool wording detected.
+  snippet: .expect("run tool");
+- WARN :: crates/verify_progress/src/lib.rs:276 :: Runner wording detected.
+  snippet: runner: &dyn ScriptRunner,
+- WARN :: crates/verify_progress/src/lib.rs:286 :: Runner wording detected.
+  snippet: let mechanical_validation = run_mechanical_validation(&workspace_root, mode, runner);
+- WARN :: crates/verify_progress/src/lib.rs:736 :: Runner wording detected.
+  snippet: runner: &dyn ScriptRunner,
+- WARN :: crates/verify_progress/src/lib.rs:742 :: Runner wording detected.
+  snippet: let outcome = runner.run_script(workspace_root, script);
+- WARN :: crates/verify_progress/src/lib.rs:1206 :: Runner wording detected.
+  snippet: let runner = FakeRunner {
+- WARN :: crates/verify_progress/src/lib.rs:1226 :: Runner wording detected.
+  snippet: run_mechanical_validation(Path::new("C:\\workspace"), VerificationMode::Quick, &runner);
+- WARN :: crates/verify_progress/src/main.rs:35 :: Runner wording detected.
+  snippet: let runner = WrapperScriptRunner;
+- WARN :: crates/verify_progress/src/main.rs:36 :: Runner wording detected.
+  snippet: let report = match verify_progress(&workspace_root, mode, &runner) {
+- WARN :: docs/specs/action_resolution.md:73 :: Runner wording detected.
+  snippet: The runner remains future and separately gated.
+- WARN :: docs/specs/action_resolution.md:150 :: Executor wording detected.
+  snippet: `action -> risk -> policy -> resolution -> confirmation -> authorized executor -> trace`
+- WARN :: docs/specs/action_resolution.md:152 :: Executor wording detected.
+  snippet: The authorized executor is future F10+ only.
+- WARN :: docs/specs/action_resolution.md:379 :: Runner wording detected.
+  snippet: - create a runner
+- WARN :: docs/specs/document_export.md:61 :: Runner wording detected.
+  snippet: - create a runner
+- WARN :: docs/specs/document_package.md:65 :: Runner wording detected.
+  snippet: - `INV-DOC-HOLDER-005`: `lifecycle/` records state and review only; it is not a workflow runner.
+- WARN :: docs/specs/document_package.md:77 :: Runner wording detected.
+  snippet: - `lifecycle/` is limited to document status and review data. It is not a workflow runner.
+- WARN :: docs/specs/document_viewer.md:41 :: Executor wording detected.
+  snippet: - a tool executor
+- WARN :: docs/specs/gui_objects_v1.md:41 :: Runner wording detected.
+  snippet: - `Lume Help`: declarative contextual help. It is not runtime, persistent chat, active LLM, tool runner, or action approver.
+- WARN :: docs/specs/gui_objects_v1.md:45 :: Runner wording detected.
+  snippet: - `DocGraph Icon`: branding icon in top app chrome. It may open `Lume Help` as navigation intent. It is not an execution control, LLM activator, settings control, or tool runner.
+- WARN :: docs/specs/gui_objects_v1.md:46 :: Executor wording detected.
+  snippet: - `Sandbox View`: conditional workspace tab for governed sandbox status and context. It is declarative in F9 and is not a filesystem executor, write-back control, or tool runner.
+- WARN :: docs/specs/gui_objects_v1.md:46 :: Runner wording detected.
+  snippet: - `Sandbox View`: conditional workspace tab for governed sandbox status and context. It is declarative in F9 and is not a filesystem executor, write-back control, or tool runner.
+- WARN :: docs/specs/how_to_add_a_tool.md:252 :: Executor wording detected.
+  snippet: - UI != executor
+- WARN :: docs/specs/how_to_add_a_tool.md:253 :: Executor wording detected.
+  snippet: - LLM != executor
+- WARN :: docs/specs/llm_core.md:207 :: Executor wording detected.
+  snippet: It is not an LLM, runtime, executor, provider adapter, or UI authority.
+- WARN :: docs/specs/llm_core.md:466 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: docs/specs/llm_tool_surface_resolution.md:73 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: docs/specs/lume_interaction_model.md:7 :: Executor wording detected.
+  snippet: Lume is not a runtime, tool executor, filesystem owner, LLM engine, or project pipeline.
+- WARN :: docs/specs/pending_action_state.md:56 :: Runner wording detected.
+  snippet: - pending candidate is not an `ActionResolution` runner
+- WARN :: docs/specs/sandbox_viewer.md:21 :: Executor wording detected.
+  snippet: - an executor
+- WARN :: docs/specs/SPECS_INDEX.md:37 :: Runner wording detected.
+  snippet: | `action_resolution.md` | action/policy | Defines declarative ActionRequest-to-trace governance before any future execution. | `action_policy.md`, `flow_control_policy.md`, `pending_action_state.md` | Runner, executor, tool execution, LLM invocation, project_runtime mutation | `F9 / declarative_only` |
+- WARN :: docs/specs/SPECS_INDEX.md:37 :: Executor wording detected.
+  snippet: | `action_resolution.md` | action/policy | Defines declarative ActionRequest-to-trace governance before any future execution. | `action_policy.md`, `flow_control_policy.md`, `pending_action_state.md` | Runner, executor, tool execution, LLM invocation, project_runtime mutation | `F9 / declarative_only` |
+- WARN :: docs/specs/SPECS_INDEX.md:76 :: Executor wording detected.
+  snippet: | `lume_interaction_model.md` | Lume/help/onboarding | Defines Lume as declarative interaction and help layer, not executor. | `GOVERNANCE.md`, `WORKSPACE_RULES.md` | Filesystem execution, tool execution, LLM execution, project pipeline authority | `F9 / declarative_only` |
+- WARN :: docs/specs/SPECS_INDEX.md:80 :: Executor wording detected.
+  snippet: | `pending_action_state.md` | action/policy | Defines conceptual pending-action state for future explicit action execution references. | `action_resolution.md` | Runner, executor, hidden mutation, automatic execution | `F9 / declarative_only` |
+- WARN :: docs/specs/SPECS_INDEX.md:80 :: Runner wording detected.
+  snippet: | `pending_action_state.md` | action/policy | Defines conceptual pending-action state for future explicit action execution references. | `action_resolution.md` | Runner, executor, hidden mutation, automatic execution | `F9 / declarative_only` |
+- WARN :: docs/specs/SPECS_INDEX.md:127 :: Executor wording detected.
+  snippet: | `tool_governance.md` | `how_to_add_a_tool.md`, selected procedural sections of `tool_implementation_governance.md` | LOW | Preserve declared != executable, UI != executor, LLM != executor, tools != dependencies |
+- WARN :: docs/specs/tool_implementation_governance.md:266 :: Executor wording detected.
+  snippet: `ActionRequest -> ActionResolution -> authorized executor -> trace`
+- WARN :: docs/specs/tool_implementation_governance.md:401 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: docs/specs/tool_implementation_governance.md:474 :: Runner wording detected.
+  snippet: - execute an `ActionResolution` runner
+- WARN :: docs/specs/tools_panel.md:115 :: Executor wording detected.
+  snippet: Any future execution must pass through `ActionRequest -> ActionResolution -> authorized executor -> trace`.
+- WARN :: docs/specs/tools_panel.md:322 :: Runner wording detected.
+  snippet: - tool runner expansion
+- WARN :: FUNCTIONAL_SCOPE.md:14 :: Dispatch wording detected.
+  snippet: - declarative `tool_runtime` for catalogs, entries, selection, validation, and minimal accepted dispatch
+- WARN :: FUNCTIONAL_SCOPE.md:94 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: FUNCTIONAL_SCOPE.md:215 :: Runner wording detected.
+  snippet: - `ActionResolution` still declarative and runner-free
+- WARN :: FUNCTIONAL_SCOPE.md:246 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: FUNCTIONAL_SCOPE.md:268 :: Executor wording detected.
+  snippet: MODE: EXECUTOR
+- WARN :: FUNCTIONAL_SCOPE.md:309 :: Runner wording detected.
+  snippet: - ActionResolution runner or enforcement runtime
+- WARN :: GOVERNANCE.md:156 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: GOVERNANCE.md:192 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: GOVERNANCE.md:237 :: Runner wording detected.
+  snippet: - `ActionResolution` runner
+- WARN :: GOVERNANCE.md:290 :: Runner wording detected.
+  snippet: - `INV-SEM-011`: Lume is `InteractionLayer`, not executor, runtime, tool runner, LLM provider, or filesystem owner
+- WARN :: GOVERNANCE.md:290 :: Executor wording detected.
+  snippet: - `INV-SEM-011`: Lume is `InteractionLayer`, not executor, runtime, tool runner, LLM provider, or filesystem owner
+
+[B] LLM authority drift
+------------------------
+- FAIL :: docs/specs/chat_document_flows.md:160 :: Automatic tool execution wording detected.
+  snippet: - automatic tool execution by LLM
+
+[C] UI authority drift
+-----------------------
+No suspicious matches detected.
+
+[D] Provider drift
+-------------------
+No suspicious matches detected.
+
+[E] ActionResolution bypass
+----------------------------
+- FAIL :: docs/specs/chat_document_flows.md:161 :: Direct execution wording detected.
+  snippet: - direct execution from decomposed subrequests
+- FAIL :: docs/specs/llm_agent_prompts.md:60 :: Bypass ActionResolution wording detected.
+  snippet: - bypass ActionResolution
+- FAIL :: docs/specs/privacy_and_consent_model.md:133 :: Bypass ActionResolution wording detected.
+  snippet: - bypass ActionResolution
+
+[F] Secret and context exposure
+--------------------------------
+- FAIL :: crates/llm_core/src/lib.rs:452 :: Secret wording detected; review exposure risk.
+  snippet: /// Build a resolved credential from its logical ref, source, and secret value.
+- FAIL :: crates/llm_core/src/lib.rs:475 :: Secret wording detected; review exposure risk.
+  snippet: /// Return the secret value for adapter-side consumption.
+- FAIL :: crates/llm_core/src/lib.rs:525 :: Secret wording detected; review exposure risk.
+  snippet: /// The shared config carries only a logical credential reference. The secret is
+- FAIL :: crates/llm_core/src/lib.rs:581 :: Secret wording detected; review exposure risk.
+  snippet: let secret = "super-secret-token";
+- FAIL :: crates/llm_core/src/lib.rs:584 :: Secret wording detected; review exposure risk.
+  snippet: env::set_var(&environment_variable, secret);
+- FAIL :: crates/llm_core/src/lib.rs:592 :: Secret wording detected; review exposure risk.
+  snippet: assert_eq!(resolution.secret_value(), secret);
+- FAIL :: crates/llm_core/src/lib.rs:620 :: Secret wording detected; review exposure risk.
+  snippet: let secret = "top-secret-value";
+- FAIL :: crates/llm_core/src/lib.rs:623 :: Secret wording detected; review exposure risk.
+  snippet: env::set_var(&environment_variable, secret);
+- FAIL :: crates/llm_core/src/lib.rs:628 :: Secret wording detected; review exposure risk.
+  snippet: assert!(!debug_output.contains(secret));
+- FAIL :: crates/llm_core/src/lib.rs:629 :: Secret wording detected; review exposure risk.
+  snippet: assert!(!format!("{resolution:?}").contains("top-secret-value"));
+- FAIL :: crates/llm_core/src/lib.rs:640 :: Secret wording detected; review exposure risk.
+  snippet: env::set_var(&environment_variable, "ready-secret");
+- FAIL :: crates/llm_core/src/lib.rs:681 :: Secret wording detected; review exposure risk.
+  snippet: let secret = "cloud-readiness-secret";
+- FAIL :: crates/llm_core/src/lib.rs:683 :: Secret wording detected; review exposure risk.
+  snippet: env::set_var(&environment_variable, secret);
+- FAIL :: crates/llm_core/src/lib.rs:688 :: Secret wording detected; review exposure risk.
+  snippet: assert!(!debug_output.contains(secret));
+- FAIL :: docs/specs/app_status_bar.md:197 :: Secret wording detected; review exposure risk.
+  snippet: - `credential_ref` is not shown unless future policy explicitly allows non-secret references.
+- FAIL :: docs/specs/credentials_policy.md:49 :: Secret wording detected; review exposure risk.
+  snippet: - credentials may be resolved by an OS-level secret manager
+- FAIL :: docs/specs/credentials_policy.md:51 :: Secret wording detected; review exposure risk.
+  snippet: - `credential_ref` is not a secret by itself
+- FAIL :: docs/specs/credentials_policy.md:90 :: Secret wording detected; review exposure risk.
+  snippet: - `INV-CRED-002`: project files MAY store credential references, not secret values.
+- FAIL :: docs/specs/credentials_policy.md:105 :: Secret wording detected; review exposure risk.
+  snippet: - implement secret storage
+- FAIL :: docs/specs/llm_agent_prompts.md:258 :: Secret wording detected; review exposure risk.
+  snippet: - provider configuration and non-secret `credential_ref` are required
+- FAIL :: docs/specs/llm_core.md:123 :: Secret wording detected; review exposure risk.
+  snippet: - non-secret `credential_ref`
+- FAIL :: docs/specs/llm_core.md:446 :: Secret wording detected; review exposure risk.
+  snippet: - secret values
+- FAIL :: docs/specs/llm_tool_runtime.md:140 :: Secret wording detected; review exposure risk.
+  snippet: - `secret_exposure_blocked`: request or context path attempted to expose secret material
+- FAIL :: docs/specs/preferences_policy.md:18 :: Secret wording detected; review exposure risk.
+  snippet: Preferences are non-secret behavior configuration.
+- FAIL :: docs/specs/preferences_policy.md:49 :: Secret wording detected; review exposure risk.
+  snippet: Preferences may store a desired LLM mode only as non-secret user intent.
+- FAIL :: docs/specs/privacy_and_consent_model.md:60 :: Secret wording detected; review exposure risk.
+  snippet: - secret values
+- FAIL :: docs/specs/project_folder_layout.md:116 :: Secret wording detected; review exposure risk.
+  snippet: - `config/preferences.json` stores non-secret preferences.
+- FAIL :: docs/specs/project_settings_popup.md:85 :: Secret wording detected; review exposure risk.
+  snippet: - define secret storage
+- FAIL :: docs/specs/project_setup_popup.md:56 :: Secret wording detected; review exposure risk.
+  snippet: `preferences` may be included as non-secret configuration.
+- FAIL :: docs/specs/project_setup_popup.md:58 :: Secret wording detected; review exposure risk.
+  snippet: `credential_ref` may be included only as a conceptual identifier. Secret values are not included.
+- FAIL :: docs/specs/SPECS_INDEX.md:42 :: Secret wording detected; review exposure risk.
+  snippet: | `app_status_bar.md` | UI/presentation | Defines bottom status-bar presentation of prepared state, capability hints, and navigation intents. | `credentials_policy.md`, `llm_tool_surface_resolution.md`, `local_sandbox_context.md`, `lume_onboarding_model.md`, `project_profiles.md`, `tools_panel.md` | Execution, secret display, policy inference, runtime mutation | `F9 / presentation_only` |
+- FAIL :: docs/specs/SPECS_INDEX.md:46 :: Secret wording detected; review exposure risk.
+  snippet: | `credentials_policy.md` | sandbox/preferences/profile/privacy | Defines credential references, secret non-exposure, and non-authority boundaries. | `preferences_policy.md`, `project_settings_popup.md`, `ui_preferences_popups.md` | Project-stored secrets, LLM credential exposure, raw secret display, execution authority | `F9 / declarative_only` |
+- FAIL :: docs/specs/SPECS_INDEX.md:81 :: Secret wording detected; review exposure risk.
+  snippet: | `preferences_policy.md` | sandbox/preferences/profile/privacy | Defines non-secret preference configuration boundaries and non-authority rules. | `credentials_policy.md`, `project_settings_popup.md`, `ui_preferences_popups.md` | Secrets, execution authority, policy bypass, host-path truth | `F9 / declarative_only` |
+- FAIL :: docs/specs/SPECS_INDEX.md:86 :: Secret wording detected; review exposure risk.
+  snippet: | `project_settings_popup.md` | sandbox/preferences/profile/privacy | Defines future project-settings intent capture. | `credentials_policy.md`, `preferences_policy.md`, `ui_preferences_popups.md` | Project config write-back, tool execution, secret display, policy authority | `F9 / presentation_only` |
+- FAIL :: docs/specs/SPECS_INDEX.md:107 :: Secret wording detected; review exposure risk.
+  snippet: | `ui_preferences_popups.md` | sandbox/preferences/profile/privacy | Defines governed preference, credential, and settings popup presentation boundaries and i18n keys. | `app_main_menu.md`, `credentials_policy.md`, `preferences_policy.md`, `project_settings_popup.md` | Execution, secret display, ActionResolution bypass, implied tool/LLM availability | `F9 / presentation_only` |
+- FAIL :: docs/specs/tools_panel.md:319 :: Secret wording detected; review exposure risk.
+  snippet: - credential secret validation
+- FAIL :: docs/specs/user_profile_policy.md:36 :: Secret wording detected; review exposure risk.
+  snippet: - `preferences_ref`: conceptual reference to governed non-secret preferences
+- FAIL :: GOVERNANCE.md:362 :: Secret wording detected; review exposure risk.
+  snippet: - `INV-CRED-002`: project files MAY store credential references, not secret values
+- FAIL :: WORKSPACE_RULES.md:84 :: Secret wording detected; review exposure risk.
+  snippet: - preferences are non-secret configuration
+- INFO :: docs/specs/app_main_menu.md:45 :: Credentials wording detected; review context.
+  snippet: - `Credentials management`
+- INFO :: docs/specs/app_main_menu.md:57 :: Credentials wording detected; review context.
+  snippet: - `Credentials management` opens the credentials-management popup
+- INFO :: docs/specs/app_main_menu.md:157 :: Credentials wording detected; review context.
+  snippet: - `menu.preferences.credentials`
+- INFO :: docs/specs/app_main_menu.md:183 :: Credentials wording detected; review context.
+  snippet: - `INV-MENU-009`: `Preferences` MUST expose exactly `App preferences`, `Project settings`, and `Credentials management`.
+- INFO :: docs/specs/app_status_bar.md:116 :: Credentials wording detected; review context.
+  snippet: - missing credentials are status, not failure
+- INFO :: docs/specs/app_status_bar.md:194 :: Credentials wording detected; review context.
+  snippet: ## Relationship to credentials
+- INFO :: docs/specs/app_status_bar.md:223 :: Credentials wording detected; review context.
+  snippet: - validate credentials
+- INFO :: docs/specs/app_status_bar.md:224 :: Credentials wording detected; review context.
+  snippet: - resolve credentials
+- INFO :: docs/specs/credentials_policy.md:18 :: Credentials wording detected; review context.
+  snippet: Credentials are secrets.
+- INFO :: docs/specs/credentials_policy.md:19 :: Credentials wording detected; review context.
+  snippet: Credentials are not preferences.
+- INFO :: docs/specs/credentials_policy.md:20 :: Credentials wording detected; review context.
+  snippet: Credentials are not project configuration.
+- INFO :: docs/specs/credentials_policy.md:47 :: Credentials wording detected; review context.
+  snippet: - credentials live outside project files
+- INFO :: docs/specs/credentials_policy.md:48 :: Credentials wording detected; review context.
+  snippet: - credentials may be resolved by a future secure local store
+- INFO :: docs/specs/credentials_policy.md:49 :: Credentials wording detected; review context.
+  snippet: - credentials may be resolved by an OS-level secret manager
+- INFO :: docs/specs/credentials_policy.md:58 :: Credentials wording detected; review context.
+  snippet: - Tool calls must receive credentials only through future authorized runtime resolution.
+- INFO :: docs/specs/credentials_policy.md:70 :: Credentials wording detected; review context.
+  snippet: Project Setup / Settings may capture intent to configure credentials.
+- INFO :: docs/specs/credentials_policy.md:81 :: Credentials wording detected; review context.
+  snippet: - `Credentials management` is a dedicated popup surface
+- INFO :: docs/specs/credentials_policy.md:97 :: Credentials wording detected; review context.
+  snippet: - `INV-CRED-009`: `Credentials management` MUST remain separate from `Preferences` content and `Tools` capability flow even when routed from the main menu.
+- INFO :: docs/specs/credentials_policy.md:109 :: Credentials wording detected; review context.
+  snippet: - expose credentials to LLM
+- INFO :: docs/specs/llm_agent_prompts.md:59 :: Credentials wording detected; review context.
+  snippet: - expose credentials
+- INFO :: docs/specs/llm_agent_prompts.md:250 :: Credentials wording detected; review context.
+  snippet: - credentials are not required for local mode
+- INFO :: docs/specs/llm_core.md:424 :: Credentials wording detected; review context.
+  snippet: - expose credentials
+- INFO :: docs/specs/llm_core.md:445 :: Credentials wording detected; review context.
+  snippet: - credentials
+- INFO :: docs/specs/lume_interaction_model.md:178 :: Credentials wording detected; review context.
+  snippet: - validate credentials
+- INFO :: docs/specs/lume_onboarding_model.md:47 :: Credentials wording detected; review context.
+  snippet: - must still respect `ActionResolution`, tool policy, credentials policy, and Tool Surface Resolver
+- INFO :: docs/specs/lume_onboarding_model.md:125 :: Credentials wording detected; review context.
+  snippet: 7. optionally explain credentials as future references, not secrets
+- INFO :: docs/specs/lume_onboarding_model.md:165 :: Credentials wording detected; review context.
+  snippet: ## Relationship to credentials
+- INFO :: docs/specs/lume_onboarding_model.md:180 :: Credentials wording detected; review context.
+  snippet: - `INV-LUME-ONBOARD-008`: Assisted Mode MUST remain governed by LLM policy, credentials policy, Tool Surface Resolver, and ActionResolution.
+- INFO :: docs/specs/lume_onboarding_model.md:193 :: Credentials wording detected; review context.
+  snippet: - validate credentials
+- INFO :: docs/specs/preferences_policy.md:19 :: Credentials wording detected; review context.
+  snippet: Preferences are not credentials.
+- INFO :: docs/specs/preferences_policy.md:32 :: Credentials wording detected; review context.
+  snippet: - `Credentials management` is not a preference surface and is governed separately
+- INFO :: docs/specs/preferences_policy.md:111 :: Credentials wording detected; review context.
+  snippet: - raw credentials
+- INFO :: docs/specs/preferences_policy.md:140 :: Credentials wording detected; review context.
+  snippet: - `INV-PREF-008`: preferences must be distinguishable from credentials in schema and storage.
+- INFO :: docs/specs/preferences_policy.md:156 :: Credentials wording detected; review context.
+  snippet: - validate live credentials
+- INFO :: docs/specs/privacy_and_consent_model.md:59 :: Credentials wording detected; review context.
+  snippet: - credentials
+- INFO :: docs/specs/privacy_and_consent_model.md:135 :: Credentials wording detected; review context.
+  snippet: - expose credentials
+- INFO :: docs/specs/project_settings_popup.md:35 :: Credentials wording detected; review context.
+  snippet: - raw credentials
+- INFO :: docs/specs/project_settings_popup.md:66 :: Credentials wording detected; review context.
+  snippet: ## Relationship to credentials
+- INFO :: docs/specs/project_settings_popup.md:68 :: Credentials wording detected; review context.
+  snippet: `Project settings` is not a credentials surface.
+- INFO :: docs/specs/project_setup_popup.md:81 :: Credentials wording detected; review context.
+  snippet: - credentials
+- INFO :: docs/specs/SPECS_INDEX.md:65 :: Credentials wording detected; review context.
+  snippet: | `help_menu.md` | Lume/help/onboarding | Defines governed Help menu entries and informational-only Help surfaces. | `app_main_menu.md`, `gui_objects_v1.md`, `lume_help_popup.md`, `lume_help_tree.md` | Actions, tools, LLM execution, credentials, runtime mutation | `F9 / presentation_only` |
+- INFO :: docs/specs/storage_policy.md:31 :: Credentials wording detected; review context.
+  snippet: - Credential references are not credentials.
+- INFO :: docs/specs/tool_implementation_governance.md:334 :: Credentials wording detected; review context.
+  snippet: - credentials or capability state, when applicable
+- INFO :: docs/specs/tools_catalogs.md:314 :: Credentials wording detected; review context.
+  snippet: - credentials or capability state, when applicable
+- INFO :: docs/specs/tools_catalogs.md:402 :: Credentials wording detected; review context.
+  snippet: - credentials or capability state, when applicable
+- INFO :: docs/specs/ui_core.md:163 :: Credentials wording detected; review context.
+  snippet: - resolve credentials
+- INFO :: docs/specs/ui_preferences_popups.md:23 :: Credentials wording detected; review context.
+  snippet: - `Credentials management`
+- INFO :: docs/specs/ui_preferences_popups.md:88 :: Credentials wording detected; review context.
+  snippet: ## Credentials Management popup
+- INFO :: docs/specs/ui_preferences_popups.md:148 :: Credentials wording detected; review context.
+  snippet: - `popup.credentials.title`
+- INFO :: docs/specs/ui_preferences_popups.md:149 :: Credentials wording detected; review context.
+  snippet: - `popup.credentials.description`
+- INFO :: docs/specs/ui_preferences_popups.md:164 :: Credentials wording detected; review context.
+  snippet: - `Credentials` -> secure access references
+- INFO :: docs/specs/ui_preferences_popups.md:169 :: Credentials wording detected; review context.
+  snippet: - `Credentials` enabling execution
+- INFO :: docs/specs/user_profile_policy.md:96 :: Credentials wording detected; review context.
+  snippet: - credentials
+- INFO :: FUNCTIONAL_SCOPE.md:145 :: Credentials wording detected; review context.
+  snippet: - credentials and preferences policy documented
+- INFO :: GOVERNANCE.md:357 :: Credentials wording detected; review context.
+  snippet: ## Credentials and preferences invariants
+- INFO :: GOVERNANCE.md:376 :: Credentials wording detected; review context.
+  snippet: - `INV-PREF-008`: preferences must be distinguishable from credentials in schema and storage
+- INFO :: GOVERNANCE.md:389 :: Credentials wording detected; review context.
+  snippet: - `INV-LUME-ONBOARD-008`: Assisted Mode MUST remain governed by LLM policy, credentials policy, Tool Surface Resolver, and `ActionResolution`
+- INFO :: WORKSPACE_RULES.md:85 :: Credentials wording detected; review context.
+  snippet: - credentials are referenced, not embedded
+- WARN :: crates/llm_cloud/src/lib.rs:61 :: Token wording detected; review context.
+  snippet: /// Minimal usage payload when the provider returns token counts.
+- WARN :: crates/llm_cloud/src/lib.rs:79 :: Token wording detected; review context.
+  snippet: /// Return input token count.
+- WARN :: crates/llm_cloud/src/lib.rs:84 :: Token wording detected; review context.
+  snippet: /// Return output token count.
+- WARN :: crates/llm_cloud/src/lib.rs:89 :: Token wording detected; review context.
+  snippet: /// Return total token count.
+- WARN :: crates/llm_core/src/lib.rs:581 :: Token wording detected; review context.
+  snippet: let secret = "super-secret-token";
+- WARN :: docs/specs/patch_preview.md:47 :: Token wording detected; review context.
+  snippet: - `highlight_token`: semantic theme token used for the pending proposal highlight
+
+[G] Catalog exposure
+---------------------
+- FAIL :: docs/specs/llm_core.md:503 :: Full tool catalog wording detected.
+  snippet: - raw full tool catalog is not injected by default.
+
+Final summary:
+fail_count: 44
+warn_count: 81
+info_count: 58
+result: HUMAN_REVIEW_REQUIRED
+exit_code_policy: always 0 unless script crashes

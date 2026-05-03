@@ -1,0 +1,50 @@
+﻿Tools Compliance Audit Report
+
+generated_at: 2026-04-29 19:28:08
+workspace_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: WARN
+
+Rules:
+- advisory only
+- no automatic fixes
+- no destructive actions
+- do not use as automatic Codex patch input
+
+FAIL
+----
+None.
+
+WARN
+----
+- [suspicious_terminology] resources/tools/external/tools_external_catalog.json:35 :: Automatic install wording detected. Snippet: "download_notes": "Manual download only. DocGraph may recommend a source URL but must not download or install automatically in F9.",
+- [suspicious_terminology] docs/specs/tools_panel.md:171 :: Automatic install wording detected. Snippet: - install automatically
+- [suspicious_terminology] docs/specs/how_to_add_a_tool.md:119 :: Direct execution wording detected. Snippet: - [ ] no direct execution authority is introduced
+- [suspicious_terminology] docs/specs/how_to_add_a_tool.md:187 :: Automatic execution wording detected. Snippet: - [ ] no automatic execution
+- [llm_manual_execution_wording_missing] docs/specs/tools_panel.md :: Could not confirm explicit non-manual execution wording for LLM tools.
+
+INFO
+----
+- [catalog_or_spec_present] resources/tools/tools_master_catalog.json :: Expected governed file found.
+- [catalog_or_spec_present] resources/tools/internal/operational/tools_operational_document_catalog.json :: Expected governed file found.
+- [catalog_or_spec_present] resources/tools/internal/llm/tools_llm_document_catalog.json :: Expected governed file found.
+- [catalog_or_spec_present] resources/tools/external/tools_external_catalog.json :: Expected governed file found.
+- [catalog_or_spec_present] resources/tool_runtime/meta_catalog.json :: Expected governed file found.
+- [catalog_or_spec_present] resources/tool_runtime/llm_tool_policy.json :: Expected governed file found.
+- [catalog_or_spec_present] docs/specs/tools_catalogs.md :: Expected governed file found.
+- [catalog_or_spec_present] docs/specs/tools_panel.md :: Expected governed file found.
+- [catalog_or_spec_present] docs/specs/tool_implementation_governance.md :: Expected governed file found.
+- [catalog_or_spec_present] docs/specs/how_to_add_a_tool.md :: Expected governed file found.
+- [master_catalog_state] resources/tools/tools_master_catalog.json :: Master catalog remains declared_only with execution disabled.
+- [external_dependency_declaration_reference] resources/tools/tools_master_catalog.json::external_tectonic :: External dependency implementation_ref points back to its declaration catalog only.
+- [owner_ref_reference_present] docs/specs/tool_implementation_governance.md :: owner_ref is referenced in tool implementation governance.
+- [manifest_reference_present] docs/specs/tool_implementation_governance.md :: tool_run_manifest.json is referenced in tool implementation governance.
+- [ui_intent_only] docs/specs/tools_panel.md :: UI intent-only boundary is declared.
+- [raw_catalog_blocked_for_llm] docs/specs/tools_panel.md :: Raw catalog injection into LLM context is explicitly blocked.
+- [guide_core_rule_present] docs/specs/how_to_add_a_tool.md :: Guide core rule declared != executable is present.
+
+Summary
+-------
+fail_count=0
+warn_count=5
+info_count=17
+status=WARN

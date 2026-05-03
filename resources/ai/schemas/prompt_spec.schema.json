@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "PromptSpec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "prompt_id",
+    "status",
+    "execution_enabled",
+    "prompt_template",
+    "input_contract",
+    "output_contract",
+    "constraints"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "prompt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "declared_only"
+    },
+    "execution_enabled": {
+      "const": false
+    },
+    "prompt_template": {
+      "type": "object",
+      "required": [
+        "type",
+        "template"
+      ],
+      "properties": {
+        "type": {
+          "const": "structured"
+        },
+        "template": {
+          "type": "string"
+        }
+      }
+    },
+    "input_contract": {
+      "type": "object",
+      "required": [
+        "type"
+      ]
+    },
+    "output_contract": {
+      "type": "object",
+      "required": [
+        "type"
+      ]
+    },
+    "constraints": {
+      "type": "object",
+      "required": [
+        "structured_output",
+        "free_text_allowed"
+      ],
+      "properties": {
+        "structured_output": {
+          "const": true
+        },
+        "free_text_allowed": {
+          "const": false
+        }
+      }
+    }
+  }
+}

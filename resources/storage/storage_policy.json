@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "model": "file_based",
+  "deduplication": "checksum",
+  "index_strategy": "regenerable_jsonl",
+  "file_store": {
+    "blob_root": "user/file_store/blobs/",
+    "physical_authority": "file_store_blobs_only",
+    "blob_rules": {
+      "content_addressed": true,
+      "immutable": true,
+      "storage_under_project_folders": false,
+      "duplicate_storage_by_usage_type": false
+    }
+  },
+  "logical_contracts": {
+    "stored_object": {
+      "schema_ref": "resources/ai/schemas/stored_object.schema.json",
+      "logical_only": true,
+      "project_exposure_authority": "project_manifest",
+      "runtime_validator_active": false
+    },
+    "file_ref": {
+      "schema_ref": "resources/ai/schemas/file_ref.schema.json",
+      "content_addressed": true,
+      "path_independent": true
+    },
+    "blob_record": {
+      "schema_ref": "resources/ai/schemas/blob_record.schema.json",
+      "physical_metadata_only": true
+    },
+    "usage_ref": {
+      "schema_ref": "resources/ai/schemas/usage_ref.schema.json",
+      "usage_only": true,
+      "grants_project_exposure": false
+    },
+    "derivation_manifest": {
+      "schema_ref": "resources/ai/schemas/derivation_manifest.schema.json",
+      "deterministic_only": true,
+      "semantic_runtime_active": false
+    }
+  },
+  "schema_governance": {
+    "declarative_contracts_only": true,
+    "runtime_validation_active": false,
+    "execution_authority_granted": false,
+    "project_exposure_authority": "project_manifest"
+  },
+  "database": {
+    "enabled": false,
+    "sqlite": "future_optional",
+    "oxigraph": "future_optional"
+  }
+}

@@ -1,0 +1,65 @@
+# F13 Manifest Exposure Runtime Boundary Audit
+
+root=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+report=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\user\output\audit_f13_manifest_exposure_runtime_boundary_report.txt
+
+## PASS
+- project_manifest.json must not be written from ui_slint
+- project_manifest.json must not be written from app_services
+- project_manifest.json must not be written from io_runtime
+- project_manifest.json must not be written from tool_runtime
+- project_manifest.json must not be written from document_text_runtime
+- project_manifest writer must not appear outside the approved project_runtime boundary
+- registry.json must not be written as part of exposure flow
+- graph files must not be written as part of exposure flow
+- derivatives text/pages/chunks must not be created as part of exposure flow
+- document_text_runtime must not be invoked from exposure code
+- tool_runtime must not orchestrate exposure
+- filesystem scanning or list_project_documents must not be used as exposure authority
+- raw absolute host paths must not be persisted into manifest exposure outputs
+- future manifest exposure code must not bypass ExposureRequest
+- future manifest exposure code must not bypass ExposureCandidate
+- future manifest exposure code must not bypass accepted HumanConfirmation
+
+## FAIL
+
+## WARN
+- legacy helpers remain in io_runtime but are not called by production UI
+- register_chat_resource remains in chat-local context
+- deprecated shorthand exposed appears where exposed_to_project should be preferred
+
+## Findings
+[WARN] legacy helpers remain in io_runtime but are not called by production UI
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:556:pub fn import_project_document(
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:513:pub fn list_project_documents(
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:398:pub fn register_chat_resource(
+note=Legacy helpers may remain temporarily while production UI keeps the governed boundary closed.
+
+[WARN] register_chat_resource remains in chat-local context
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\ui_slint\src\lib.rs:1736:resources.push(register_chat_resource(chat_root, source_file)?);
+note=Allowed only as chat-local staging. This must not become intake or project exposure authority.
+
+[WARN] deprecated shorthand exposed appears where exposed_to_project should be preferred
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:81:/// Canonical readonly knowledge document exposed from the project `knowledge/` tree.
+C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs:89:/// Canonical readonly project document exposed from known project roots.
+note=Prefer exposed_to_project as the canonical exposure term in production code.
+
+
+## Scanned Files
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\ui_slint\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\app_services\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\io_runtime\src\lib.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\project_runtime\src\*.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\tool_runtime\src\*.rs
+- C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\crates\document_text_runtime\src\*.rs
+
+## Interpretation Notes
+- This audit scans production Rust code only and ignores lines after the first `#[cfg(test)]` marker in each file.
+- Docs, specs, and audit scripts are not scanned for violations, so prohibitive wording there does not create false positives.
+- Lines marked as SPEC-ONLY, FUTURE, or TODO are ignored when they appear as clearly non-active comments.
+- This audit is deterministic and pattern-based: it checks explicit paths and tokens, not semantic control-flow inference.
+- Any FAIL indicates a boundary violation that must be resolved before future F13.5B closure.
+
+status=PASS
+failures=0
+warnings=3

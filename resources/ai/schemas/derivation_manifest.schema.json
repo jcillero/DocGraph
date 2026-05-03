@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/derivation_manifest.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "DerivationManifest",
+  "description": "Declarative deterministic derivative-state contract. Folder presence alone is not authority. Derivatives are non-semantic and do not contain semantic assertions by definition.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "object_ref",
+    "derivation_state",
+    "expected_derivatives",
+    "available_derivatives",
+    "failed_derivatives",
+    "not_applicable_derivatives"
+  ],
+  "properties": {
+    "object_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "derivation_state": {
+      "type": "string",
+      "enum": [
+        "DERIVATION_PENDING",
+        "DERIVED_PARTIAL",
+        "DERIVED_COMPLETE",
+        "DERIVATION_FAILED",
+        "DERIVATION_NOT_APPLICABLE"
+      ]
+    },
+    "expected_derivatives": {
+      "$ref": "#/$defs/derivativeKindList"
+    },
+    "available_derivatives": {
+      "$ref": "#/$defs/derivativeKindList"
+    },
+    "failed_derivatives": {
+      "$ref": "#/$defs/derivativeKindList"
+    },
+    "not_applicable_derivatives": {
+      "$ref": "#/$defs/derivativeKindList"
+    }
+  },
+  "$defs": {
+    "derivativeKind": {
+      "type": "string",
+      "enum": [
+        "text",
+        "pages",
+        "chunks",
+        "metadata",
+        "previews"
+      ]
+    },
+    "derivativeKindList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/derivativeKind"
+      },
+      "uniqueItems": true
+    }
+  }
+}
