@@ -52,6 +52,25 @@ DocGraph provides a controlled alternative:
 
 ---
 
+## NGI Alignment
+
+DocGraph aligns with Next Generation Internet (NGI) objectives by contributing to:
+
+- **Digital sovereignty**: fully local, offline-capable execution without external dependencies  
+- **Trustworthy systems**: deterministic pipelines with verifiable outputs  
+- **Open infrastructure**: transparent, inspectable, and extensible architecture  
+- **Reproducible workflows**: identical results across environments and time  
+
+DocGraph can be positioned as a foundational layer for:
+
+- verifiable document and knowledge pipelines  
+- auditable engineering and regulatory processes  
+- future trustworthy AI-assisted workflows  
+
+The system is designed to evolve toward a **verifiable knowledge execution platform**, bridging structured workflows, reproducibility, and controlled AI integration.
+
+---
+
 ## Example use cases
 
 - Engineering documentation pipelines with full traceability  
