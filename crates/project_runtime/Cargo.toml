@@ -1,0 +1,11 @@
+[package]
+name = "project_runtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+core_domain = { path = "../core_domain" }
+workspace_core = { path = "../workspace_core" }
+spec_runtime = { path = "../spec_runtime" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

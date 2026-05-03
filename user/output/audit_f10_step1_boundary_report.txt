@@ -1,0 +1,82 @@
+﻿F10 Step-1 Boundary Audit Report
+
+timestamp: 2026-04-30 23:30:17
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+audit_status: ADVISORY
+
+Limitations:
+- textual scan only
+- false positives expected
+- false negatives possible
+- human review required
+- not an automatic fix input
+
+Scanned paths:
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+- WORKSPACE_RULES.md
+- LLM_RUNTIME_POLICY.md
+- docs/specs/*.md
+- crates/**/*.rs
+scanned_file_count: 101
+
+Category summaries:
+- [A] EffectiveToolSurface drift :: FAIL=0 WARN=5 INFO=0
+- [B] LLM context exposure :: FAIL=0 WARN=0 INFO=0
+- [C] ActionResolution boundary :: FAIL=0 WARN=0 INFO=0
+- [D] UI authority drift :: FAIL=1 WARN=0 INFO=0
+- [E] Provider binding drift :: FAIL=0 WARN=0 INFO=0
+- [F] Tool proposal vs execution drift :: FAIL=0 WARN=0 INFO=0
+- [G] Privacy / consent gate drift :: FAIL=0 WARN=0 INFO=0
+- [H] Phase claim drift :: FAIL=0 WARN=0 INFO=0
+
+Suspicious matches by category:
+
+[A] EffectiveToolSurface drift
+-------------------------------
+- WARN :: crates/llm_core/src/lib.rs:150 :: Summary may be treated as execution authority.
+  snippet: /// - injected summary is not permission
+- WARN :: crates/llm_core/src/lib.rs:151 :: Summary may be treated as execution authority.
+  snippet: /// - injected summary is not execution authority
+- WARN :: crates/llm_core/src/lib.rs:257 :: Visibility may be treated as permission.
+  snippet: /// - visibility != permission
+- WARN :: docs/specs/gui_objects_v1.md:44 :: Summary may be treated as execution authority.
+  snippet: - `Status Bar`: prepared capability and system state summary. It is not an execution surface or control panel.
+- WARN :: docs/specs/how_to_add_a_tool.md:119 :: Visibility may be treated as permission.
+  snippet: - [ ] visibility is not permission
+
+[B] LLM context exposure
+-------------------------
+No suspicious matches detected.
+
+[C] ActionResolution boundary
+------------------------------
+No suspicious matches detected.
+
+[D] UI authority drift
+-----------------------
+- FAIL :: docs/specs/SPECS_INDEX.md:41 :: UI may be treated as runtime authority.
+  snippet: | `app_main_menu.md` | UI/presentation | Defines governed top-level File, Preferences, Tools, and Help menu domains. | `credentials_policy.md`, `help_menu.md`, `lume_help_popup.md`, `lume_help_tree.md`, `preferences_policy.md`, `project_settings_popup.md`, `project_setup_popup.md`, `tools_panel.md`, `ui_preferences_popups.md` | Tool execution, LLM calls, filesystem mutation, runtime authority | `F9 / presentation_only` |
+
+[E] Provider binding drift
+---------------------------
+No suspicious matches detected.
+
+[F] Tool proposal vs execution drift
+-------------------------------------
+No suspicious matches detected.
+
+[G] Privacy / consent gate drift
+---------------------------------
+No suspicious matches detected.
+
+[H] Phase claim drift
+----------------------
+No suspicious matches detected.
+
+Final summary:
+fail_count: 1
+warn_count: 5
+info_count: 0
+result: HUMAN_REVIEW_REQUIRED
+exit_code_policy: always 0 unless script crashes

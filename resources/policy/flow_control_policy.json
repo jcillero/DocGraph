@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "phase": "F9-ready-declarative",
+  "real_execution_enabled": false,
+  "confirmation_rules": {
+    "confirm_readonly_actions": false,
+    "confirm_low_risk_derivations": false,
+    "confirm_only_for": [
+      "risk_escalation",
+      "artifact_mutation",
+      "external_execution",
+      "ambiguous_target",
+      "irreversible_action"
+    ],
+    "max_confirmations_per_logical_flow": 1,
+    "group_pending_actions": true,
+    "prefer_inline_confirmation": true,
+    "modal_only_for": [
+      "high_risk",
+      "external_execution",
+      "irreversible_action"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+﻿F9 Tool Run Output Validation
+
+tool_runs_dir=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app\user\output\tool_runs
+manifests_checked=2
+owner_scoped_runs_checked=1
+completed_runs_checked=1
+failed_runs_checked=0
+legacy_runs_excluded=1
+status=PASS
+
+Warnings:
+- legacy non-owner-scoped run excluded from F10 gate: text_measure_1777408460421477700
+
+No issues detected.

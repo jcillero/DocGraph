@@ -1,0 +1,31 @@
+# F12 File Intake Boundary Audit
+
+root=C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+
+[PASS] io_runtime must not depend on project_runtime
+[PASS] io_runtime must not depend on tool_runtime
+[PASS] io_runtime must not depend on app_services
+[PASS] io_runtime must not depend on ui_core
+[PASS] io_runtime must not depend on ui_slint
+[PASS] io_runtime must not depend on document_text_runtime
+[PASS] io_runtime must not depend on LLM crates
+[PASS] file intake must not invoke external processes
+[PASS] file intake must not access network TCP
+[PASS] file intake must not access network UDP
+[PASS] file intake must not mutate project_manifest.json
+[PASS] file intake must not generate registry.json
+[PASS] file intake must not write graph paths
+[PASS] file intake must not generate derived paths
+[PASS] file intake must not generate chunk paths
+[PASS] file intake must not generate page paths
+[PASS] file intake must not orchestrate tool_runtime
+[PASS] file intake must not bypass project_runtime
+[PASS] file intake must not add app_services orchestration
+[PASS] owner_ref required
+[PASS] trace_ref required
+[PASS] user_comment sanitized
+[PASS] imported items remain imported_not_exposed
+[PASS] text intake explicitly supported
+[PASS] markdown intake explicitly supported
+
+status=PASS

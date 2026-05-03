@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/file_ref.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "file_ref",
+  "description": "Declarative content-addressed file reference. It is stable, path-independent, and does not depend on filenames or host paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "file_ref"
+  ],
+  "properties": {
+    "file_ref": {
+      "$ref": "#/$defs/fileRefValue"
+    }
+  },
+  "$defs": {
+    "fileRefValue": {
+      "type": "string",
+      "pattern": "^sha256_[0-9a-f]{64}$"
+    }
+  }
+}

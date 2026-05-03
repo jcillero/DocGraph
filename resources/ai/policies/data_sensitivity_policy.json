@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "policy_id": "data_sensitivity_policy_v1",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "default_level": "internal",
+  "levels": [
+    "public",
+    "internal",
+    "confidential",
+    "restricted"
+  ],
+  "rules": [
+    {
+      "level": "public",
+      "llm_allowed": true,
+      "allowed_modes": [
+        "local",
+        "cloud"
+      ],
+      "requires_anonymization": false,
+      "requires_human_review": false
+    },
+    {
+      "level": "internal",
+      "llm_allowed": true,
+      "allowed_modes": [
+        "local"
+      ],
+      "requires_anonymization": false,
+      "requires_human_review": true
+    },
+    {
+      "level": "confidential",
+      "llm_allowed": false,
+      "allowed_modes": [
+        "local"
+      ],
+      "requires_anonymization": true,
+      "requires_human_review": true
+    },
+    {
+      "level": "restricted",
+      "llm_allowed": false,
+      "allowed_modes": [],
+      "requires_anonymization": true,
+      "requires_human_review": true
+    }
+  ],
+  "forbidden": [
+    "auto_downgrade_sensitivity",
+    "cloud_execution_for_confidential",
+    "cloud_execution_for_restricted",
+    "bypass_human_review"
+  ]
+}

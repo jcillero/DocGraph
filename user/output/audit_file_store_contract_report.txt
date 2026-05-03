@@ -1,0 +1,52 @@
+﻿File Store Contract Audit Report
+
+timestamp: 2026-05-02 11:37:49
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: ADVISORY
+
+Limitations:
+- textual scan only
+- false positives expected
+- human review required
+- no autofix
+- must not be used as Codex patch input
+
+Scanned paths:
+- docs/specs/storage_policy.md
+- docs/specs/document_references.md
+- resources/storage/storage_policy.json
+- resources/ai/schemas/*.json
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+scanned_file_count: 22
+
+Category summaries:
+- [A] Exposure authority drift :: FAIL=0 WARN=0 INFO=0
+- [B] Physical storage drift :: FAIL=1 WARN=2 INFO=0
+- [C] Portable truth drift :: FAIL=0 WARN=0 INFO=0
+
+Possible findings:
+
+[A] Exposure authority drift
+-----------------------------
+No suspicious matches detected.
+
+[B] Physical storage drift
+---------------------------
+- FAIL :: docs/specs/storage_policy.md:155 :: Indexes may be treated as authority.
+  snippet: - make JSONL indexes authoritative
+- WARN :: docs/specs/storage_policy.md:31 :: Possible physical duplication by usage family.
+  snippet: - blob content is not duplicated by usage kind
+- WARN :: GOVERNANCE.md:811 :: Possible physical duplication by usage family.
+  snippet: Future tests and audits must prove the transition `imported_not_exposed -> exposed_to_project` is explicit, confirmed, manifest-governed, duplicate-safe, owner/trace preserving, and document-tree visible only after manifest exposure.
+
+[C] Portable truth drift
+-------------------------
+No suspicious matches detected.
+
+Final summary:
+fail_count: 1
+warn_count: 2
+info_count: 0
+advisory_only: true
+exit_code_policy: non-zero only on script failure

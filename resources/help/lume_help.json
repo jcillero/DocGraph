@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "help_id": "lume_help_contextual_popup",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "assistant": "Lume",
+  "app": "DocGraph",
+  "surface": "contextual_help_popup",
+  "ephemeral": true,
+  "persist_history": false,
+  "allow_file_outputs": false,
+  "allow_tool_execution": false,
+  "allow_llm_execution": false,
+  "allow_action_approval": false,
+  "belongs_to_workspace_tabs": false,
+  "title_key": "lume.help.title",
+  "subtitle_key": "lume.help.subtitle",
+  "body_key": "lume.help.body",
+  "input_placeholder_key": "lume.help.input_placeholder",
+  "close_label_key": "lume.common.close",
+  "gui_objects": {
+    "glossary_ref": "resources/help/gui_objects.json",
+    "section_title_key": "lume.help.gui_objects.title",
+    "section_status": "readonly",
+    "display_mode": "canonical_name_plus_short_boundary",
+    "allow_dynamic_loading": false
+  },
+  "suggestion_keys": [
+    "lume.help.suggestion.explain_screen",
+    "lume.help.suggestion.phase_actions",
+    "lume.help.suggestion.no_llm_execution",
+    "lume.help.suggestion.proposal_meaning",
+    "lume.help.suggestion.readonly_sources"
+  ],
+  "normative_phrase": "Lume Help = governed contextual help layer based on declarative sources.",
+  "forbidden": [
+    "execute_tools",
+    "call_llm",
+    "mutate_files",
+    "create_actions",
+    "approve_actions",
+    "persist_popup_history",
+    "store_project_data",
+    "parse_governance_docs",
+    "run_rag"
+  ]
+}

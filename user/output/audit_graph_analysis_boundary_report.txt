@@ -1,0 +1,53 @@
+﻿Graph Analysis Boundary Audit Report
+
+timestamp: 2026-05-01 00:57:52
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: ADVISORY
+
+Limitations:
+- textual scan only
+- false positives expected
+- analysis is future decision support only
+- no execution or inference runtime is opened
+- findings require human review
+
+Scanned paths:
+- docs/specs/graph_analysis_policy.md
+- docs/specs/artifact_graph.md
+- docs/specs/semantic_quad_model.md
+- docs/specs/semantic_quad_lifecycle.md
+- docs/specs/rdf_projection_policy.md
+- resources/ai/schemas/graph_analysis.schema.json
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+scanned_file_count: 8
+
+Category summaries:
+- [A] Runtime and engine drift :: FAIL=0 WARN=0 INFO=0
+- [B] Eligibility and authority drift :: FAIL=1 WARN=0 INFO=0
+- [C] Execution drift :: FAIL=2 WARN=0 INFO=0
+
+Possible findings:
+
+[A] Runtime and engine drift
+-----------------------------
+No suspicious matches detected.
+
+[B] Eligibility and authority drift
+------------------------------------
+- FAIL :: docs/specs/graph_analysis_policy.md:141 :: Analysis results may be treated as authoritative facts.
+  snippet: - `INV-ANALYSIS-003`: analysis results are not authoritative facts.
+
+[C] Execution drift
+--------------------
+- FAIL :: docs/specs/graph_analysis_policy.md:148 :: Analysis may trigger tool execution.
+  snippet: - `INV-ANALYSIS-010`: analysis cannot trigger `ActionResolution` or tool execution.
+- FAIL :: docs/specs/graph_analysis_policy.md:148 :: Analysis may trigger ActionResolution.
+  snippet: - `INV-ANALYSIS-010`: analysis cannot trigger `ActionResolution` or tool execution.
+
+Final summary:
+fail_count: 3
+warn_count: 0
+info_count: 0
+advisory_only: true
+exit_code_policy: non-zero only on script failure

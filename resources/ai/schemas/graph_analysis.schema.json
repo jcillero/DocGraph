@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/graph_analysis.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "GraphAnalysis",
+  "description": "Declarative graph-analysis profile contract only. It defines descriptive profiles, metrics, and filters without formulas, algorithms, inference engines, or execution triggers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "objective",
+    "node_metrics",
+    "edge_metrics",
+    "filters"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "RISK_PATH",
+        "DEPENDENCY_PATH",
+        "LOW_CONFIDENCE_PATH",
+        "IMPACT_PATH",
+        "STALE_PATH"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "confidence",
+          "criticality",
+          "risk",
+          "freshness",
+          "review_level",
+          "source_quality"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "edge_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "dependency_strength",
+          "risk_propagation",
+          "semantic_weight",
+          "evidence_strength"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "filters": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "type": "object",
+  "required": [
+    "version",
+    "sandbox_root"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "sandbox_root": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authorized": {
+      "type": "boolean",
+      "default": false
+    },
+    "created_empty": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

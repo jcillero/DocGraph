@@ -1,0 +1,8 @@
+[package]
+name = "ui_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+core_domain = { path = "../core_domain" }
+io_runtime = { path = "../io_runtime" }

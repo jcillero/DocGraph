@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "style_id": "ieee_example",
+  "style_kind": "standard",
+  "standard_family": "IEEE",
+  "display_name": "IEEE example",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "labeling": {
+    "mode": "numeric",
+    "citation_pattern": "[{number}]",
+    "entry_pattern": "[{number}] {author}, \"{title}.\""
+  },
+  "placement": {
+    "block": "bibliography",
+    "position": "after_sections"
+  },
+  "export_targets": [
+    "latex",
+    "pdf",
+    "docx"
+  ],
+  "forbidden": [
+    "parse_bibtex",
+    "execute_export",
+    "call_llm",
+    "hardcode_in_ui"
+  ]
+}

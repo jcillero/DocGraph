@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "catalog_id": "document_templates_catalog_v1",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "resolution_precedence": [
+    "project",
+    "user",
+    "resources"
+  ],
+  "default_template_id": "basic_markdown_report_v1",
+  "templates": [
+    {
+      "template_id": "basic_markdown_report_v1",
+      "template_version": 1,
+      "display_name": "Basic Markdown report",
+      "document_kind": "report",
+      "artifact_format": "markdown",
+      "resource_path": "resources/document_templates/basic_markdown_report_template.json",
+      "enabled": true,
+      "default_conformity_mode": "guided",
+      "supported_conformity_modes": [
+        "strict",
+        "guided",
+        "free_from_template"
+      ],
+      "reference_style_ids": [
+        "apa_7_example",
+        "ieee_example",
+        "corp_official_letter_refs_v1"
+      ],
+      "export_profile_ids": [
+        "markdown_to_latex_clean_v1",
+        "markdown_to_pdf_future_v1",
+        "markdown_to_docx_future_v1"
+      ],
+      "execution_enabled": false
+    }
+  ],
+  "forbidden": [
+    "execute_template_runtime",
+    "create_document_package",
+    "mutate_documents",
+    "call_llm",
+    "run_export",
+    "touch_project_runtime",
+    "hardcode_ui_rules"
+  ]
+}

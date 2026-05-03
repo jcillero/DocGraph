@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "catalog_id": "tools_master_catalog",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "proposal_only": true,
+  "governance": {
+    "phase": "F9",
+    "runtime_authority": "none",
+    "master_catalog_role": "declarative_identity_and_capability_source",
+    "tool_runtime_role": "current_operative_runtime_source",
+    "effective_tool_surface_derived_separately": true,
+    "visibility_derived_by_policy": true,
+    "implementation_ref_indirect_only": true,
+    "implementation_ref_executes": false,
+    "binaries_in_resources_forbidden": true,
+    "raw_catalog_in_llm_context_forbidden_by_default": true,
+    "ui_must_not_execute": true,
+    "llm_must_not_execute": true
+  },
+  "tools": [
+    {
+      "tool_id": "document_profile",
+      "capability_id": "document.profile",
+      "catalog": "document_ops",
+      "tool_type": "operational",
+      "surfaces": [
+        "operational"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+        "display_name_i18n": "tool.document_profile.display_name",
+        "description_short_i18n": "tool.document_profile.short_description"
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "tool_runtime_catalog_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "document_extract_text",
+      "capability_id": "document.extract_text",
+      "catalog": "document_ops",
+      "tool_type": "operational",
+      "surfaces": [
+        "operational"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+        "display_name": "Extract text",
+        "description_short": "Declarative capability for governed text extraction from supported documents."
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "future_runtime_or_existing_boundary_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "merge_pdfs",
+      "capability_id": "document.merge_pdfs",
+      "catalog": "document_ops",
+      "tool_type": "operational",
+      "surfaces": [
+        "operational"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+        "display_name_i18n": "tools.merge_pdfs.display_name",
+        "description_short_i18n": "tools.merge_pdfs.short_description"
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "tool_runtime_catalog_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "document_summarize",
+      "capability_id": "document.summarize",
+      "catalog": "document_ops",
+      "tool_type": "llm",
+      "surfaces": [
+        "llm"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/llm/tools_llm_document_catalog.json",
+        "display_name": "Summarize document",
+        "description_short": "Declarative LLM-requestable summarization capability."
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "llm_request_resolution_reference",
+        "ref": "resources/tool_runtime/llm_tool_policy.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "text_measure",
+      "capability_id": "text.measure",
+      "catalog": "core_base",
+      "tool_type": "base_utility",
+      "surfaces": [
+        "hidden_support"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tool_runtime/meta_catalog.json",
+        "display_name": "Measure text",
+        "description_short": "Base utility capability for text metrics and lightweight analysis."
+      },
+      "visibility": {
+        "default_visible": false,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "support_utility_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "file_diff",
+      "capability_id": "file.diff",
+      "catalog": "core_base",
+      "tool_type": "operational",
+      "surfaces": [
+        "operational"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tool_runtime/meta_catalog.json",
+        "display_name": "Diff files",
+        "description_short": "Declarative file comparison capability."
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "future_runtime_or_existing_boundary_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "json_validate",
+      "capability_id": "json.validate",
+      "catalog": "core_base",
+      "tool_type": "base_utility",
+      "surfaces": [
+        "hidden_support"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tool_runtime/meta_catalog.json",
+        "display_name": "Validate JSON",
+        "description_short": "Base utility capability for governed JSON validation support."
+      },
+      "visibility": {
+        "default_visible": false,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "support_utility_reference",
+        "ref": "resources/tool_runtime/meta_catalog.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "semantic_extract_concepts",
+      "capability_id": "semantic.extract_concepts",
+      "catalog": "semantic_ops",
+      "tool_type": "llm",
+      "surfaces": [
+        "llm"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/llm/tools_llm_document_catalog.json",
+        "display_name": "Extract concepts",
+        "description_short": "Declarative semantic concept extraction capability."
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "llm_request_resolution_reference",
+        "ref": "resources/tool_runtime/llm_tool_policy.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "semantic_propose_relations",
+      "capability_id": "semantic.propose_relations",
+      "catalog": "semantic_ops",
+      "tool_type": "llm",
+      "surfaces": [
+        "llm"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/internal/llm/tools_llm_document_catalog.json",
+        "display_name": "Propose relations",
+        "description_short": "Declarative semantic relation proposal capability."
+      },
+      "visibility": {
+        "default_visible": true,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "llm_request_resolution_reference",
+        "ref": "resources/tool_runtime/llm_tool_policy.json",
+        "executes": false
+      }
+    },
+    {
+      "tool_id": "external_tectonic",
+      "capability_id": "external.tectonic",
+      "catalog": "external_runtime",
+      "tool_type": "external_dependency",
+      "surfaces": [
+        "hidden_support"
+      ],
+      "status": "declared_only",
+      "execution_enabled": false,
+      "proposal_only": true,
+      "declaration": {
+        "catalog_ref": "resources/tools/external/tools_external_catalog.json",
+        "display_name": "Tectonic runtime dependency",
+        "description_short": "Declarative identity entry for the optional Tectonic external dependency."
+      },
+      "visibility": {
+        "default_visible": false,
+        "policy_derived": true
+      },
+      "implementation_ref": {
+        "kind": "runtime_dependency_contract",
+        "ref": "resources/tools/external/tools_external_catalog.json",
+        "executes": false
+      }
+    }
+  ]
+}

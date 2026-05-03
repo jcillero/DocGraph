@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "catalog_id": "external_tools",
+  "tools": [
+    {
+      "id": "tectonic",
+      "tool_id": "tectonic",
+      "kind": "external_binary",
+      "tool_kind": "external_dependency",
+      "surface": "runtime_dependency",
+      "status": "declared_only",
+      "lifecycle_state": "declared",
+      "display_name": "Tectonic",
+      "purpose": "Portable LaTeX-to-PDF engine recommended for future governed document export flows.",
+      "description_short": "Recommended external dependency for LaTeX PDF generation in the portable sandbox.",
+      "description_long": "Tectonic is declared as an optional external runtime dependency for future governed document generation and export workflows. In F9 it remains cataloged, visible, and non-executable.",
+      "use_cases": [
+        "latex_pdf_generation",
+        "future_document_export"
+      ],
+      "required_by_internal_tools": [],
+      "recommendation": "optional_recommended",
+      "version": "0.15.0",
+      "source_url": "https://github.com/tectonic-typesetting/tectonic/releases",
+      "homepage_url": "https://tectonic-typesetting.github.io/",
+      "license": "MIT OR Apache-2.0",
+      "archive_type": "zip",
+      "archive_sha256": "declared_only_checksum_required",
+      "expected_binary_names": [
+        "tectonic.exe"
+      ],
+      "expected_local_path": "user/runtime/external_dependencies/tectonic/tectonic.exe",
+      "install_dir": "runtime/external/tectonic",
+      "user_runtime_root": "user/runtime/external_dependencies",
+      "download_notes": "Manual download only. DocGraph may recommend a source URL but must not download or install automatically in F9.",
+      "validation_state": "declared_only",
+      "automatic_installation": false,
+      "execution_authority_granted": false,
+      "validation_command": [
+        "tectonic.exe",
+        "--version"
+      ],
+      "runtime_hint": "runtime/external/tectonic/",
+      "binary_name": "tectonic.exe",
+      "required": false,
+      "capabilities": [
+        "latex_pdf_generation"
+      ],
+      "enabled": true,
+      "execution_implemented": false,
+      "validation": {
+        "command": "--version"
+      }
+    }
+  ]
+}

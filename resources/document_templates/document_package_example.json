@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "package_model_id": "document_package_v1",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "layout": {
+    "source": "document.md",
+    "manifest": "document_manifest.json",
+    "template_snapshot": "template_snapshot.json",
+    "template_overrides": "template_overrides.json",
+    "effective_template": "effective_template.json",
+    "export_profiles": "export_profiles.json",
+    "reference_entries": "reference_entries.json",
+    "reference_style": "reference_style.json",
+    "bibliography_sources": "bibliography_sources.json",
+    "assets": "assets/",
+    "derived": {
+      "latex": "derived/latex/",
+      "pdf": "derived/pdf/",
+      "docx": "derived/docx/"
+    }
+  },
+  "rules": [
+    "document.md is the authoritative editable source",
+    "template_snapshot.json is not destructively modified",
+    "template_overrides.json records typed local changes",
+    "effective_template.json is derived and regenerable",
+    "derived outputs are regenerable",
+    "reference entries are structured entities",
+    "BibTeX sources are bibliographic resources, not mutable documents"
+  ]
+}

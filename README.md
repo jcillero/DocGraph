@@ -1,339 +1,229 @@
-# DocGraph — Portable Reproducible Documentation Platform
+# DocGraph — Portable Reproducible Document Platform
 
-**Portable Reproducible Documentation and Workflow Platform**
+DocGraph is a portable document workflow platform designed for engineers who need reproducible, traceable, and controlled document processing.
 
-DocGraph is a **portable platform for structured document processing, reproducible workflows, and AI-assisted knowledge work**.
-
-The system is designed to run **entirely from a portable directory**, allowing deployment in restricted environments without complex installation procedures.
-
-DocGraph emphasizes:
-
-* portability
-* reproducibility
-* structured governance
-* auditable execution
-* extensible workflows
-
-The platform provides a controlled environment for **document engineering, workflow automation, and knowledge analysis**.
+The system enables structured document workflows with full execution traceability, without requiring installation or complex setup.
 
 ---
 
-# Project Status
+## What DocGraph provides
 
-Status: Early development
-Version: 0.1.0
-
-DocGraph is currently under active architectural development. The current repository represents the initial platform baseline and supporting governance documentation.
-
-
----
-
-# Core Principles
-
-DocGraph is built around several fundamental principles.
-
-### Portability
-
-The platform can be distributed as a **self-contained directory**.
-
-No system-level installation is required.
-
-All components remain inside the project workspace.
+- portable execution from a local directory
+- reproducible document workflows
+- controlled processing environment
+- full traceability of operations
+- deterministic output structure
 
 ---
 
-### Reproducibility
+## Why it matters
 
-Every execution generates a **traceable run record**.
+DocGraph is designed for environments where:
 
-Outputs and execution logs are stored deterministically:
-
-```
-user/runs/<tool_id>/<timestamp>/
-user/output/<tool_id>/<timestamp>/
-```
-
-This guarantees that every result can be reproduced and audited.
+- reproducibility is required
+- traceability is mandatory
+- installation is restricted
+- workflows must remain controlled and auditable
 
 ---
 
-### Declarative Architecture
+# DocGraph Rust Implementation
 
-The system follows a **spec-driven architecture**.
+This repository contains the governed Rust implementation of DocGraph, a portable platform for reproducible and traceable document workflows.
 
-Configuration and system behavior are declared through structured specifications rather than implicit runtime logic.
+It is structured as a multi-crate workspace that advances the system through controlled, auditable phases, ensuring architectural consistency and long-term maintainability.
 
-This improves:
+The current implementation is fully Rust-based and does not depend on any external runtime or prior system.
 
-* auditability
-* maintainability
-* system introspection
-* AI-assisted architecture analysis
+## Product identity
 
----
+- application name: `DocGraph`
+- assistant name: `Lume`
 
-### Structured Governance
+DocGraph is implemented as a governed Rust workspace, designed to provide structured and traceable document workflows under strict architectural control.
 
-The platform architecture is governed by formal documents stored in:
+It is not yet positioned as a final production release, but already enforces clear execution boundaries and controlled system behavior.
 
-```
-system/governance/
-```
+Lume is a contextual interaction and help layer. It does not execute filesystem operations, tools, LLM workflows, or pipeline actions, and serves strictly as a guidance interface within the governed environment.
 
-Key governance documents include:
+## Current state
 
-| Document               | Role                        |
-| ---------------------- | --------------------------- |
-| Operational Definition | Platform constitution       |
-| Invariants Guide       | Architectural rules         |
-| Dev Runbook            | Operational procedures      |
-| Platform Roadmap       | Strategic evolution         |
-| UI Layout              | User interface architecture |
+The workspace evolves through controlled, versioned phases.
 
-This structure ensures that the system evolves **without architectural drift**.
+Core architectural phases are completed and the system provides:
 
----
+- a governed project runtime with a central pipeline
+- structured application layers (CLI, UI shell, app services)
+- controlled IO and tool boundaries
+- a read-only document viewer and knowledge panel
+- a governed tools surface and UI structure
 
-# Platform Architecture
+Detailed phase tracking (3A–F11) is maintained for engineering traceability.
 
-DocGraph follows a strict separation between **core system**, **development environment**, and **user workspace**.
+## Central pipeline
 
-```
-DocGraph/
-│
-├─ system/
-│   Core platform implementation
-│
-├─ user/
-│   User workspace and generated data
-│
-├─ dev/
-│   Development and maintenance tools
-```
+The governed project pipeline is:
 
----
+`project_root -> manifest -> contract -> validation -> surface -> resolve -> output`
 
-## system/
+That pipeline is owned by `project_runtime`. Higher layers consume it; they do not reimplement it.
 
-Contains the **core platform runtime**.
+## Repository structure
 
-Examples:
+Repository structure:
 
-* tool implementations
-* runtime configuration
-* specifications
-* UI architecture
-* governance documents
+- `crates/` -> runtime implementation
+- `resources/` -> declarative data
+- `docs/specs/` -> system specifications
+- `governance/` -> rules, policies, invariants, and phase scope
+- `architecture/` -> system design, migration mapping, and structural references
+- `dev/scripts/` -> validation and tooling
+- `AGENTS.md` -> agent interaction contract
+- `user/output/` -> generated operational artifacts such as status snapshots
+- `assets/` -> migration staging area, not canonical runtime resources
+- `fixtures/` -> test fixtures and controlled sample inputs
 
-This directory **must never be modified at runtime**.
+## System model
 
----
+DocGraph is built around a governed pipeline:
 
-## user/
+project_root → manifest → contract → validation → surface → resolve → output
 
-Contains **all user-generated data**.
+This pipeline is owned by `project_runtime` and consumed by all higher layers.
 
-Examples:
+## Main crates
 
-* workflow runs
-* artifacts
-* outputs
-* input documents
-* project data
+The workspace is organized into focused crates with clear responsibilities:
 
-Typical structure:
+### Core runtime
 
-```
-user/
-├─ input/
-├─ output/
-├─ runs/
-└─ projects/
-```
+- `project_runtime`: governed project vertical and central pipeline  
+- `spec_runtime`: declarative loading for specifications, configuration, and registries  
+- `workspace_core`: portable workspace boundaries and path discipline  
 
----
+### Application layer
 
-## dev/
+- `app_services`: thin consumer layer over governed runtime components  
+- `cli_app`: minimal local entrypoint for interacting with the system  
 
-Contains **development utilities** used to maintain the platform.
+### Execution and IO
 
-Examples:
+- `tool_runtime`: declarative tool catalog and controlled execution boundary  
+- `io_runtime`: controlled IO boundaries and persisted resource access  
 
-* diagnostics
-* registry rebuild tools
-* architecture validation scripts
-* developer utilities
+### UI
 
-The `dev/` directory may be removed in production distributions.
+- `ui_core`, `ui_slint`: structural UI shell, controllers, viewer, and knowledge presentation  
 
----
+LLM-related crates are present in the workspace but remain intentionally limited in scope and are not yet integrated into the main product workflow.
 
-# Workflow-Centric Project Model
+## Current UI/runtime maturity
 
-DocGraph organizes work around **projects and workflows**.
+The sandbox already includes:
 
-Each project acts as an isolated knowledge workspace.
+- a thin application-service boundary over the governed project pipeline
+- a clean CLI consumer for project and tool flows
+- a structural UI shell
+- explicit UI controllers and manifest wiring
+- a tabbed workspace content area
+- a technical readonly viewer over resolved targets as one workspace tab
+- a minimal knowledge panel over project `knowledge/` documents
+- a governed document tree for existing project documents
+- structured chat references plus clip-driven external intake and document workflow launch
+- a governed tools panel with:
+  - controlled manual launch for `Operational Tools`
+  - global plus project override policy for `LLM Tools`
+- Lume Help with canonical GUI vocabulary from `GUI_OBJECTS_v1`
 
-```
-Project
- ├ Workflow
- ├ Notebooks
- ├ Sources
- ├ Prompts
- ├ Data
- ├ Artifacts
- ├ Outputs
- └ Runs
-```
+Canonical GUI names include `Document Tree`, `Clip Panel`, `Workspace Tabs`, `Readonly Viewer`, `Chat Panel`, `Tools Panel`, `Knowledge Panel`, `Pipeline View`, `Ontology Proposal View`, and `Lume Help`.
 
-This structure allows:
+Lume Help uses these names to avoid ambiguous spatial explanations. It remains contextual help only and does not execute runtime, LLM, tools, actions, semantic workflows, or filesystem mutation.
 
-* structured document generation
-* repeatable workflows
-* reusable process definitions
-* traceable project evolution
+## Planned extensions
 
-Projects remain **fully isolated** to guarantee reproducibility.
+The following capabilities are planned as future extensions:
 
----
+- full end-user UI behavior and editing surfaces
+- extended tool execution coverage
+- integrated LLM-assisted workflows
+- semantic runtime capabilities (embeddings, RDF, SPARQL)
 
-# Process Catalog
+These will be introduced progressively while preserving the system’s governance model.
 
-DocGraph supports reusable **process definitions**.
+## Local validation
 
-Processes are defined in a centralized **process catalog** and can be reused across multiple workflows.
+This sandbox runs in a local Windows environment. Rust validation must be executed through wrappers in `dev/scripts/`.
 
-Examples of processes:
+Read `dev/scripts/SCRIPTS_INDEX.md` before using them.
 
-* document ingestion
-* regulatory analysis
-* document comparison
-* structured drafting
-* artifact generation
+Available entry points:
 
-Complex workflows can be constructed by chaining multiple processes.
+- `dev\scripts\cargo_check.bat`
+- `dev\scripts\cargo_test.bat`
+- `dev\scripts\cargo_all.bat`
+- `dev\scripts\cargo_fmt.bat`
+- `dev\scripts\cargo_clippy.bat`
+- `dev\scripts\cargo_strict.bat`
 
----
+Default validation after relevant Rust changes:
 
-# User Interaction Model
+- `dev\scripts\cargo_all.bat`
 
-The platform provides a **workspace-oriented user interface**.
+Stricter validation before higher-risk closure:
 
-Core interaction elements include:
+- `dev\scripts\cargo_strict.bat`
 
-* project selector
-* project tree
-* notebook viewer
-* contextual input bar
-* execution log panel
+## Roadmap by phases
 
-Primary interaction views include:
+- `3A`: minimal project runtime baseline, closed
+- `3B`: explicit pipeline, runtime output, observability, closed
+- `F4A`: thin `app_services`, closed
+- `F4B`: clean `cli_app` consumption, closed
+- `F5`: UI structural shell, closed
+- `F6`: controllers plus manifest wiring, closed
+- `F7`: technical readonly viewer, closed
+- `F8`: knowledge panel and documentary workspace model, CLOSED
+- `F9`: preferences / credentials plus F9.5 declarative/mock AI governance preparation; tools/catalog governance is declaratively closed
+- `F10`: LLM chat integration with tools, not opened
+- `F11`: final audit / CLOSED state verification
 
-* **Chat views** for conversational interaction
-* **Notebook views** for structured document workflows
+F9 remains declarative only.
 
-This model supports both:
+- `resources/tools/tools_master_catalog.json` remains a declarative master catalog
+- `resources/tool_runtime/*` remains the current operative runtime source
+- `EffectiveToolSurfaceResolver` remains a future proposal only
+- no real tool, LLM, or external binary execution is opened by F9 documentation
 
-* exploratory work
-* structured workflow execution
+The roadmap remains sequential. The workspace is not trying to open all subsystems at once.
 
----
+## Maturity disclaimer
 
-# Current Capabilities
+This repository represents an actively evolving implementation of DocGraph.
 
-Current implemented tools include:
+It provides a governed, Rust-based architecture for reproducible and traceable document workflows, with core runtime structure and validation mechanisms already in place.
 
-* CSV → PDF report generation
-* PDF merging utilities
-* system healthcheck tools
-* structural architecture validators
+The current focus of the project is to:
 
-These tools demonstrate the platform’s **reproducible workflow execution model**.
+- consolidate a fully Rust-based implementation
+- turn declarative specifications into executable runtime contracts
+- validate architectural direction through controlled, auditable iterations
 
----
+The system is not yet positioned as a final production release and does not currently include:
 
-# Planned Capabilities
+- stable external API guarantees
+- full end-user UI behavior
+- complete tool execution coverage
+- integrated LLM workflows
+- semantic runtime features such as embeddings, RDF persistence, or SPARQL execution
 
-The platform roadmap includes several major capabilities.
+These capabilities are planned as future extensions and will be introduced progressively while preserving the system’s governance and architectural invariants.
 
-### Semantic Knowledge Layer
+## Key documents
 
-* embeddings
-* semantic search
-* structured document retrieval
-
----
-
-### Knowledge Graph Integration
-
-Integration with RDF and graph technologies for structured knowledge representation.
-
----
-
-### Local LLM Runtime
-
-Support for locally hosted language models enabling:
-
-* document drafting
-* workflow assistance
-* structured analysis
-
----
-
-### Causal Analysis Engine
-
-Integration with causal inference frameworks such as **DoWhy**.
-
----
-
-### Autonomous Knowledge Workflows
-
-Future versions will support:
-
-* AI-assisted workflow execution
-* structured reasoning pipelines
-* automated document drafting workflows
-
----
-
-# Why DocGraph
-
-DocGraph aims to combine several capabilities rarely found together:
-
-* portable deployment
-* reproducible computational workflows
-* structured governance
-* AI-assisted knowledge processing
-* extensible architecture
-
-The result is a platform designed for **engineering-grade knowledge work**.
-
----
-
-
-# Research Context
-
-DocGraph is developed as part of ongoing work on portable software architectures, reproducible tooling environments, and modular document processing systems.
-
----
-
-# License
-
-This project is released under the MIT License.
-
-See the `LICENSE` file in this repository for details.
-
-
----
-
-# Contributing
-
-See `CONTRIBUTING.md` for contribution guidelines.
-
----
-
-# Author
-
-J. Cillero
-
----
+- `architecture/ARCHITECTURE.md`
+- `governance/GOVERNANCE.md`
+- `governance/FUNCTIONAL_SCOPE.md`
+- `architecture/MIGRATION_BASELINE.md`
+- `governance/WORKSPACE_RULES.md`
+- `user/output/rust_status_snapshot.md`
+- `docs/ENGINEERING_NOTES.md`

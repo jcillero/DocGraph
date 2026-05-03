@@ -1,0 +1,414 @@
+=== F9 BOUNDARY DRIFT (EXPERIMENTAL) ===
+Generated: 05/02/2026 19:17:11
+
+Scope: docs/specs
+Total findings: 3023
+
+NOTE:
+- This is a coarse scan.
+- It does NOT distinguish between governance rules and real violations.
+- DO NOT use this report as input for Codex.
+- Human review required.
+
+docs/specs/action_contract.md:7 [execution]
+  This document does not implement runtime execution, authorization, tool dispatch, provider invocation, filesystem mutation, `ActionResolution` runner behavior, or `project_runtime` authority.
+docs/specs/action_contract.md:15 [llm]
+  - user, system, or LLM source context
+docs/specs/action_contract.md:21 [execute]
+  It does not execute anything.
+docs/specs/action_contract.md:39 [llm]
+  "source_kind": "user | llm | system",
+docs/specs/action_contract.md:51 [execute]
+  "access_level": "read | write | create | delete | network | execute | none",
+docs/specs/action_contract.md:64 [execute]
+  - `ActionIntent` does not execute
+docs/specs/action_contract.md:66 [execution]
+  - `ActionIntent` does not select a tool for execution
+docs/specs/action_contract.md:82 [execution]
+  - `ActionIntent` is a governed bridge, not execution
+docs/specs/action_contract.md:85 [execution]
+  - `ActionIntent` is not `AuthorizedExecutionRequest`
+docs/specs/action_contract.md:91 [execution]
+  It does not open execution.
+docs/specs/action_contract.md:95 [execution]
+  `ToolUseProposal / ActionRequestDraft -> ActionIntent -> ActionRequest -> ResolutionCandidate -> PendingActionCandidate -> HumanConfirmation -> AuthorizedExecutionRequest -> SingleToolExecution`
+docs/specs/action_contract.md:101 [execution]
+  - `AuthorizedExecutionRequest` is a downstream post-confirmation artifact
+docs/specs/action_contract.md:102 [execution]
+  - `SingleToolExecution` is a downstream declared-only artifact in `F11.6`
+docs/specs/action_contract.md:104 [execution]
+  - execution boundary remains `CLOSED`
+docs/specs/action_contract.md:115 [llm]
+  "source_kind": "user | llm | system",
+docs/specs/action_contract.md:126 [write]
+  "access_level": "read | write | create | delete | network | none",
+docs/specs/action_contract.md:135 [llm]
+  "llm_policy_ref": "...",
+docs/specs/action_contract.md:154 [execute]
+  - `ActionRequest` does not execute
+docs/specs/action_contract.md:156 [execution]
+  - `ActionRequest` does not select a tool for execution
+docs/specs/action_contract.md:175 [execution]
+  - `AuthorizedExecutionRequest` remains downstream from `HumanConfirmation` only
+docs/specs/action_contract.md:178 [execution]
+  - `ActionRequest` is not `AuthorizedExecutionRequest`
+docs/specs/action_contract.md:195 [execute]
+  - there is no `EXECUTED` status
+docs/specs/action_contract.md:198 [run]
+  - status does not trigger runtime work
+docs/specs/action_contract.md:215 [execution]
+  - `request_kind` does not authorize execution
+docs/specs/action_contract.md:229 [provider]
+  - tools remain future candidate providers only
+docs/specs/action_contract.md:244 [write]
+  - `HOST` write remains forbidden
+docs/specs/action_contract.md:246 [write]
+  - `SANDBOX` write remains future-governed and not active here
+docs/specs/action_contract.md:276 [execution]
+  - `owner_ref` may be required for future execution but is not enforced here
+docs/specs/action_contract.md:299 [run]
+  - risk does not trigger runtime work
+docs/specs/action_contract.md:312 [write]
+  - `HOST` write is requested
+docs/specs/action_contract.md:321 [execute]
+  - `BLOCKED` does not execute
+docs/specs/action_contract.md:344 [execution]
+  - trace does not authorize execution
+docs/specs/action_contract.md:361 [execute]
+  - `System View` does not authorize or execute `ActionRequest`
+docs/specs/action_contract.md:366 [execution]
+  `ActionIntent` must reference capabilities, not direct execution grants.
+docs/specs/action_contract.md:371 [provider]
+  - tools are only future candidate providers
+docs/specs/action_contract.md:372 [execution]
+  - capability requirement does not authorize execution
+docs/specs/action_contract.md:374 [execution]
+  - disabled or future capabilities remain unavailable for execution
+docs/specs/action_contract.md:385 [write]
+  - `HOST` write is forbidden by default
+docs/specs/action_contract.md:387 [write]
+  - `SANDBOX` write remains future-governed and not active now
+docs/specs/action_contract.md:405 [execute]
+  - there is no `EXECUTED` state
+docs/specs/action_contract.md:416 [write]
+  - `HOST` write is requested
+docs/specs/action_contract.md:423 [execute]
+  - `BLOCKED` does not execute
+docs/specs/action_contract.md:442 [execution]
+  - trace refs do not authorize execution
+docs/specs/action_contract.md:458 [run]
+  - no runner is created
+docs/specs/action_contract.md:459 [execution]
+  - no execution is enabled
+docs/specs/action_contract.md:461 [provider]
+  - no provider invocation is enabled
+docs/specs/action_contract.md:467 [provider]
+  - `INV-ACTION-002`: `ActionIntent` does not authorize tools, providers, filesystem mutation, or network access.
+docs/specs/action_contract.md:474 [execution]
+  - `INV-ACTION-009`: `ActionIntent` is not `ActionResolution`, `PendingAction`, or `AuthorizedExecutionRequest`.
+docs/specs/action_contract.md:475 [run]
+  - `INV-ACTION-010`: `project_runtime` remains unchanged.
+docs/specs/action_contract.md:476 [execute]
+  - `INV-ACTION-011`: UI may present future `ActionIntent` but must not authorize or execute it.
+docs/specs/action_contract.md:477 [execution]
+  - `INV-ACTION-012`: no execution boundary is opened by this contract.
+docs/specs/action_contract.md:479 [provider]
+  - `INV-ACTIONREQ-002`: `ActionRequest` does not authorize tools, providers, filesystem mutation, network access, or document mutation.
+docs/specs/action_contract.md:484 [execute]
+  - `INV-ACTIONREQ-007`: blocked `ActionRequest` must not auto-fix or execute.
+docs/specs/action_contract.md:486 [execution]
+  - `INV-ACTIONREQ-009`: `ActionRequest` is not `ActionResolution`, `PendingActionCandidate`, `AuthorizedExecutionRequest`, or `SingleToolExecution`.
+docs/specs/action_contract.md:490 [run]
+  - `INV-ACTIONREQ-013`: `project_runtime` remains unchanged.
+docs/specs/action_contract.md:491 [execution]
+  - `INV-ACTIONREQ-014`: execution boundary remains `CLOSED`.
+docs/specs/action_policy.md:7 [execution]
+  This spec does not implement action execution, tool execution, LLM invocation, or filesystem mutation.
+docs/specs/action_policy.md:16 [mutation]
+  - document mutation constraints
+docs/specs/action_policy.md:37 [execute]
+  These outcomes describe future policy resolution only. They do not execute anything in F9.
+docs/specs/action_policy.md:43 [mutation]
+  - `ARTIFACT`: confirm before mutation
+docs/specs/action_policy.md:45 [mutation]
+  `SOURCE` and `DERIVED` may provide context but must not become mutation targets.
+docs/specs/action_policy.md:51 [llm]
+  - `llm_direct_filesystem_write`
+docs/specs/action_policy.md:52 [execute]
+  - `execute_unregistered_tool`
+docs/specs/action_policy.md:58 [run]
+  - duplicate the `project_runtime` pipeline
+docs/specs/action_policy.md:59 [execute]
+  - execute tools
+docs/specs/action_policy.md:60 [invoke]
+  - invoke LLM providers
+docs/specs/action_policy.md:69 [execution]
+  F11 should audit that forbidden actions remain non-overridable and that human approval is recorded before any future mutable execution.
+docs/specs/action_resolution.md:5 [execution]
+  Define the F9-ready declarative model for resolving proposed actions before any future execution phase.
+docs/specs/action_resolution.md:11 [execution]
+  This is a specification only. In F9, `execution_enabled=false`.
+docs/specs/action_resolution.md:17 [run]
+  - no runner exists
+docs/specs/action_resolution.md:18 [execution]
+  - no real execution exists
+docs/specs/action_resolution.md:19 [run]
+  - no full runtime enforcement exists
+docs/specs/action_resolution.md:20 [run]
+  - an inert `ActionRequest` contract type may exist, but no runner, dispatcher, executor, or mutation path exists
+docs/specs/action_resolution.md:21 [run]
+  - no ActionResolution runner exists
+docs/specs/action_resolution.md:23 [run]
+  - no `tool_run_manifest.json` generation is implemented by this spec
+docs/specs/action_resolution.md:25 [execute]
+  - LLMs do not execute actions
+docs/specs/action_resolution.md:26 [execute]
+  - tools do not autoexecute
+docs/specs/action_resolution.md:27 [execute]
+  - chat does not execute actions
+docs/specs/action_resolution.md:28 [execute]
+  - UI does not decide or execute actions
+docs/specs/action_resolution.md:29 [mutation]
+  - filesystem mutation is not introduced
+docs/specs/action_resolution.md:35 [execution]
+  The first explicit F10 opening gate does not open `ActionResolution` execution.
+docs/specs/action_resolution.md:39 [run]
+  - no `ActionResolution` runner exists
+docs/specs/action_resolution.md:42 [execution]
+  - no tool execution is authorized through `ActionResolution`
+docs/specs/action_resolution.md:43 [provider]
+  - no provider invocation is authorized through `ActionResolution`
+docs/specs/action_resolution.md:51 [execution]
+  It may define how proposal-level and draft-level artifacts become inert governed resolution candidates before any future execution phase.
+docs/specs/action_resolution.md:53 [execution]
+  `F10.9` does not authorize execution.
+docs/specs/action_resolution.md:55 [run]
+  `F10.9` does not create an `ActionResolution` runner.
+docs/specs/action_resolution.md:57 [invoke]
+  `F10.9` does not invoke providers.
+docs/specs/action_resolution.md:59 [execute]
+  `F10.9` does not execute tools.
+docs/specs/action_resolution.md:65 [run]
+  `F10.9` keeps `project_runtime` unchanged.
+docs/specs/action_resolution.md:67 [execution]
+  ## F11.0 execution gate note
+docs/specs/action_resolution.md:71 [run]
+  `ActionResolution` remains non-running in `F11.0`.
+docs/specs/action_resolution.md:73 [run]
+  The runner remains future and separately gated.
+docs/specs/action_resolution.md:79 [execution]
+  `HumanConfirmation` is approval signal only, not execution.
+docs/specs/action_resolution.md:81 [execution]
+  `AuthorizedExecutionRequest` is future-only and is not active in `F11.0`.
+docs/specs/action_resolution.md:83 [execution]
+  `SingleToolExecution` is future-only and is not active in `F11.0`.
+docs/specs/action_resolution.md:89 [run]
+  It does not open resolver runtime.
+docs/specs/action_resolution.md:91 [execution]
+  It does not open execution.
+docs/specs/action_resolution.md:95 [execution]
+  It does not select tools for execution.
+docs/specs/action_resolution.md:103 [execution]
+  No transition runtime, confirmation runtime, authorization runtime, or execution runtime is opened by `F11.3`.
+docs/specs/action_resolution.md:113 [execution]
+  It is not execution.
+docs/specs/action_resolution.md:115 [execution]
+  No transition runtime, authorization runtime, runner, dispatcher, executor, or tool execution is opened by `F11.4`.
+docs/specs/action_resolution.md:117 [execution]
+  ## F11.5 AuthorizedExecutionRequest note
+docs/specs/action_resolution.md:119 [execution]
+  `F11.5` opens only the `AuthorizedExecutionRequest` contract downstream from `HumanConfirmation`.
+docs/specs/action_resolution.md:121 [execution]
+  `AuthorizedExecutionRequest` is a governed post-confirmation authorization artifact.
+docs/specs/action_resolution.md:123 [execution]
+  It prepares a future execution request.
+docs/specs/action_resolution.md:125 [execution]
+  It is not execution.
+docs/specs/action_resolution.md:127 [execution]
+  No authorization runtime, runner, dispatcher, executor, `SingleToolExecution` runtime, tool execution, provider invocation, filesystem mutation, or output persistence is opened by `F11.5`.
+docs/specs/action_resolution.md:129 [execution]
+  ## F11.6 SingleToolExecution note
+docs/specs/action_resolution.md:131 [execution]
+  `F11.6` opens only the `SingleToolExecution` contract downstream from `AuthorizedExecutionRequest`.
+docs/specs/action_resolution.md:133 [execution]
+  `SingleToolExecution` is the future minimum governed execution artifact for one local deterministic tool execution event.
+docs/specs/action_resolution.md:137 [execution]
+  No runtime execution, runner, dispatcher, executor, tool invocation, provider invocation, external binary invocation, filesystem mutation, real output creation, `ToolRunManifest` production, or `TraceRecord` persistence is opened by `F11.6`.
+docs/specs/action_resolution.md:139 [run]
+  ## F11.7 ToolRunManifest and TraceRecord alignment note
+docs/specs/action_resolution.md:141 [execution]
+  `F11.7` opens only future `ToolRunManifest` and `TraceRecord` contract alignment downstream from `SingleToolExecution`.
+docs/specs/action_resolution.md:143 [run]
+  `ToolRunManifest` remains a future runtime artifact.
+docs/specs/action_resolution.md:145 [run]
+  `TraceRecord` remains a future runtime artifact.
+docs/specs/action_resolution.md:147 [execution]
+  No persistence, filesystem mutation, real output creation, registry update, graph update, or runtime execution is opened by `F11.7`.
+docs/specs/action_resolution.md:149 [run]
+  ## F12.0 / F11.RUNTIME-0 minimal governed runtime proposal
+docs/specs/action_resolution.md:153 [run]
+  `F12.0 / F11.RUNTIME-0` defines the first possible minimal runtime opening after the F11 action-governance contracts are ready.
+docs/specs/action_resolution.md:155 [run]
+  Runtime remains closed until a later explicit implementation slice.
+docs/specs/action_resolution.md:157 [run]
+  The proposed first runtime scope is:
+docs/specs/action_resolution.md:163 [write]
+  - no `HOST` write
+docs/specs/action_resolution.md:166 [provider]
+  - no provider invocation
+docs/specs/action_resolution.md:169 [llm]
+  - no LLM tool
+docs/specs/action_resolution.md:171 [execution]
+  - no autonomous execution
+docs/specs/action_resolution.md:178 [execution]
+  Future execution may only occur if these artifacts and refs exist:
+docs/specs/action_resolution.md:184 [execution]
+  - `AuthorizedExecutionRequest`
+docs/specs/action_resolution.md:185 [execution]
+  - `SingleToolExecution`
+docs/specs/action_resolution.md:188 [run]
+  - declared `ToolRunManifest` requirement
+docs/specs/action_resolution.md:201 [execution]
+  Until then, `SingleToolExecution` remains declared-only, `ToolRunManifest` remains future-required, `TraceRecord` remains future-required, and execution boundary remains CLOSED.
+docs/specs/action_resolution.md:203 [run]
+  ## F12.1 Minimal Runtime Gate SPEC
+docs/specs/action_resolution.md:207 [execution]
+  `F12.1` defines the exact preconditions for a later implementation slice to propose the first minimal runtime execution.
+docs/specs/action_resolution.md:209 [run]
+  Runtime remains CLOSED after `F12.1`.
+docs/specs/action_resolution.md:232 [execution]
+  - `ToolRunManifest` is mandatory for future execution
+docs/specs/action_resolution.md:234 [run]
+  - `ToolRunManifest` is not created in `F12.1`
+docs/specs/action_resolution.md:235 [execution]
+  - `TraceRecord` is mandatory for future execution
+docs/specs/action_resolution.md:242 [run]
+  - `NOT_RUN`
+docs/specs/action_resolution.md:246 [run]
+  Excluded runtime statuses:
+docs/specs/action_resolution.md:248 [run]
+  - `RUNNING`
+docs/specs/action_resolution.md:253 [execute]
+  - `EXECUTED`
+docs/specs/action_resolution.md:267 [run]
+  - audit minimal runtime gate
+docs/specs/action_resolution.md:268 [run]
+  - verify no `project_runtime` expansion
+docs/specs/action_resolution.md:274 [run]
+  - `tool_runtime` may be future implementation owner
+docs/specs/action_resolution.md:275 [run]
+  - `tool_runtime` must remain a single-tool adapter only
+docs/specs/action_resolution.md:276 [run]
+  - `project_runtime` must not be modified
+docs/specs/action_resolution.md:284 [run]
+  `F12.2A` prepares a later `F12.2B` implementation slice for the first minimal governed `text.measure` runtime.
+docs/specs/action_resolution.md:286 [run]
+  Runtime remains CLOSED after `F12.2A`.
+docs/specs/action_resolution.md:288 [run]
+  Future `F12.2B` may touch only `crates/tool_runtime` unless explicitly re-audited.
+docs/specs/action_resolution.md:292 [run]
+  - `project_runtime`
+docs/specs/action_resolution.md:296 [llm]
+  - `llm_core`
+docs/specs/action_resolution.md:297 [llm]
+  - `llm_cloud`
+docs/specs/action_resolution.md:298 [llm]
+  - `llm_local`
+docs/specs/action_resolution.md:300 [execute]
+  `action_core` may be consumed only for existing contract references if needed and must not execute.
+docs/specs/action_resolution.md:304 [execution]
+  - `text.measure` execution
+docs/specs/action_resolution.md:310 [run]
+  - `tool_run_manifest.json` creation
+docs/specs/action_resolution.md:314 [execution]
+  Future `F12.2B` must not implement a general dispatcher, multi-tool runner, provider call, network access, external binary invocation, `HOST` write, LLM tool, agent tool, `merge_pdfs`, graph/RDF/semantic runtime, document mutation, or UI-triggered execution.
+docs/specs/action_resolution.md:324 [execution]
+  - missing `owner_ref` blocks execution
+docs/specs/action_resolution.md:325 [execution]
+  - missing `trace_ref` blocks execution
+docs/specs/action_resolution.md:326 [execution]
+  - unsafe input blocks execution
+docs/specs/action_resolution.md:327 [execution]
+  - stale input blocks execution if staleness is present
+docs/specs/action_resolution.md:330 [execution]
+  - `result.json` exists only after successful execution
+docs/specs/action_resolution.md:331 [execution]
+  - `tool_run_manifest.json` exists only after successful execution or governed failed run if explicitly allowed
+docs/specs/action_resolution.md:335 [run]
+  - `project_runtime` remains unchanged
+docs/specs/action_resolution.md:336 [run]
+  - `tool_runtime` does not become a general dispatcher
+docs/specs/action_resolution.md:340 [run]
+  - `dev/scripts/audits/audit_f12_minimal_runtime_boundary.bat`
+docs/specs/action_resolution.md:346 [execution]
+  `ActionRequest -> ResolutionCandidate -> PendingActionCandidate -> HumanConfirmation -> AuthorizedExecutionRequest -> SingleToolExecution -> future ToolRunManifest -> future TraceRecord`
+docs/specs/action_resolution.md:353 [execution]
+  - `AuthorizedExecutionRequest` is a post-confirmation authorization artifact
+docs/specs/action_resolution.md:354 [execution]
+  - `F11.6` opens only the `SingleToolExecution` contract
+docs/specs/action_resolution.md:355 [execution]
+  - `SingleToolExecution` remains declared-only and non-running in `F11.6`
+docs/specs/action_resolution.md:357 [run]
+  - `ToolRunManifest` production remains future runtime behavior
+docs/specs/action_resolution.md:358 [run]
+  - `TraceRecord` persistence remains future runtime behavior
+docs/specs/action_resolution.md:359 [execution]
+  - execution boundary remains `CLOSED`
+docs/specs/action_resolution.md:373 [execution]
+  - execution remains future and separately gated
+docs/specs/action_resolution.md:388 [run]
+  It does not compute resolution at runtime.
+docs/specs/action_resolution.md:392 [execution]
+  It does not select execution.
+docs/specs/action_resolution.md:394 [execute]
+  It does not execute.
+docs/specs/action_resolution.md:448 [execute]
+  - there is no `AUTHORIZED`, `EXECUTING`, or `EXECUTED` state here
+docs/specs/action_resolution.md:470 [execution]
+  - satisfied capability does not grant execution
+docs/specs/action_resolution.md:472 [execution]
+  - no tool execution is selected here
+docs/specs/action_resolution.md:493 [run]
+  - `allowed_by_contract` does not authorize runtime access
+docs/specs/action_resolution.md:494 [write]
+  - `HOST` write remains forbidden
+docs/specs/action_resolution.md:518 [llm]
+  - LLM or provider
+docs/specs/action_resolution.md:525 [run]
+  - policy evaluation does not enforce runtime behavior
+docs/specs/action_resolution.md:526 [execution]
+  - `satisfied` does not authorize execution
+docs/specs/action_resolution.md:567 [write]
+  - `HOST` write is requested
+docs/specs/action_resolution.md:580 [execution]
+  - no execution occurs
+docs/specs/action_resolution.md:602 [run]
+  - `F11.2` does not create `PendingAction` runtime
+docs/specs/action_resolution.md:607 [execution]
+  - `F11.3` still does not create transition runtime, confirmation runtime, authorization runtime, or execution runtime
+docs/specs/action_resolution.md:609 [execution]
+  - `F11.4` still does not create authorization runtime, runner, dispatcher, executor, or tool execution
+docs/specs/action_resolution.md:610 [execution]
+  - `F11.5` may define the `AuthorizedExecutionRequest` contract only
+docs/specs/action_resolution.md:611 [execution]
+  - `F11.5` still does not create runner, dispatcher, executor, `SingleToolExecution` runtime, `ToolRunManifest`, output persistence, provider invocation, or filesystem mutation
+docs/specs/action_resolution.md:612 [execution]
+  - `F11.6` may define the `SingleToolExecution` contract only
+docs/specs/action_resolution.md:613 [run]
+  - `F11.6` still does not create runner, dispatcher, executor, tool invocation, `ToolRunManifest`, `TraceRecord`, output persistence, provider invocation, external binary invocation, or filesystem mutation
+docs/specs/action_resolution.md:614 [run]
+  - `F11.7` may define `ToolRunManifest` and `TraceRecord` alignment only
+docs/specs/action_resolution.md:617 [execution]
+  ### AuthorizedExecutionRequest
+docs/specs/action_resolution.md:619 [execution]
+  `AuthorizedExecutionRequest` is a governed post-confirmation authorization artifact.
+docs/specs/action_resolution.md:623 [execution]
+  It prepares a future execution request.
+docs/specs/action_resolution.md:625 [execute]
+  It does not execute anything.
+docs/specs/action_resolution.md:631 [execution]
+  "authorized_execution_request_id": "aer_xxx",
+docs/specs/action_resolution.md:639 [execution]
+  "execution_scope": {
+
+... truncated ...

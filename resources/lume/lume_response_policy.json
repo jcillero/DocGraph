@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "role": "interaction_guidance",
+  "allowed_actions": [
+    "explain_application_behavior",
+    "surface_available_help",
+    "route_user_intent_to_governed_surfaces",
+    "ask_for_confirmation_when_context_is_ambiguous",
+    "describe_future_capabilities_as_future"
+  ],
+  "response_kinds": [
+    "explanation",
+    "guided_hint",
+    "confirmation_request",
+    "warning",
+    "status",
+    "future_capability_notice"
+  ],
+  "interaction_pipeline": [
+    "intent",
+    "response_kind",
+    "tone",
+    "symbol",
+    "i18n_message"
+  ],
+  "forbidden_actions": [
+    "execute_tools",
+    "modify_files",
+    "invoke_llm_runtime",
+    "store_hidden_profile_data",
+    "create_project_runtime_outputs",
+    "reinterpret_project_manifest",
+    "trigger_workflows",
+    "call_llm_providers",
+    "access_filesystem"
+  ],
+  "non_execution_guarantee": {
+    "execute_tools": false,
+    "mutate_filesystem": false,
+    "trigger_workflows": false,
+    "call_llm_providers": false
+  },
+  "llm_execution_enabled": false,
+  "tool_execution_enabled": false,
+  "filesystem_mutation_enabled": false
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "tree_id": "lume_help_tree",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "root": "root",
+  "nodes": [
+    {
+      "node_id": "root",
+      "kind": "navigation",
+      "title_i18n": "lume.help.tree.root.title",
+      "summary_i18n": "lume.help.tree.root.summary",
+      "children": [
+        "getting_started",
+        "tools",
+        "llm_assistance"
+      ],
+      "related_gui_objects": [
+        "lume_help"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "getting_started",
+      "kind": "navigation",
+      "title_i18n": "lume.help.tree.getting_started.title",
+      "summary_i18n": "lume.help.tree.getting_started.summary",
+      "children": [
+        "create_first_project",
+        "static_mode"
+      ],
+      "related_gui_objects": [
+        "lume_help",
+        "workspace_tabs"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "create_first_project",
+      "kind": "procedure",
+      "title_i18n": "lume.help.tree.create_first_project.title",
+      "summary_i18n": "lume.help.tree.create_first_project.summary",
+      "children": [],
+      "steps_i18n": [
+        "lume.help.tree.create_first_project.step_1",
+        "lume.help.tree.create_first_project.step_2",
+        "lume.help.tree.create_first_project.step_3",
+        "lume.help.tree.create_first_project.step_4"
+      ],
+      "related_gui_objects": [
+        "lume_help",
+        "tools_panel",
+        "workspace_tabs"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "tools",
+      "kind": "navigation",
+      "title_i18n": "lume.help.tree.tools.title",
+      "summary_i18n": "lume.help.tree.tools.summary",
+      "children": [
+        "merge_pdfs"
+      ],
+      "related_gui_objects": [
+        "tools_panel"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "merge_pdfs",
+      "kind": "procedure",
+      "title_i18n": "lume.help.tree.merge_pdfs.title",
+      "summary_i18n": "lume.help.tree.merge_pdfs.summary",
+      "children": [],
+      "steps_i18n": [
+        "lume.help.tree.merge_pdfs.step_1",
+        "lume.help.tree.merge_pdfs.step_2",
+        "lume.help.tree.merge_pdfs.step_3",
+        "lume.help.tree.merge_pdfs.step_4",
+        "lume.help.tree.merge_pdfs.step_5",
+        "lume.help.tree.merge_pdfs.step_6"
+      ],
+      "notes_i18n": [
+        "lume.help.tree.merge_pdfs.note_owner_ref",
+        "lume.help.tree.merge_pdfs.note_no_llm"
+      ],
+      "related_gui_objects": [
+        "tools_panel"
+      ],
+      "related_tool_ids": [
+        "merge_pdfs"
+      ],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "llm_assistance",
+      "kind": "navigation",
+      "title_i18n": "lume.help.tree.llm_assistance.title",
+      "summary_i18n": "lume.help.tree.llm_assistance.summary",
+      "children": [
+        "static_mode",
+        "assisted_mode"
+      ],
+      "related_gui_objects": [
+        "lume_help"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "static_mode",
+      "kind": "explanation",
+      "title_i18n": "lume.help.tree.static_mode.title",
+      "summary_i18n": "lume.help.tree.static_mode.summary",
+      "children": [],
+      "related_gui_objects": [
+        "lume_help",
+        "document_tree",
+        "readonly_viewer"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": false,
+      "executes_action": false
+    },
+    {
+      "node_id": "assisted_mode",
+      "kind": "explanation",
+      "title_i18n": "lume.help.tree.assisted_mode.title",
+      "summary_i18n": "lume.help.tree.assisted_mode.summary",
+      "children": [],
+      "related_gui_objects": [
+        "lume_help",
+        "chat_panel"
+      ],
+      "related_tool_ids": [],
+      "requires_llm": true,
+      "executes_action": false
+    }
+  ]
+}

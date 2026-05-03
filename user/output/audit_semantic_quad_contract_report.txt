@@ -1,0 +1,61 @@
+﻿Semantic Quad Contract Audit Report
+
+timestamp: 2026-05-01 00:57:52
+repository_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: ADVISORY
+
+Limitations:
+- advisory only
+- textual matches may be false positives
+- human review required
+- not suitable for automatic patching
+
+Scanned paths:
+- docs/specs/semantic_quad_model.md
+- docs/specs/semantic_quad_lifecycle.md
+- docs/specs/semantic_source_scope.md
+- docs/specs/artifact_graph.md
+- resources/ai/schemas/semantic_quad.schema.json
+- resources/ai/schemas/quad_instance.schema.json
+- resources/ai/schemas/quad_lifecycle.schema.json
+- resources/ai/schemas/quad_relation.schema.json
+- GOVERNANCE.md
+- FUNCTIONAL_SCOPE.md
+scanned_file_count: 10
+
+Category summaries:
+- [A] Approval and fact drift :: FAIL=4 WARN=2 INFO=0
+- [B] Storage and container drift :: FAIL=0 WARN=0 INFO=0
+- [C] Identity and lifecycle drift :: FAIL=0 WARN=0 INFO=0
+
+Possible findings:
+
+[A] Approval and fact drift
+----------------------------
+- FAIL :: docs/specs/semantic_quad_model.md:112 :: Generation metadata may be treated as authority.
+  snippet: - generation metadata is trace, not authority
+- FAIL :: docs/specs/semantic_quad_model.md:260 :: Generation metadata may be treated as authority.
+  snippet: - `INV-QUAD-011`: generation metadata is trace, not authority.
+- FAIL :: GOVERNANCE.md:312 :: Semantic quads may be treated as facts.
+  snippet: - `INV-SEM-017`: semantic quads are proposals by default and are not approved facts
+- FAIL :: resources/ai/schemas/quad_instance.schema.json:9 :: Generation metadata may be treated as authority.
+  snippet: "description": "Declarative quad-instance contract only. Generation metadata is trace, not authority, and evidence references governed sources rather than duplicated raw text.",
+- WARN :: docs/specs/semantic_quad_lifecycle.md:155 :: Possible PROPOSED/APPROVED conflation detected.
+  snippet: - new instance may be `PROPOSED` or `APPROVED` depending on future review
+- WARN :: docs/specs/semantic_quad_lifecycle.md:185 :: Possible PROPOSED/APPROVED conflation detected.
+  snippet: - `PROPOSED`, `UNDER_REVIEW`, `REJECTED`, `STALE`, `SUPERSEDED`, and `ORPHANED` are excluded from approved-knowledge projections
+
+[B] Storage and container drift
+--------------------------------
+No suspicious matches detected.
+
+[C] Identity and lifecycle drift
+---------------------------------
+No suspicious matches detected.
+
+Final summary:
+fail_count: 4
+warn_count: 2
+info_count: 0
+advisory_only: true
+exit_code_policy: non-zero only on script failure

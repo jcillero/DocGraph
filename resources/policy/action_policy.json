@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "phase": "F9-ready-declarative",
+  "real_execution_enabled": false,
+  "risk_levels": [
+    "read_only",
+    "low",
+    "medium",
+    "high",
+    "forbidden"
+  ],
+  "decisions": [
+    "allow",
+    "confirm",
+    "reject"
+  ],
+  "human_in_the_loop": {
+    "enabled": true,
+    "required_for": [
+      "artifact_mutation",
+      "external_execution",
+      "irreversible_action",
+      "ambiguous_target",
+      "risk_escalation"
+    ]
+  },
+  "forbidden_cannot_be_overridden": true,
+  "document_rules": {
+    "SOURCE": "readonly",
+    "DERIVED": "readonly",
+    "ARTIFACT": "confirm_before_mutation"
+  },
+  "blocked_actions": [
+    "mutate_source_document",
+    "mutate_derived_document",
+    "llm_direct_filesystem_write",
+    "execute_unregistered_tool"
+  ]
+}

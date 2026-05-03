@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "id": "markdown_to_pdf_clean_v1",
+  "target_format": "pdf",
+  "template_ref": "resources/document_templates/default_article_v1",
+  "citation_style": "apa_7",
+  "include_toc": true,
+  "include_cover": true,
+  "page_geometry": {
+    "paper_size": "a4",
+    "margin": "25mm"
+  },
+  "font_config": {
+    "text_family": "default",
+    "mono_family": "default"
+  },
+  "extra_args": []
+}

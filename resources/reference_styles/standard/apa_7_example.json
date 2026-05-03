@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "style_id": "apa_7_example",
+  "style_kind": "standard",
+  "standard_family": "APA",
+  "standard_version": "7",
+  "display_name": "APA 7 example",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "labeling": {
+    "mode": "author_date",
+    "citation_pattern": "({author}, {year})",
+    "entry_pattern": "{author}. ({year}). {title}."
+  },
+  "placement": {
+    "block": "bibliography",
+    "position": "after_sections"
+  },
+  "export_targets": [
+    "latex",
+    "pdf",
+    "docx"
+  ],
+  "forbidden": [
+    "parse_bibtex",
+    "execute_export",
+    "call_llm",
+    "hardcode_in_ui"
+  ]
+}

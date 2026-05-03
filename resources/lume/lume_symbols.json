@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "symbols": {
+    "greeting": "👋",
+    "completed": "✔",
+    "warning": "⚠",
+    "suggestion": "💡",
+    "processing": "…"
+  },
+  "closed_set": true,
+  "notes": "No additional visible symbols are authorized in the current F9-ready governance set."
+}

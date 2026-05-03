@@ -1,0 +1,128 @@
+{
+  "$schema": "../ai/schemas/semantic_tag_catalog.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "catalog_id": "semantic_tag_catalog_v1",
+  "authority": "governed_catalog",
+  "keyword_policy": "semi_controlled",
+  "families": [
+    "keyword",
+    "system_tag",
+    "usage_tag"
+  ],
+  "tags": [
+    {
+      "tag_id": "system_design",
+      "tag_family": "keyword",
+      "label": "System design",
+      "description": "Topic-oriented content about system design.",
+      "status": "ACTIVE",
+      "introduced_in": "F10_PREP",
+      "allowed_for": [
+        "source_file",
+        "document",
+        "artifact",
+        "dataset",
+        "code"
+      ],
+      "aliases": [],
+      "replaces": [],
+      "replaced_by": null,
+      "quad_mapping": {
+        "predicate": "has_keyword",
+        "object": "system_design"
+      }
+    },
+    {
+      "tag_id": "docgraph_core",
+      "tag_family": "system_tag",
+      "label": "DocGraph core",
+      "description": "Content belonging to the central DocGraph system scope.",
+      "status": "ACTIVE",
+      "introduced_in": "F10_PREP",
+      "allowed_for": [
+        "source_file",
+        "document",
+        "artifact",
+        "code",
+        "semantic_quadset"
+      ],
+      "aliases": [],
+      "replaces": [],
+      "replaced_by": null,
+      "quad_mapping": {
+        "predicate": "belongs_to_system_scope",
+        "object": "docgraph_core"
+      }
+    },
+    {
+      "tag_id": "lume_core",
+      "tag_family": "system_tag",
+      "label": "Lume core",
+      "description": "Content belonging to the governed Lume interaction scope.",
+      "status": "ACTIVE",
+      "introduced_in": "F10_PREP",
+      "allowed_for": [
+        "document",
+        "artifact",
+        "code",
+        "chat_session"
+      ],
+      "aliases": [],
+      "replaces": [],
+      "replaced_by": null,
+      "quad_mapping": {
+        "predicate": "belongs_to_system_scope",
+        "object": "lume_core"
+      }
+    },
+    {
+      "tag_id": "internal_reference",
+      "tag_family": "usage_tag",
+      "label": "Internal reference",
+      "description": "Content intended to serve as an internal reference.",
+      "status": "ACTIVE",
+      "introduced_in": "F10_PREP",
+      "allowed_for": [
+        "source_file",
+        "document",
+        "artifact",
+        "dataset",
+        "code"
+      ],
+      "aliases": [],
+      "replaces": [],
+      "replaced_by": null,
+      "quad_mapping": {
+        "predicate": "intended_usage",
+        "object": "internal_reference"
+      }
+    },
+    {
+      "tag_id": "llm_reasoning",
+      "tag_family": "usage_tag",
+      "label": "LLM reasoning",
+      "description": "Content intended to support LLM reasoning workflows.",
+      "status": "ACTIVE",
+      "introduced_in": "F10_PREP",
+      "allowed_for": [
+        "source_file",
+        "document",
+        "artifact",
+        "chat_session",
+        "chat_attachment"
+      ],
+      "aliases": [
+        "llm_context"
+      ],
+      "replaces": [],
+      "replaced_by": null,
+      "quad_mapping": {
+        "predicate": "intended_usage",
+        "object": "llm_reasoning"
+      }
+    }
+  ]
+}

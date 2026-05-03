@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "catalogs": [
+    {
+      "id": "operational_document_tools",
+      "path": "resources/tools/internal/operational/tools_operational_document_catalog.json",
+      "surface": "operational",
+      "origin": "internal"
+    },
+    {
+      "id": "llm_document_tools",
+      "path": "resources/tools/internal/llm/tools_llm_document_catalog.json",
+      "surface": "llm",
+      "origin": "internal"
+    },
+    {
+      "id": "external_tools",
+      "path": "resources/tools/external/tools_external_catalog.json",
+      "surface": "runtime_dependency",
+      "origin": "external"
+    }
+  ]
+}

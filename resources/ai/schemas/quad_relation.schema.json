@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "docgraph://schemas/quad_relation.schema.json",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "QuadRelation",
+  "description": "Declarative explicit graph-edge contract only. Relations reference QuadInstance identities, have independent lifecycle, and do not embed hierarchy inside SemanticQuad.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "relation_id",
+    "source_quad_instance_id",
+    "target_quad_instance_id",
+    "relation_type",
+    "lifecycle_state",
+    "evidence",
+    "metadata",
+    "trace_ref"
+  ],
+  "properties": {
+    "relation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_quad_instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_quad_instance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relation_type": {
+      "type": "string",
+      "enum": [
+        "supports",
+        "contradicts",
+        "refines",
+        "depends_on",
+        "derived_from",
+        "equivalent_to",
+        "broader_than",
+        "narrower_than",
+        "uses_as_evidence",
+        "supersedes"
+      ]
+    },
+    "lifecycle_state": {
+      "$ref": "quad_lifecycle.schema.json#/$defs/lifecycleState"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "quad_instance.schema.json#/$defs/evidenceRecord"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "trace_ref": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

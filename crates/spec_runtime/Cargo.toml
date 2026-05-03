@@ -1,0 +1,8 @@
+[package]
+name = "spec_runtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+core_domain = { path = "../core_domain" }
+workspace_core = { path = "../workspace_core" }

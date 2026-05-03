@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "runtime_roots": {
+    "external_tools": "runtime/external",
+    "external_install_staging": "runtime/temp/external_install",
+    "user_external_dependencies": "user/runtime/external_dependencies",
+    "llm_engines": "runtime/engines",
+    "llm_models": "runtime/models",
+    "cache": "runtime/cache",
+    "temp": "runtime/temp"
+  }
+}

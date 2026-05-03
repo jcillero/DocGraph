@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "title": "SemanticProposal",
+  "type": "object",
+  "required": [
+    "proposal_id",
+    "subject_ref",
+    "predicate",
+    "object_ref",
+    "graph_hint",
+    "source_ref",
+    "prompt_ref",
+    "semantic_spec_ref",
+    "trace_ref",
+    "confidence_label",
+    "review_state",
+    "created_by",
+    "execution_enabled",
+    "future_graph"
+  ],
+  "properties": {
+    "proposal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "graph_hint": {
+      "enum": [
+        "domain_knowledge",
+        "system_governance",
+        "ai_governance",
+        "document_governance",
+        "lume_policy"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prompt_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "semantic_spec_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence_label": {
+      "const": "mock_only"
+    },
+    "review_state": {
+      "default": "NeedsReview",
+      "enum": [
+        "Generated",
+        "NeedsReview",
+        "Approved",
+        "Rejected",
+        "Stale",
+        "Expired"
+      ]
+    },
+    "created_by": {
+      "enum": [
+        "user",
+        "llm_proposal",
+        "system_mock"
+      ]
+    },
+    "execution_enabled": {
+      "const": false
+    },
+    "future_graph": {
+      "type": "object",
+      "required": [
+        "future_format",
+        "store",
+        "oxigraph_enabled",
+        "rdf_export_enabled",
+        "semantic_store_enabled",
+        "execution_enabled"
+      ],
+      "properties": {
+        "future_format": {
+          "const": "N-Quads"
+        },
+        "store": {
+          "const": "Oxigraph"
+        },
+        "oxigraph_enabled": {
+          "const": false
+        },
+        "rdf_export_enabled": {
+          "const": false
+        },
+        "semantic_store_enabled": {
+          "const": false
+        },
+        "execution_enabled": {
+          "const": false
+        }
+      }
+    }
+  }
+}

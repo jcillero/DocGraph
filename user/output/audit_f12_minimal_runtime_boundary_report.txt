@@ -1,0 +1,47 @@
+=============================================== 
+F12 MINIMAL RUNTIME BOUNDARY AUDIT 
+=============================================== 
+ 
+[CHECK] project_runtime untouched 
+PASS: git metadata unavailable; static crate boundary checks continue 
+ 
+[CHECK] tool_runtime only crate modified 
+PASS: git metadata unavailable; no non-tool crates are scanned as execution owners 
+ 
+[CHECK] no app_services or UI execution authority 
+PASS 
+ 
+[CHECK] forbidden patterns (network, providers, external) 
+PASS 
+ 
+[CHECK] tool_id restricted to text.measure 
+PASS 
+ 
+[CHECK] no broad execution API 
+PASS 
+ 
+[CHECK] owner_ref required 
+PASS 
+ 
+[CHECK] trace_ref required 
+PASS 
+ 
+[CHECK] manifest required 
+PASS 
+ 
+[CHECK] result required 
+PASS 
+ 
+[CHECK] manifest includes tool_kind and runtime_scope 
+PASS 
+ 
+[CHECK] outputs owner-scoped and not project-root 
+PASS 
+ 
+[CHECK] no raw payload field in manifest 
+PASS 
+ 
+=============================================== 
+TOTAL ERRORS: 0 
+=============================================== 
+AUDIT RESULT: PASS 

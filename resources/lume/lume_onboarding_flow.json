@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "flow_id": "lume_onboarding_initial_help",
+  "entry_points": [
+    "startup_modal",
+    "help_menu"
+  ],
+  "steps": [
+    {
+      "id": "greeting",
+      "message_key": "lume.onboarding.greeting",
+      "tone": "friendly"
+    },
+    {
+      "id": "question_input",
+      "input_placeholder_key": "lume.onboarding.input_placeholder",
+      "tone": "supportive_pedagogical"
+    }
+  ],
+  "persistence": {
+    "chat_history": false,
+    "file_outputs": false,
+    "project_created": false
+  },
+  "execution": {
+    "tools": false,
+    "llm": false,
+    "filesystem_mutation": false
+  }
+}

@@ -1,0 +1,191 @@
+﻿I18N Consistency Audit Report
+
+generated_at: 2026-04-29 19:20:45
+workspace_root: C:\MAQUETAS SOFTWARE\codex_sandbox_app_docgraph_B\rust_portable_app
+status: ADVISORY_ONLY
+
+Rules:
+- This audit is advisory only.
+- It does not modify files.
+- It must not be used as Codex patch input.
+- Missing keys are consistency findings.
+- Unused keys and hardcoded text findings require human review.
+
+1. Missing keys: en -> es
+-------------------------
+No missing Spanish keys detected.
+
+2. Missing keys: es -> en
+-------------------------
+No missing English keys detected.
+
+3. Potentially unused keys in specs
+-----------------------------------
+- app.icon.tooltip [source=resources/i18n/en/common.ftl]
+- app.subtitle [source=resources/i18n/en/common.ftl]
+- chat.placeholder [source=resources/i18n/en/chat.ftl]
+- chat.status.ready [source=resources/i18n/en/chat.ftl]
+- dialog.apply [source=resources/i18n/en/dialogs.ftl]
+- dialog.back [source=resources/i18n/en/dialogs.ftl]
+- dialog.cancel [source=resources/i18n/en/dialogs.ftl]
+- dialog.close [source=resources/i18n/en/dialogs.ftl]
+- dialog.confirm [source=resources/i18n/en/dialogs.ftl]
+- dialog.ok [source=resources/i18n/en/dialogs.ftl]
+- dialog.save [source=resources/i18n/en/dialogs.ftl]
+- error.generic [source=resources/i18n/en/errors.ftl]
+- error.runtime.unavailable [source=resources/i18n/en/errors.ftl]
+- gui-object-chat-panel-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-chat-panel-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-chat-panel-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-clip-panel-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-clip-panel-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-clip-panel-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-document-tree-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-document-tree-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-document-tree-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-knowledge-panel-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-knowledge-panel-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-knowledge-panel-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-llm-tools-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-lume-help-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-lume-help-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-lume-help-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-ontology-proposal-view-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-ontology-proposal-view-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-ontology-proposal-view-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-operational-tools-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-pipeline-view-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-pipeline-view-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-pipeline-view-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-readonly-viewer-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-readonly-viewer-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-readonly-viewer-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-tools-panel-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-tools-panel-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-tools-panel-purpose [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-workspace-tabs-allowed [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-workspace-tabs-not [source=resources/i18n/en/lume_messages.ftl]
+- gui-object-workspace-tabs-purpose [source=resources/i18n/en/lume_messages.ftl]
+- lume.common.app_title [source=resources/i18n/en/lume_messages.ftl]
+- lume.common.close [source=resources/i18n/en/lume_messages.ftl]
+- lume.common.help_subtitle [source=resources/i18n/en/lume_messages.ftl]
+- lume.common.help_title [source=resources/i18n/en/lume_messages.ftl]
+- lume.feedback.completed [source=resources/i18n/en/lume_messages.ftl]
+- lume.feedback.suggestion [source=resources/i18n/en/lume_messages.ftl]
+- lume.feedback.warning [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.body [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.gui_objects.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.input_placeholder [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.subtitle [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.suggestion.explain_screen [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.suggestion.no_llm_execution [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.suggestion.phase_actions [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.suggestion.proposal_meaning [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.suggestion.readonly_sources [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.assisted_mode.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.assisted_mode.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.step_1 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.step_2 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.step_3 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.step_4 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.create_first_project.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.getting_started.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.getting_started.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.llm_assistance.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.llm_assistance.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.note_no_llm [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.note_owner_ref [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_1 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_2 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_3 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_4 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_5 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.step_6 [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.merge_pdfs.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.root.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.root.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.static_mode.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.static_mode.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.tools.summary [source=resources/i18n/en/lume_messages.ftl]
+- lume.help.tree.tools.title [source=resources/i18n/en/lume_messages.ftl]
+- lume.onboarding.do_not_show_again [source=resources/i18n/en/lume_messages.ftl]
+- lume.onboarding.greeting [source=resources/i18n/en/lume_messages.ftl]
+- lume.onboarding.input_placeholder [source=resources/i18n/en/lume_messages.ftl]
+- lume.onboarding.video_button [source=resources/i18n/en/lume_messages.ftl]
+- lume.profile.transparency [source=resources/i18n/en/lume_messages.ftl]
+- lume.sandbox.required [source=resources/i18n/en/lume_messages.ftl]
+- lume.status.thinking [source=resources/i18n/en/lume_messages.ftl]
+- lume.status.waiting [source=resources/i18n/en/lume_messages.ftl]
+- status.llm.available [source=resources/i18n/en/status_bar.ftl]
+- status.llm.cloud_no_credentials [source=resources/i18n/en/status_bar.ftl]
+- status.llm.local_available [source=resources/i18n/en/status_bar.ftl]
+- status.llm.local_unavailable [source=resources/i18n/en/status_bar.ftl]
+- status.mode.assisted_future [source=resources/i18n/en/status_bar.ftl]
+- status.profile.label [source=resources/i18n/en/status_bar.ftl]
+- status.project.label [source=resources/i18n/en/status_bar.ftl]
+- status.project.none [source=resources/i18n/en/status_bar.ftl]
+- status.sandbox.configured_future [source=resources/i18n/en/status_bar.ftl]
+- status.sandbox.readonly [source=resources/i18n/en/status_bar.ftl]
+- status.sandbox.working_copy_future [source=resources/i18n/en/status_bar.ftl]
+- status.tools.tooltip [source=resources/i18n/en/status_bar.ftl]
+- tools.merge_pdfs.confirmation [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.display_name [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.error [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.input.output_filename [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.input.pdf_files [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.long_description [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.output.merged_pdf [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.short_description [source=resources/i18n/en/common.ftl]
+- tools.merge_pdfs.success [source=resources/i18n/en/common.ftl]
+
+4. Potential hardcoded UI text in specs (heuristic)
+---------------------------------------------------
+- docs/specs/app_main_menu.md:35 -> New project
+- docs/specs/app_main_menu.md:36 -> Open project
+- docs/specs/app_main_menu.md:37 -> Close project
+- docs/specs/app_main_menu.md:96 -> Lume Help
+- docs/specs/app_main_menu.md:128 -> Lume Help
+- docs/specs/app_main_menu.md:138 -> Lume Help
+- docs/specs/app_main_menu.md:192 -> menu.*
+- docs/specs/lume_help_popup.md:5 -> Lume Help
+- docs/specs/lume_help_popup.md:66 -> GUI Objects
+- docs/specs/lume_help_popup.md:66 -> Objetos de la interfaz
+- docs/specs/lume_help_popup.md:68 -> on the left
+- docs/specs/lume_help_popup.md:80 -> Lume Help
+- docs/specs/lume_help_popup.md:84 -> Lume Help
+- docs/specs/lume_help_popup.md:88 -> Lume Help
+- docs/specs/lume_help_tree.md:19 -> what to do to...
+- docs/specs/lume_help_tree.md:104 -> requires_llm=true
+- docs/specs/lume_interaction_model.md:45 -> The document opens in the Readonly Viewer, which is non-editable.
+- docs/specs/lume_interaction_model.md:47 -> on the left
+- docs/specs/lume_onboarding_model.md:20 -> Assisted Mode
+- docs/specs/lume_onboarding_model.md:79 -> ready for configuration
+- docs/specs/lume_onboarding_model.md:85 -> Lume is running in local help mode. No LLM is active. You can still create and configure projects, inspect documents, use available non-LLM surfaces, and activate assisted capabilities later.
+- docs/specs/lume_onboarding_model.md:100 -> not executable
+- docs/specs/workspace_tabs.md:11 -> Workspace Tabs
+- docs/specs/workspace_tabs.md:19 -> Workspace Tabs
+- docs/specs/workspace_tabs.md:41 -> Document Viewer Tab
+- docs/specs/workspace_tabs.md:42 -> Sandbox Viewer Tab
+- docs/specs/workspace_tabs.md:43 -> Knowledge Viewer Tab
+- docs/specs/workspace_tabs.md:44 -> Tool Output Viewer Tab
+- docs/specs/workspace_tabs.md:45 -> Timeline Tab
+- docs/specs/workspace_tabs.md:122 -> Document Tree
+- docs/specs/workspace_tabs.md:128 -> Document Tree
+- docs/specs/workspace_tabs.md:135 -> Document Viewer Tab
+- docs/specs/workspace_tabs.md:136 -> Sandbox Viewer Tab
+- docs/specs/workspace_tabs.md:171 -> Document Viewer Tab
+- docs/specs/workspace_tabs.md:175 -> Sandbox Viewer Tab
+- docs/specs/workspace_tabs.md:179 -> Knowledge Viewer Tab
+
+Summary
+-------
+en_key_count=161
+es_key_count=161
+missing_in_es_count=0
+missing_in_en_count=0
+potentially_unused_count=119
+hardcoded_ui_text_count=36
+result=REVIEW_REQUIRED_IF_FINDINGS_PRESENT

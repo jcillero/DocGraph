@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "style_id": "corp_official_letter_refs_v1",
+  "style_kind": "corporate",
+  "display_name": "Corporate official letter references",
+  "status": "proposal_declared_only",
+  "execution_enabled": false,
+  "labeling": {
+    "mode": "alphabetic",
+    "format": "lowercase_letter",
+    "entry_pattern": "{label}) {title}",
+    "citation_pattern": "Referencia {label})",
+    "generated_label_examples": [
+      "a)",
+      "b)",
+      "c)"
+    ]
+  },
+  "placement": {
+    "block": "references_internal",
+    "position": "before_sections"
+  },
+  "listing_rules": {
+    "sort_order": "document_order",
+    "include_internal_project_sources": true,
+    "include_bibliography_entries": false
+  },
+  "export_targets": [
+    "latex",
+    "pdf",
+    "docx"
+  ],
+  "forbidden": [
+    "parse_bibtex",
+    "execute_export",
+    "call_llm",
+    "hardcode_in_ui"
+  ]
+}

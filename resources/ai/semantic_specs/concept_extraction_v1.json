@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "version": "1.0.0",
+  "semantic_spec_id": "concept_extraction_v1",
+  "title": "Concept extraction over derived document chunks",
+  "status": "declared_only",
+  "execution_enabled": false,
+  "source_layer": "document_text_runtime",
+  "source_kind": "document_text_chunks",
+  "granularity": {
+    "unit": "per_chunk",
+    "independent": true
+  },
+  "prompt_ref": "extract_concepts_v1",
+  "expected_output": {
+    "type": "concept_list"
+  },
+  "human_review": {
+    "required": true,
+    "allowed_states": [
+      "Generated",
+      "NeedsReview",
+      "Approved",
+      "Rejected",
+      "Stale",
+      "Expired"
+    ]
+  },
+  "forbidden": [
+    "reinterpret_project_manifest",
+    "duplicate_project_pipeline",
+    "mutate_source_documents",
+    "mutate_derived_documents",
+    "persist_semantic_graph",
+    "create_embeddings",
+    "invoke_llm"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1",
+  "run_id": "text_measure_1777481060945013400",
+  "tool_id": "text.measure",
+  "capability_id": "text.measure",
+  "owner_ref": "chat://f9_gate",
+  "status": "completed",
+  "started_at": "text_measure_1777481060945013400",
+  "finished_at": "text_measure_1777481060945013400",
+  "inputs_summary": {
+    "mode": "string",
+    "owner_ref": "chat://f9_gate",
+    "text_char_count": 19,
+    "text_byte_count": 19
+  },
+  "outputs": {
+    "result_path": "user/output/tool_runs/chat/f9_gate/text_measure_1777481060945013400/result.json",
+    "manifest_path": "user/output/tool_runs/chat/f9_gate/text_measure_1777481060945013400/tool_run_manifest.json"
+  },
+  "trace": {
+    "execution_slice": "f9_minimum_governed_execution",
+    "mode": "string",
+    "deterministic": true,
+    "llm_used": false,
+    "external_binaries_used": false
+  },
+  "errors": [],
+  "warnings": []
+}
