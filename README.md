@@ -6,6 +6,8 @@ It is designed for engineering and regulated environments where document process
 
 DocGraph replaces fragile, environment-dependent document pipelines with a governed and inspectable system.
 
+DocGraph provides a deterministic execution model where results are reproducible and independently verifiable.
+
 ---
 
 ## Real-world scenario
@@ -68,6 +70,8 @@ DocGraph can be positioned as a foundational layer for:
 - future trustworthy AI-assisted workflows  
 
 The system is designed to evolve toward a **verifiable knowledge execution platform**, bridging structured workflows, reproducibility, and controlled AI integration.
+
+DocGraph contributes toward a future internet where computation and knowledge processing can be independently verified, not just executed.
 
 ---
 
