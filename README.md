@@ -8,6 +8,22 @@ DocGraph replaces fragile, environment-dependent document pipelines with a gover
 
 ---
 
+## Real-world scenario
+
+In regulated engineering environments (e.g. naval systems, defense documentation, or certified industrial processes), document workflows must be:
+
+- reproducible
+- auditable
+- traceable across versions
+
+DocGraph provides a deterministic pipeline to guarantee that:
+
+same input → same output → same trace
+
+even years later, on a different machine, without external dependencies.
+
+---
+
 ## What DocGraph provides
 
 - portable execution from a local directory (no installation required)
