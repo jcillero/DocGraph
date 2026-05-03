@@ -1,29 +1,48 @@
 # DocGraph — Portable Reproducible Document Platform
 
-DocGraph is a portable document workflow platform designed for engineers who need reproducible, traceable, and controlled document processing.
+DocGraph is a portable, reproducible, and auditable document workflow platform built in Rust.
 
-The system enables structured document workflows with full execution traceability, without requiring installation or complex setup.
+It is designed for engineering and regulated environments where document processing must be deterministic, traceable, and executable without external dependencies.
+
+DocGraph replaces fragile, environment-dependent document pipelines with a governed and inspectable system.
 
 ---
 
 ## What DocGraph provides
 
-- portable execution from a local directory
-- reproducible document workflows
-- controlled processing environment
-- full traceability of operations
-- deterministic output structure
+- portable execution from a local directory (no installation required)
+- reproducible document workflows with deterministic outputs
+- controlled processing environment with explicit boundaries
+- full traceability of all operations
+- stable and inspectable output structure
 
 ---
 
 ## Why it matters
 
-DocGraph is designed for environments where:
+Most document workflows today are:
 
-- reproducibility is required
-- traceability is mandatory
-- installation is restricted
-- workflows must remain controlled and auditable
+- opaque
+- non-reproducible
+- dependent on complex environments
+- difficult to audit or validate
+
+DocGraph provides a controlled alternative:
+
+- deterministic execution
+- full traceability
+- portable runtime
+- governed processing model
+
+---
+
+## Example use cases
+
+- Engineering documentation pipelines with full traceability  
+- Regulatory and compliance workflows  
+- Offline document processing in restricted environments  
+- Controlled transformation of technical documents  
+- Future: governed AI-assisted document analysis
 
 ---
 
@@ -227,3 +246,16 @@ These capabilities are planned as future extensions and will be introduced progr
 - `governance/WORKSPACE_RULES.md`
 - `user/output/rust_status_snapshot.md`
 - `docs/ENGINEERING_NOTES.md`
+
+---
+
+## Author
+
+Jesús J. Cillero  
+PhD (in progress) in Applied Mathematics  
+Naval & Ocean Engineering background  
+
+Focus areas:
+- reproducible systems  
+- structured knowledge  
+- engineering workflows  
